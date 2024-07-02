@@ -1,0 +1,22 @@
+{
+
+"----------TPY INFORMATION----------"		:	"----------TPY INFORMATION----------",
+"lst_title_active"                          :   "Liste des POPUP-WELCOME actives",
+"lst_title_inactive"                        :   "Liste des POPUP-WELCOME inactives",
+
+"tpy_inf_descr" : "Description",
+"tpy_inf_date"  : "Date de modification",
+
+
+"tpy_info_version_dt01"						:	"Date de la version",
+"tpy_info_version_number"					:   "Numéro de version",
+"tpy_info_version_description"				:	"Détail de la version",
+
+"ent_stat"		: "Etat",
+"stat_inactive"	: "Inactive",
+"stat_active"	: "Active",
+
+"ent_cont"		: "Contenu"
+
+
+}

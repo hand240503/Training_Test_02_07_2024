@@ -1,0 +1,162 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_main" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_frm_main'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<label for="inp_tpy_market_header_logo">{{transl "ent_avatar"}}</label>
+					<input id="inp_tpy_market_header_logo" class="fileinput objData" data-maxfile="1" type="file" 
+							data-type="avatar" data-name="files" data-keepName="0" data-entTyp="50300" data-typ01="1" data-typ02="1"/>
+				</div>
+				
+				<div class="col-lg-8 col-md-8 col-sm-12">
+					<div class="form-group row">
+						<input type="hidden" class="objData" value={{id}} 		data-name="id" data-validation="number" />
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_name" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_name01'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_name" data-validation="required"
+								data-msgClass="errMsgInline" class="objData form-control"
+								type="text" data-name="name" value="{{name}}"
+								data-label="{{transl 'tpy_cat_name_label'}}"
+								data-validation="required" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_code01'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_code" data-validation="required" class="form-control objData"
+								data-name="code" value="{{code}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_inf01'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_inf" data-validation="required" class="form-control objData"
+								data-name="inf" value="{{inf}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="sel_stat" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_stat01'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_stat" class="form-control objData" data-validation="required" data-name="stat">
+								<option value="0" selected >{{transl "ent_stat01_new"}}</option>
+								<option value="1"		   >{{transl "ent_stat01_act"}}</option>	
+								<option value="10"		   >{{transl "ent_stat01_inc"}}</option>							
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="sel_type_01" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_typ01'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_type_01" class="form-control objData" data-validation="required" data-name="typ01">
+								<option value="100" selected>{{transl "ent_typ01_100"}}</option>
+<!-- 								<option value="200"			>{{transl "tpy_cat_ent_type_01_others"}}</option>								 -->
+							</select>
+						</div>
+					</div>
+					
+	 				<div class="form-group row">
+	 					<label for="sel_type_02" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_typ02'}} *</label>
+	 					<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_type_02"  class="form-control objData" data-validation="required"  data-name="typ02">
+								<option value="1" selected	>{{transl 'ent_typ02_01'}}</option>
+								<option value="2"			>{{transl 'ent_typ02_02'}}</option>
+								<option value="3"			>{{transl 'ent_typ02_03'}}</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="div_par_cat" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_parent'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="hidden" class="objData" data-name="parId" id="inp_parId" data-validation="number" value="{{parId}}">
+							<input type="text" 	 class="form-control objData" id="inp_sel_parId" value="{{decodeUTF8 parName}}" disabled>
+							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<!-- <div class="card"> -->
+<!-- 	<div class="card-body"> -->
+<!-- 		<div class="media"> -->
+<!-- 			<div class="col-9"> -->
+<!-- 				<h4 class="card-title mb-4 shp_font_size"> </h4> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-3 isManager"> -->
+<!-- 				<div class="text-sm-right"> -->
+<!-- 					<a data-divtoogle="#div_frm_sub" class="btn-resize" data-toggle="tooltip" -->
+<!-- 						data-placement="top" title="" data-original-title="Resize"> -->
+<!-- 						<i class="mdi mdi-window-minimize font-size-18"></i> -->
+<!-- 					</a> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="form-horizontal custom-scroll-header" id = 'div_frm_sub'> -->
+<!-- 			<div class="box-body row"> -->
+<!-- 				<div class="form-group row row col-lg-12 col-md-12 col-sm-12"> -->
+<!-- 					<label for="table_descr" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'tpy_cat_ent_transl'}}</label> -->
+<!-- 					<div class="col-lg-8 col-md-8 col-sm-8"> -->
+<!-- 						<table id="table_transl" class="table table-hover objData" data-group="inf" data-name="transl" data-primary="lang"> -->
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th data-name="id" 			data-visible="false">id</th> -->
+<!-- 									<th data-name="lang" 		data-visible="true" data-validation="required">{{transl "tpy_cat_ent_lang"}}*</th> -->
+<!-- 									<th data-name="name" 		data-visible="true" data-validation="required">{{transl "tpy_cat_ent_name"}}*</th> -->
+<!-- 									<th data-name="action" 		data-visible="true" ></th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
+<!-- 							<tbody style="background-color: white;"> -->
+<!-- 							</tbody> -->
+<!-- 						</table> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-group row col-lg-12 col-md-12 col-sm-12"> -->
+<!-- 					<label for="table_descr" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'tpy_cat_ent_sub'}}</label> -->
+<!-- 					<div class="col-lg-8 col-md-8 col-sm-8"> -->
+<!-- 						<table id="table_sub" class="table table-hover objData" data-group="inf" data-name="sub" data-primary="name"> -->
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th data-name="id" 			data-visible="false">id</th> -->
+<!-- 									<th data-name="code" 		data-visible="true" data-validation="required">{{transl "tpy_cat_ent_code"}}*</th> -->
+<!-- 									<th data-name="name" 		data-visible="true" data-validation="required">{{transl "tpy_cat_ent_name"}}*</th> -->
+<!-- 									<th data-name="lang" 		data-visible="true" data-validation="required">{{transl "tpy_cat_ent_lang"}}*</th>									 -->
+<!-- 									<th data-name="action" 		data-visible="true" ></th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
+<!-- 							<tbody style="background-color: white;"> -->
+<!-- 							</tbody> -->
+<!-- 						</table> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->

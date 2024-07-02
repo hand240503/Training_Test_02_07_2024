@@ -1,0 +1,12 @@
+{{#if lst}}
+	<div class="row">
+		{{#each lst}}
+		<div class="item-doc col-md-6 mt-2 position-relative">
+			<img class="w-100 h-100" alt="" src="{{path01}}">
+			<span class="position-absolute" style="right: 20px; bottom: 5px"><input class="item-doc-check" type="checkbox" data-src="{{path01}}"></span>
+		</div>
+		{{/each}}
+	</div>
+{{else}}
+
+{{/if}}

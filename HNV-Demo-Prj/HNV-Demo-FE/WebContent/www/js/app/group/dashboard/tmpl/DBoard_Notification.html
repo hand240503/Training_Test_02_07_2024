@@ -1,0 +1,39 @@
+<div class="p-3">
+      <div class="row align-items-center">
+          <div class="col">
+              <h6 class="m-0">{{transl 'prj_dashbord_notify_title'}}</h6>
+          </div>
+          <div class="col-auto" id="btn_view_all">
+              <a href="#" class="small">{{transl 'prj_dashbord_notify_view_all'}}</a>
+          </div>
+      </div>
+ </div>
+ <div data-simplebar style="max-height: 230px;">
+ 	{{#if this}}
+	{{#each this}}
+	<a href="#" class="text-reset notification-item" data-prj="{{reqIdPrjNotify cont01}}" data-id="{{id}}">
+	    <div class="media {{#equal typNoti '1'}}notify-noRead{{/equal}}">
+	        <div class="avatar-xs mr-3">
+	            <span class="avatar-title bg-primary rounded-circle font-size-16">
+	                <i class="bx bx-cart"></i>
+	            </span>
+	        </div>
+	        <div class="media-body">
+	            <h6 class="mt-0 mb-1">{{reqCodePrjNotify cont01}}</h6>
+	            <div class="font-size-12 text-muted">
+	                <p class="mb-1">{{{reqContentNotify cont01}}}</p>
+	                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> {{reqFormatDate dt01}}</p>
+	            </div>
+	        </div>
+	    </div>
+	</a>
+	{{/each}}
+	{{else}}
+	<a>{{transl 'prj_dashbord_notify_no'}}</a>
+	{{/if}}
+ </div>
+ <div class="p-2 border-top">
+     <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="javascript:void(0)" id="btn_view_more">
+         <i class="mdi mdi-arrow-right-circle mr-1"></i>{{transl 'dashboard_notify_view_more'}}
+     </a>
+ </div>

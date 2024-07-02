@@ -1,0 +1,73 @@
+.divider {
+	display: flex;
+	width: 27.554px;
+	height: 0px;
+	transform: rotate(-90deg);
+	justify-content: center;
+	align-items: center;
+}
+
+#sidebar-menu ul li a {
+    color: #707173!important;
+}
+
+#sidebar-menu ul li a:hover {
+    color: #03718C!important;
+    text-decoration: underline;
+}
+
+#sidebar-menu ul li a i {
+    color: #707173!important;
+}
+
+#sidebar-menu ul li a:hover i{
+    color: #03718C!important;
+    text-decoration: underline;
+}
+
+.datatable_title {
+    font-size: 16px !important;
+    color: #03718C!important;
+}
+
+.no-padding {
+    padding:0;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #00AA91!important;
+    border-color: #00AA91!important;
+}
+.btn-primary.disabled,
+.btn-primary:disabled {
+    opacity: 0.3!important;
+}
+
+.text-primary {
+    color: #03718C !important;
+}
+
+.bg-soft-primary {
+    background-color: rgba(85, 110, 230, .25) !important;
+}
+.login-logo {
+	padding: 25px;
+}
+
+#div_main_content{
+	max-height: 100vh;
+}
+#div_List{
+	overflow-y: scroll; 
+	height:95vh;	
+}
+#div_Ent{
+	overflow-y: scroll; 
+	height:95vh;	
+}
+
+.card h4{
+	color: #091966;
+	padding-top: 10px;
+}

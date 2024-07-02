@@ -1,0 +1,84 @@
+<div class="box-header with-border">
+	<h3 class="box-title">{{transl "per_contract_tab_general_address_title"}}</h3>	
+	<div class="box-tools pull-right">
+	</div>
+	<input type="hidden" data-name="id" value="{{order.id}}" class="objData">
+	<input type="hidden" data-name="suplId" value="{{order.suplId}}" 	class="objData" id="order_suplId">
+	<input type="hidden" data-name="cliId" 	value="{{order.cliId}}" 	class="objData" id="order_cliId">
+	<input type="hidden" data-name="stat" 	value="{{order.stat}}" 		class="objData">
+</div>
+
+<div class="form-horizontal custom-scroll-header">
+	<div class="box-body">
+		
+		<div id="per_contract_addr_01" class="form-horizontal col-sm-4">
+		</div>
+		
+		<div id="per_contract_addr_02" class="form-horizontal col-sm-4">
+		</div>
+		
+		<div id="per_contract_addr_03" class="form-horizontal col-sm-4">
+		</div>
+	
+	</div>
+</div>
+
+<div class="box-header with-border">
+
+	<h3 class="box-title">{{transl "per_contract_tab_general_bank_info"}}</h3>	
+	<div class="box-tools pull-right">
+	</div>
+</div>
+<div class="form-horizontal custom-scroll-header">
+	<div class="box-body">	
+		<div id="div_per_contract_tab_general_Bank" class="col-md-6">
+		
+		</div>
+	</div>
+</div>
+
+<div class="box-header with-border">
+
+	<h3 class="box-title">{{transl "per_contract_tab_general_payment_info"}}</h3>	
+	<div class="box-tools pull-right">
+	</div>
+</div>
+<div class="form-horizontal custom-scroll-header">
+	<div class="box-body">
+		<div class="col-md-6">
+		
+			<div class="form-group">
+				<label for="sel_per_contract_currency" class="col-3 control-label">{{transl "per_contract_ent_currency"}} *</label>
+				<div class="col-9">
+					<select id="sel_per_contract_currency" class="form-control objData" data-name="currency" data-validation="required" data-msgClass="errMsgInline">
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="sel_per_contract_payement_mode" class="col-3 control-label">{{transl "per_contract_ent_pament_method"}} *</label>
+				<div class="col-9">
+					<select id="sel_per_contract_payement_mode" class="form-control objData" data-name="payTyp" data-validation="required" data-msgClass="errMsgInline">
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="sel_per_contract_payement_deadline" class="col-3 control-label">{{transl "per_contract_ent_pament_deadline"}} *</label>
+				<div class="col-9">
+					<select id="sel_per_contract_payement_deadline" class="form-control objData" data-name="payDeadline" data-validation="required" data-msgClass="errMsgInline">
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="sel_per_contract_ent_tax_system" class="col-3 control-label">{{transl "per_contract_ent_tax_system"}} *</label>
+				<div class="col-9">
+					<select id="sel_per_contract_tax_system" class="form-control objData" data-name="tax" data-validation="required" data-msgClass="errMsgInline">
+					</select>
+				</div>
+			</div>
+			
+		</div>	
+	</div>
+</div>

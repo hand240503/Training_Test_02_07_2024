@@ -1,0 +1,155 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_manager" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_frm_manager'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				<div class="col-lg-4 col-md-4 col-sm-12" id="div_autuser_avt">
+					<label for="inp_autuser_header_avatar">{{transl "aut_user_ent_header_avatar"}}</label>
+					<input id="inp_autuser_header_avatar" class="fileinput objData" data-maxfile="1" type="file"
+						data-type="avatar" data-name="files" data-keepName="0" data-entTyp="30000" data-typ01="1" data-typ02="1"/>
+				</div>
+				<input type="hidden" class="objData" value={{id}} data-name="id" data-validation="number" />
+				<div class="col-lg-8 col-md-8 col-sm-12">
+					<div class="form-group row">
+						<label for="inp_autuser_header_login"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_login"}}
+							*</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_autuser_header_login" class="form-control objData" type="text"
+								data-name="login" data-validation="required" value="{{login}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_autuser_header_email"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_name"}}
+							*</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_autuser_header_name" class="form-control objData" type="text"
+								data-name="info01" data-validation="required" value="{{info01}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_autuser_header_email"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_email"}}
+							*</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_autuser_header_email" class="form-control objData" type="text"
+								data-name="info02" data-validation="required email" value="{{info02}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row" id="div_autuser_societe">
+						<label for="inp_autuser_societe"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_societe"}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="hidden" class="objData" data-name="manId" id="manId" value="{{manager.id}}">
+							<input type="text" class="form-control objData" id="manName" value="{{manager.name01}} {{manager.name02}}"
+								placeholder="{{transl 'aut_user_ent_header_societe_help'}}">
+						</div>
+					</div>
+
+					<div class="form-group row" id="div_autuser_supervisor">
+						<label for="uId03"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_supervisor"}}</label>
+
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="hidden" class="objData" data-name="uId03" id="uId03" value="{{superior.id}}">
+							<input type="text" class="form-control objData" id="supName" value="{{superior.info01}}"
+								placeholder="{{transl 'aut_user_ent_header_supervisor_help'}}">
+							<!--  title="{{transl 'aut_user_ent_header_supervisor_help'}}" -->
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="stat"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_type"}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select class="form-control objData" data-name="typ" id="inp_autuser_header_typ">
+								<option value="2">{{transl "aut_user_ent_header_type_adm"}}</option>
+								<option value="6">{{transl "aut_user_ent_header_type_mentor"}}</option>
+								<option value="3">{{transl "aut_user_ent_header_type_agent"}}</option>
+								<option value="8">{{transl "aut_user_ent_header_type_shipper"}}</option>
+								<option value="9">{{transl "aut_user_ent_header_type_seller"}}</option>
+								<option value="5">{{transl "aut_user_ent_header_type_member"}}</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="inp_autuser_header_stat"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_stat"}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="inp_autuser_header_stat" class="form-control objData" data-name="stat">
+								<option value="2">{{transl 'aut_user_ent_header_stat_2'}}</option>
+								<option value="1">{{transl 'aut_user_ent_header_stat_1'}}</option>
+								<option value="0">{{transl 'aut_user_ent_header_stat_0'}}</option>
+								<option value="10">{{transl 'aut_user_ent_header_stat_10'}}</option>
+							</select>
+						</div>
+					</div>
+
+<!-- 					<div class="form-group hide" id="div_affiliate"> -->
+<!-- 						<label for="inp_autuser_societe" -->
+<!-- 							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_affiliate"}}</label> -->
+<!-- 						<div class="col-lg-8 col-md-8 col-sm-8"> -->
+<!-- 							<input type="hidden" class="objData" data-group="relation" data-name="id" id="relId" -->
+<!-- 								value="{{rel.id}}"> -->
+<!-- 							<input type="hidden" class="objData" data-group="relation" data-name="entId01" id="entId01" -->
+<!-- 								value="{{rel.entId01}}"> -->
+<!-- 							<input type="hidden" class="objData" data-group="relation" data-name="entTyp01" -->
+<!-- 								value="1000"> -->
+<!-- 							<input type="text" class="form-control objData" id="inp_affiliate" -->
+<!-- 								value="{{affiliate.login}}"> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					<div class="form-group row">
+						<label for="dt01"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_dt01"}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control datepicker" id="dt01"
+								value="{{dateFormatLocalShort dt01}}" data-name="dt01" data-format="date "
+								data-validation="date" placeholder=""  style="border: 1px solid #ced4da" disabled>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="dt02"
+							class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "aut_user_ent_header_dt02"}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control datepicker" id="dt02"
+								value="{{dateFormatLocalShort dt02}}" data-name="dt02" data-format="date "
+								data-validation="date" placeholder="" style="border: 1px solid #ced4da" disabled>
+						</div>
+					</div>
+
+					<div class="form-group row" style="text-align:right">
+						{{#if id}}
+						<label for="btn_aut_user_change_pass" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label"></label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<button id="btn_aut_user_change_pass"
+								class="btn btn-primary objData">{{transl 'aut_user_change_pass'}}</button>
+						</div>
+						{{/if}}
+					</div>
+					<div id="div_ent_header_password" class="col-lg-12 col-md-12 col-sm-12 noData"
+						style="display:none; padding-left:0; padding-right:0"></div>
+				</div>
+				<!-- 	.......................... -->
+			</div>
+		</div>
+	</div>
+</div>

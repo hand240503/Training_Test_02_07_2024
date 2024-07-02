@@ -1,0 +1,697 @@
+@media ( min-width : 992px) {
+	.splitter {
+		flex: 0 0 auto;
+		width: 10px;
+		background: url(../img/vsizegrip.png) center center no-repeat #d7deea;;
+		min-height: 90vh;
+		cursor: col-resize;
+	}
+
+	/* horizontal panel*/
+	.panel-container {
+		display: flex;
+		flex-direction: row;
+		overflow: hidden;
+	}
+	.panel-left {
+		flex: 0 0 auto; /* only manually resize */
+		white-space: nowrap;
+	}
+	.panel-right {
+		flex: 1 1 auto; /* resizable */
+		/* NOTE: This won't be respected! Explicit size of left forces the size to be fixed */
+	}
+
+	/* vertical panel */
+	.panel-container-vertical {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+	.panel-top {
+		flex: 0 0 auto; /* only manually resize */
+		white-space: nowrap;
+	}
+	.splitter-horizontal {
+		flex: 0 0 auto;
+		height: 1vh;
+		background: url(../img/hsizegrip.png) center center no-repeat #d2d6de;
+		cursor: row-resize;
+		margin: 1% 0;
+	}
+	.panel-bottom {
+		flex: 1 1 auto; /* resizable */
+		/* NOTE: This won't be respected! Explicit resize forces size of this panel */
+	}
+}
+
+/* .ajax_loader { */
+/* 	background: url("../img/ajax-loader.gif") no-repeat center center transparent; */
+/* 	width: 100%; */
+/* 	height: 100%; */
+/* } */
+
+.nav > li > a:hover, .nav > li > a:active, .nav > li > a:focus {
+    font-weight: normal;
+}
+
+@media (max-width: 767px) {
+	.main-header .logo, 
+	.main-header .navbar {
+		background-color: #222d32;
+		border-bottom: 0 solid transparent;
+/* 		height: 5px; */
+	}
+
+}
+
+.center-msgbox {
+	max-height: calc(90%);
+/* 	position: fixed; */
+/* 	top: calc(50% - 1vh); */
+/* 	left: calc(50% - 1vw); */
+	transform: translate(0, 0) !important;
+}
+
+.dataTables_scrollHeadInner{
+/*  width: 100% !important; */
+}
+.dataTables_scrollHeadInner table{
+  	width: 100% !important;
+}
+
+.custom-btn-app {
+	border: none;
+	border-radius: 50%;
+    padding: 15px 0px;
+    margin: 0 0 0 10px;
+    min-width: 50px;
+    height: 50px;
+    color: #fff;
+    background-color: #222d32;
+}
+
+.custom-navbar-lang > a {
+	border-left: none !important;
+}
+
+.custom-main-footer {
+	padding: 5px 15px;
+}
+
+/* .custom-fixed-main-header, */
+/* .custom-fixed-main-sidebar, */
+/* .custom-fixed-left-side { */
+/*   position: fixed; */
+/* } */
+
+
+.custom-box-tools {
+	top: 0px;
+}
+
+.scroll-x {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.scroll-y {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.scroll-x-y {
+	overflow: auto;
+}
+
+.custom-input-group {
+	width: 100%;
+}
+
+.custom-control-label {
+	padding-bottom: 6px;
+}
+
+/**************************************************/
+/* ERROR MESSAGE STYLE (INPUT TOOL)   */
+/**************************************************/
+
+.inp-error {
+	border-color: #EB0D5B !important;
+}
+
+.errMsg {
+	color: #EB0D5B;
+	position: absolute;
+    z-index: 1;
+    top: 20%;
+/*     left: 65%; */
+}
+
+.wygo-format-number input::-webkit-outer-spin-button,
+.wygo-format-number input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.wygo-format-number input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+@media ( min-width : 1200px) {
+	.errMsg {
+		right: 5%;
+	}
+}
+
+@media ( max-width : 1199px) {
+	.errMsg {
+		left: 50%;
+	}
+	.errMsg.show {
+		left: 0;
+		bottom: -35px !important;
+	}
+}
+
+.errMsgInline {
+	display: inline;
+}
+
+/**************************************************/
+/**************************************************/
+/**************************************************/
+
+
+/**************************************************/
+/* BOOTSTRAP STYLE FOR JQUERY PLUGIN: AUTOCOMPLETE  */
+/**************************************************/
+.ui-autocomplete {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	float: left;
+	display: none;
+	min-width: 160px;
+/* 	width: 160px; */
+	padding: 4px 0;
+	margin: 2px 0 0 0;
+	list-style: none;
+	background-color: #ffffff;
+	border-color: #ccc;
+	border-color: rgba(0, 0, 0, 0.2);
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	*border-right-width: 2px;
+	*border-bottom-width: 2px;
+}
+
+.ui-autocomplete {
+	z-index: 2147483647;
+	max-height: 20vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.ui-autocomplete .ui-menu-item>a.ui-corner-all {
+	display: block;
+	padding: 3px 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 18px;
+	color: #555555;
+	white-space: nowrap;
+}
+
+.ui-autocomplete .ui-menu-item>a.ui-corner-all.ui-state-hover,
+.ui-autocomplete .ui-menu-item>a.ui-corner-all.ui-state-active {
+	color: #ffffff;
+	text-decoration: none;
+	background-color: #0088cc;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	background-image: none;
+}
+
+.ui-autocomplete .ui-menu-item-wrapper div.item-custom, option.item-custom {
+	color: #d1d1e0; /*#3c8dbc;*/
+	font-weight: bold;
+}
+
+.ui-autocomplete .ui-menu-item-wrapper div.item-custom:hover {
+	color: #FFF;
+}
+
+/**************************************************/
+/**************************************************/
+/**************************************************/
+
+/**************************************************/
+/* BOOTSTRAP STYLE FOR DROPDOWN  */
+/**************************************************/
+
+/* .sidebar-nav { */
+/*   padding: 9px 0; */
+/* } */
+
+.dropdown-menu .sub-menu {
+  left: 100%;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  margin-top: -1px;
+}
+
+.dropdown-menu li:hover .sub-menu {
+  visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* .nav-tabs .dropdown-menu, */
+/* .nav-pills .dropdown-menu, */
+/* .navbar .dropdown-menu { */
+/*   margin-top: 0; */
+/* } */
+
+/* .navbar .sub-menu:before { */
+/*   border-bottom: 7px solid transparent; */
+/*   border-left: none; */
+/*   border-right: 7px solid rgba(0, 0, 0, 0.2); */
+/*   border-top: 7px solid transparent; */
+/*   left: -7px; */
+/*   top: 10px; */
+/* } */
+
+/* .navbar .sub-menu:after { */
+/*   border-top: 6px solid transparent; */
+/*   border-left: none; */
+/*   border-right: 6px solid #fff; */
+/*   border-bottom: 6px solid transparent; */
+/*   left: 10px; */
+/*   top: 11px; */
+/*   left: -6px; */
+/* } */
+
+/**************************************************/
+/**************************************************/
+/**************************************************/
+
+/**************************************************/
+/* BOOTSTRAP STYLE FOR TABLE  */
+/**************************************************/
+
+table {
+	width: 100% !important;
+	max-width: 100%;
+	overflow-x : auto;
+}
+
+.table-hover > tbody > tr:hover {
+/* 	font-weight: bold; */
+/* 	background-color: #337ab7; */
+	color: #337ab7; /*white;*/
+	cursor: pointer;
+}
+
+.table-hover > tbody > tr.selected {
+	font-weight: bold;
+	color: #337ab7;
+}
+
+.table-hover > tbody > tr.row-active {
+	font-weight: bold;
+}
+
+.custom-inp-datepicker {
+	border: none;
+	width: 100%;
+	background-color: transparent;
+}
+
+/**************************************************/
+/**************************************************/
+/**************************************************/
+.box {
+	overflow-x: hidden; /*auto;*/
+    max-width: 100%;
+}
+
+/**Function favorite star begin**/
+/********************************************/
+
+.star-off{	
+    float: left;   
+    background-image: url(../img/icon/btn-star-off.png);
+    background-repeat: no-repeat;
+    padding: 4px 15px 15px 15px;
+    cursor: pointer;
+}
+.starNoAccess-off{	
+    float: left;   
+    background-image: url(../img/icon/btn-star-off.png);
+    background-repeat: no-repeat;
+    padding: 4px 15px 15px 15px;
+    cursor: text;
+}
+.star-on{	
+    float: left;   
+    background-image: url(../img/icon/btn-star-on.png);
+    background-repeat: no-repeat;
+    padding: 4px 15px 15px 15px;
+    cursor: pointer;
+}
+.star-on:hover,
+.star-off:hover{	
+	background-position: 0 -19px;
+}
+
+/**Function favorite star end**/
+.btn-app-home {
+	border-radius: 10px;
+	position: relative;
+	padding: 15px 15px;
+	margin: 1% 0 0 1%;
+	width: 30%;
+	min-width: 110px;
+	height: 120px;
+	text-align: center;
+	color: #666;
+	border: 1px solid #ddd;
+	background-color: #f4f4f4;
+	font-size: 18px;
+}
+
+.btn-app-home.selected {
+    color: #fff;
+    background-color: #222d32;
+}
+
+.btn-app-home.selected:hover {
+	color: #fff;
+    background-color: #222d30;
+}
+
+@media (max-width:768px) {
+	.btn-app-home {
+		font-size: 14px;
+		width: 49% !important;
+	}
+}
+
+
+.btn-app-home > .fa,
+.btn-app-home > .glyphicon,
+.btn-app-home > .ion {
+  font-size: 30px;
+  display: block;
+  margin: 10px;
+}
+.btn-app-home:hover {
+  background: #f4f4f4;
+  color: #444;
+  border-color: #aaa;
+}
+.btn-app-home:active,
+.btn-app-home:focus {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn-app-home > .badge {
+  position: absolute;
+  top: -3px;
+  right: -10px;
+  font-size: 10px;
+  font-weight: 400;
+}
+.not-active {
+	pointer-events: none;
+    cursor: not-allowed;
+}
+
+.btnMain.not-active {
+	 background-color: gray !important;
+}
+
+#table-header-add {
+	text-align:center;
+}
+/********************************************/
+
+.custom-tour {
+	min-width: 300px
+}
+
+/*********** Avatar ***************/
+.kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar .kv-file-content {
+	width: 80% !important;
+	text-align:center !important;
+}
+
+.kv-avatar .kv-file-content {
+	margin: 0 auto;
+}
+
+.kv-avatar .file-drop-zone {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+}
+
+.kv-avatar .file-drop-zone-title {
+    padding: 0;
+}
+
+.kv-avatar {
+    display: inline-block;
+    text-align: center;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    width: 213px;
+}
+.kv-reqd {
+    color: red;
+    font-family: monospace;
+    font-weight: normal;
+}
+
+
+/*********** Camera ***************/
+#loader {
+  display: none;
+}
+
+#camera {
+  display: inline-block;
+/*   background-color: #eee; */
+  min-width: 40%;
+  max-width: 90%;
+/*   height: 50vh; */
+  margin: 0 0 0.5em;
+}
+
+#camera .placeholder {
+  padding: 0.5em;
+}
+
+#snapshots {
+  height: 20vh;
+  margin: 0.5em 0;
+  padding: 3px;
+
+  border: 1px solid #aaa;
+
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#snapshots canvas, #snapshots img, #snapshots video {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+
+  height: 100%;
+  margin-left: 3px;
+  border: 3px solid transparent;
+}
+
+#snapshots .selected {
+  border: 3px solid #000;
+}
+
+#upload_status, #upload_result, #loader {
+  margin: 0.5em;
+}
+
+#div_CMS_Camera button {
+	font-size: 2vw;
+}
+
+@media screen and (max-width: 1024px) {
+	#div_CMS_Camera button {
+		font-size: 4vw;
+	}
+}
+
+/***BOOTSTRAP AFFIX***************************/
+.affix {
+	position: fixed !important;
+    width: 68vw !important;
+    z-index: 999 !important;
+    top: 0;
+    left: 30vw;
+}
+/********************************************/
+/* Hide the link that should open and close the topnav on small screens */
+.nav-tabs .icon {
+    display: none;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 1366px) {
+  .nav-tabs li:not(.always-show):not(.active):not(.hide) {display: none;}
+  .nav-tabs li.icon  {
+		float: right;
+		display: block !important;
+		right: 0;
+	    top: 0;
+	    padding: 12px;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 1366px) {
+  .nav-tabs.responsive {position: relative;}
+  .nav-tabs.responsive li.icon {
+/*   		display: block !important; */
+	    position: absolute;
+  }
+  .nav-tabs.responsive li:not(.hide) {
+	    float: none;
+	    display: block !important;
+	    text-align: left;
+  }
+  .nav-tabs.responsive li.hide {
+	    display: none;
+  }
+}
+
+/********************************************/
+.chosen-container {
+	width: 100% !important;
+}
+
+.datatable_sel_search_opt{
+/* 	height: auto !important; */
+ 	padding		:3px 3px !important;  
+	text-align	: left;
+	max-width	:120px!important
+}
+
+/*****************datatable col width config***************************/
+table.datatableFlex{
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed; 
+  word-wrap:break-word;
+}
+
+
+
+/*-----checkbox slider-----*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+input.realEstate_prop{
+	max-width:100px
+}
+
+.min_width_num{
+	min-width:70px
+}
+

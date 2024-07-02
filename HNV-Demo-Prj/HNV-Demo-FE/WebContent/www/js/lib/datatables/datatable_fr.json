@@ -1,0 +1,45 @@
+{
+	"oAria"				: {
+		"sSortAscending"	: ": activer pour trier la colonne par ordre croissant",
+		"sSortDescending"	: ": activer pour trier la colonne par ordre décroissant"
+	},
+	
+	"oPaginate"			: {
+		"sFirst"	: "Premier",
+		"sLast"		: "Dernier",
+		"sNext"		: ">",
+		"sPrevious"	: "<"
+	},
+	
+	"sEmptyTable"		: "Aucune donnée disponible",
+	
+	"sInfo"				: "_START_ - _END_ / _TOTAL_ éléments",
+	
+	"sInfoEmpty"		: "0 élément",
+	
+	"sInfoFiltered"		: "/_MAX_ éléments",
+	
+	"sInfoPostFix"		: "",
+	
+	"sDecimal"			: "",
+	
+	"sThousands"		: ",",
+	
+	"sLengthMenu"		: "_MENU_",
+	
+	"sLoadingRecords"	: "Chargement en cours...",
+	
+	"sProcessing"		: "Traitement en cours...",
+	
+	"sSearch"			: "",
+	
+	"sSearchPlaceholder": "Rechercher",
+	
+	"sUrl"				: "",
+	
+	"sZeroRecords"		: "Aucun élément",
+	
+	"sPage"				: "Page",
+	
+	"sOf"				: "/"
+}

@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_main" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_frm_main'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				 <!-- <div class="col-lg-4 col-md-4 col-sm-12">
+					<label for="inp_tpy_market_header_logo">{{transl "ent_avatar"}}</label>
+					<input id="inp_tpy_market_header_logo" class="fileinput objData" data-maxfile="1" type="file" 
+							data-type="avatar" data-name="files" data-keepName="0" data-entTyp="50100" data-typ01="1" data-typ02="1"/>
+				</div> -->
+				
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="form-group row">
+						<input type="hidden" class="objData" value={{id}} 		data-name="id" data-validation="number" />
+					</div>
+					<div class="form-group row">
+						<input type="hidden" class="objData" value="1"		data-name="typ01" data-validation="number" />
+					</div>
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "tpy_info_version_dt01"}}</label>
+						<div class="col-8">
+							<input id="ent_dt04" type="text" class="form-control datepicker objData"
+								value="{{dateFormatLocalShort dt01}}" placeholder="" data-name="dt01"
+								data-format="date " data-validation="date">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'tpy_info_version_number'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_name" data-validation="required"
+								data-msgClass="errMsgInline" class="objData form-control"
+								type="text" data-name="inf01" value="{{inf01}}"
+								data-label="{{transl 'tpy_info_version_number'}}"
+								data-validation="required" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					    <label for="ent_desrc" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'tpy_info_version_description'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+						    <textarea id="inp_descr" data-validation="required" data-msgClass="errMsgInline" class="objData form-control" 
+						    data-name="inf02" data-label="{{transl 'tpy_info_version_description'}}">{{inf02}}</textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+	</div>
+</div>
+

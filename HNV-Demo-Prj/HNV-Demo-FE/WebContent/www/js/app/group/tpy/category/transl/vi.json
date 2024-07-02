@@ -1,0 +1,34 @@
+{
+
+"----------TPY CATEGORY----------"		:	"----------TPY CATEGORY----------",
+"tpy_cat_list_type_01_selection"		:	"Các nhóm giá trị chọn lựa",
+"tpy_cat_list_type_01_others"			:	"Các nhóm khác",
+
+"tpy_cat_list_code"						:	"Mã QL",
+"tpy_cat_list_name"						:	"Tên",
+"tpy_cat_list_parent"					:	"Nhóm cha",
+
+"tpy_cat_ent_avatar"					:   "Hình đại diện",
+"tpy_cat_ent_name"						:	"Tên đặt",
+"tpy_cat_ent_code"						:	"Mã QL",
+"tpy_cat_ent_stat"						:	"Trạng thái",
+"tpy_cat_ent_type_01"					:	"Kiểu phân loại",
+"tpy_cat_ent_type_02"					:	"Phân cấp",
+"tpy_cat_ent_parent"					:	"Nhóm cha",
+"tpy_cat_ent_transl"					:	"Dịch thuật",
+"tpy_cat_ent_lang"						:	"Ngôn ngữ",
+"tpy_cat_ent_sub"						:	"Phân nhóm",
+
+"tpy_cat_ent_stat_new"					:	"Mới tạo",
+"tpy_cat_ent_stat_activ"				:	"Hoạt động",
+"tpy_cat_ent_stat_desactiv"				:	"Tạm ngừng",
+
+"tpy_cat_ent_type_01_selection"         :   "Nhóm giá trị chọn lựa",
+"tpy_cat_ent_type_01_others"            :   "Nhóm khác",
+
+"tpy_cat_ent_type_02_01"                :   "Nhóm cấp I",
+"tpy_cat_ent_type_02_02"                :   "Nhóm cấp II",
+"tpy_cat_ent_type_02_03"                :   "Nhóm cấp III",
+"tpy_cat_ent_type_02_04"                :   "Nhóm cấp IV"
+
+}

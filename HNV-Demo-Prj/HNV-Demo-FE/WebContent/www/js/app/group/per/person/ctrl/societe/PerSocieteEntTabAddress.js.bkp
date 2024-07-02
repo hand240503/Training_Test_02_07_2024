@@ -1,0 +1,200 @@
+define([
+	'jquery',
+	'text!template/per/societe/PerSociete_Ent_Tab_Address_List.html',
+	'text!template/per/societe/PerSociete_Ent_Tab_Address_Detail.html',
+	'text!template/per/common/Per_Sel_List_Address.html'
+	],
+	function($,
+			PerSociete_Ent_Tab_Address_List,
+			PerSociete_Ent_Tab_Address_Detail,
+			Per_Sel_List_Address
+	) {
+
+	var PerSocieteEntTabAddress     = function (header,content,footer) {
+		var pr_divHeader 			= header  ? $(header) : null;
+		var pr_divContent 			= content ? $(content): null;
+		var pr_divFooter 			= footer  ? $(footer) : null;
+
+		//------------------------------------------------------------------------------------
+		var tmplName				= App.template.names;
+		var tmplContr				= App.template.controller;
+
+		var svClass 				= App['const'].SV_CLASS;
+		var svName					= App['const'].SV_NAME;
+		var sessId					= App['const'].SESS_ID;
+		var userId          		= App['const'].USER_ID;
+
+		var fVar					= App['const'].FUNCT_SCOPE;
+		var fName					= App['const'].FUNCT_NAME;
+		var fParam					= App['const'].FUNCT_PARAM;		
+
+		var self 					= this;
+		
+		//------------------------------------------------------------------------------------
+		var pr_OBJ_TYPE				= 100;
+		var pr_parentId				= null;
+		var pr_typeAddress			= 1;
+
+		//------------------controllers------------------------------------------------------
+		var pr_ctr_Main 			= null;
+		var pr_ctr_Ent				= null;
+		var pr_ctr_EntHeader 		= null;
+		var pr_ctr_EntBtn 			= null;
+		var pr_ctr_EntTabs 			= null;
+		//-----------------------------------------------------------------------------------
+		var pr_object				= null;
+		var pr_mode					= null;
+		//--------------------APIs--------------------------------------//
+		this.do_lc_init		= function(){
+			pr_ctr_Main 			= App.controller.Per.Main;
+			pr_ctr_List				= App.controller.Per.List;
+			pr_ctr_Ent				= App.controller.Per.Ent;
+			pr_ctr_EntHeader 		= App.controller.Per.EntHeader;
+			pr_ctr_EntBtn 			= App.controller.Per.EntBtn;
+			pr_ctr_EntTabs 			= App.controller.Per.EntTabs;
+		}
+
+		this.do_lc_show		= function(obj, mode){
+			pr_object 				= obj;
+			pr_mode					= mode;
+			pr_parentId 			= obj.id;
+			try{
+				tmplName.PER_SOCIETE_ENT_TAB_ADDRESS_LIST		= "PerSociete_Ent_Tab_Address_List";
+				tmplName.PER_SOCIETE_ENT_TAB_ADDRESS_DETAIL		= "PerSociete_Ent_Tab_Address_Detail";
+				tmplName.PER_SEL_LIST_ADDRESS					= "Per_Sel_List_Address";
+				
+				tmplContr.do_lc_put_tmpl(tmplName.PER_SOCIETE_ENT_TAB_ADDRESS_LIST, PerSociete_Ent_Tab_Address_List); 	
+				tmplContr.do_lc_put_tmpl(tmplName.PER_SOCIETE_ENT_TAB_ADDRESS_DETAIL, PerSociete_Ent_Tab_Address_Detail);
+				tmplContr.do_lc_put_tmpl(tmplName.PER_SEL_LIST_ADDRESS, Per_Sel_List_Address); 	
+				
+				var listTpyAddr = translateTyp02Val(App.data.tpyListAdd);
+				
+				$("#div_PerSociete_Ent_Tab_Address").html(tmplContr.req_lc_compile_tmpl(tmplName.PER_SOCIETE_ENT_TAB_ADDRESS_LIST, listTpyAddr));
+				do_bind_event();
+			}catch(e) {
+				do_gl_show_Notify_Msg_Error("PerSocieteEntTabAddress: " + e.toString());
+				do_gl_send_exception(App.path.BASE_URL_API_PRIV, pr_ctr_Main.var_lc_URL_Header, App.network, "per.societe", "PerSocieteEntTabAddress", "do_lc_show", e.toString()) ;
+			}
+		};
+		
+		//---------Bind Event-------------------------------------
+		function do_bind_event(){
+			var listTpyInfo = App.data.tpyListAdd;
+			$("#btn_add_address").hide();
+			if(pr_mode == pr_ctr_Main.var_lc_MODE_MOD || pr_mode == pr_ctr_Main.var_lc_MODE_NEW){
+				$("#btn_add_address").show();
+				$("#btn_add_address").off("click");
+				$("#btn_add_address").on("click", function() {
+					var selectedTpyInfo = {};
+					selectedTpyInfo.id 		= -1;
+					doShowTpyInfo(selectedTpyInfo);
+					bindEvent_SaveAddress(-1);
+				});
+			}
+			
+			$(".per_societe_address_li").on("click", function() {
+				var tpyIndex = $(this).attr("data-tpyIndex");
+				var selectedTpyInfo = listTpyInfo[tpyIndex];
+				doShowTpyInfo(selectedTpyInfo);
+				if(pr_mode == pr_ctr_Main.var_lc_MODE_MOD || pr_mode == pr_ctr_Main.var_lc_MODE_NEW){
+					bindEvent_SaveAddress(tpyIndex);
+					bindEvent_DelAddress(tpyIndex);
+				}
+			});
+		}
+		
+		function doShowTpyInfo(selectedTpyInfo){
+			App.MsgboxController.do_lc_show({
+				title	: $.i18n("page_per_title_show_address"),
+				content : tmplContr.req_lc_compile_tmpl(tmplName.PER_SOCIETE_ENT_TAB_ADDRESS_DETAIL, selectedTpyInfo),
+				buttons	: "none"
+			});
+			$("#cfgValAddTyp2").html(tmplContr.req_lc_compile_tmpl(tmplName.PER_SEL_LIST_ADDRESS, App.data.cfgValListTypeAddress));
+			$("#cfgValAddTyp2").find("option[value='"+ selectedTpyInfo.typ02+"']").attr("selected","selected");
+			$("#btn_save_address")	.hide();
+			$("#btn_del_address")	.hide();
+		}
+
+		function bindEvent_SaveAddress(tpyIndex){
+			$("#div_PerSociete_Ent_Tab_Address_Detail").find("input, select, textarea").removeAttr("disabled");
+			$("#btn_save_address").show();
+			$("#btn_save_address").off("click");
+			$("#btn_save_address").on("click", function() {
+				var option = {};
+				option.dataZoneDom 	= $("#div_PerSociete_Ent_Tab_Address_Detail");
+				var infoTpyAddress 	= req_gl_data(option);
+				var data = null;
+				var newList = App.data.tpyListAdd;
+				if(infoTpyAddress.hasError == false){
+					data = infoTpyAddress.data;
+					data.typ01	= pr_typeAddress;
+					if(tpyIndex == -1){
+						newList.push(data);
+					} else {
+						newList = [];
+						for(var i = 0; i < App.data.tpyListAdd.length; i++){
+							if(tpyIndex != i){
+								newList.push(App.data.tpyListAdd[i]);
+							}else{
+								data.id = App.data.tpyListAdd[i].id;
+								newList.push(data);
+							}
+						}
+					}
+					App.data.tpyListAdd = newList;
+					refreshListAddr(newList);
+				} else {
+					return;
+				}
+			});
+		}
+		
+		function bindEvent_DelAddress(tpyIndex){
+			$("#btn_del_address").show();
+			$("#btn_del_address").off("click");
+			$("#btn_del_address").on("click", function() {
+				var newList = [];
+				for(var i = 0; i < App.data.tpyListAdd.length; i++){
+					var tpyInfo = App.data.tpyListAdd[i];
+					if( tpyIndex != i){
+						newList.push(tpyInfo);
+					}
+				}
+				App.data.tpyListAdd = newList;
+				refreshListAddr(newList);
+			});
+		}
+		
+		function refreshListAddr(newList){
+			var list = translateTyp02Val(newList);
+			$("#div_PerSociete_Ent_Tab_Address_List").html(tmplContr.req_lc_compile_tmpl(tmplName.PER_SOCIETE_ENT_TAB_ADDRESS_LIST, list));
+			do_bind_event();
+		}
+		
+		function translateTyp02Val(listAddress){
+			var listAddressEdited = [];
+			for (var i = 0; i < listAddress.length; i++){
+				var address = listAddress[i];
+				for(var j = 0; j < App.data.cfgValListTypeAddress.length; j++){
+					if(address.typ02 == App.data.cfgValListTypeAddress[j].id){
+						address.typeAddress = App.data.cfgValListTypeAddress[j].name;
+					}
+				}
+				listAddressEdited.push(address);
+			}
+			return listAddressEdited;
+		}
+		
+		var req_gl_Request_Content_Send = function(serviceName){
+			var ref 		= {};
+			ref[svClass] 	= pr_SERVICE_CLASS; 
+			ref[svName]		= serviceName;
+			ref[userId]		= App.data.user.id;
+			ref[sessId]		= App.data.session_id;	
+
+			return ref;
+		}
+	};
+
+	return PerSocieteEntTabAddress;
+});

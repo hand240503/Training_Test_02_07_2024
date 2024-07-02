@@ -1,0 +1,15 @@
+#overlay {
+    position: absolute;
+    top: inherit;
+    left: inherit;
+    width: 100%;
+    height: 80%;
+    background-color: #000;
+    filter:alpha(opacity=20);
+    -moz-opacity:0.2;
+    -khtml-opacity: 0.2;
+    opacity: 0.2;
+    z-index: 1030;
+    margin-left: 15px;
+    margin-right: 15px;
+}

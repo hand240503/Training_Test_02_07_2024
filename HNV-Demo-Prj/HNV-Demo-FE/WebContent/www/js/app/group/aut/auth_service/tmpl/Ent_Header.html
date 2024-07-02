@@ -1,0 +1,148 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_main" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_frm_main'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="form-group row">
+						<input type="hidden" class="objData" value={{id}} 		data-name="id" data-validation="number" />
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_inf01'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_inf01" type="text" data-validation="required" data-msgClass="errMsgInline" class="objData form-control"  data-name="inf01" value="{{inf01}}"	 />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_inf02'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_inf02" type="text" data-validation="required" data-msgClass="errMsgInline" class="form-control objData" data-name="inf02" value="{{inf02}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "ent_dt01"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control" value="{{dateFormatLocal dt01}}" data-name="dt01" placeholder="" disabled>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "ent_dt02"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control" value="{{dateFormatLocal dt02}}" data-name="dt02" placeholder="" disabled>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					
+					<div class="form-group row">
+						<label for="sel_stat" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_stat'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_stat" class="form-control objData" data-validation="required number" data-name="stat">
+								{{#select stat}}
+								<option value="0" 		   >{{transl "ent_stat_new"}}</option>
+								<option value="1" selected >{{transl "ent_stat_activ"}}</option>	
+								<option value="5"		   >{{transl "ent_stat_review"}}</option>	
+								<option value="10"		   >{{transl "ent_stat_deleted"}}</option>	
+								{{/select}}						
+							</select>
+						</div>
+					</div>
+					
+<!-- 					<div class="form-group row"> -->
+<!-- 						<label for="sel_type_01" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_type_01'}} *</label> -->
+<!-- 						<div class="col-lg-8 col-md-8 col-sm-8"> -->
+<!-- 							<select id="sel_type_01" class="form-control objData" data-validation="required number" data-name="typ01"> -->
+<!-- 								{{#select typ01}} -->
+<!-- 								<option value="100" selected>{{transl "ent_type_01_selection"}}</option> -->
+<!-- 								<option value="200"			>{{transl "ent_type_01_others"}}</option>	 -->
+<!-- 								{{/select}}							 -->
+<!-- 							</select> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					
+<!-- 	 				<div class="form-group row"> -->
+<!-- 	 					<label for="sel_type_02" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_type_02'}} *</label> -->
+<!-- 	 					<div class="col-lg-8 col-md-8 col-sm-8"> -->
+<!-- 							<select id="sel_type_02"  class="form-control objData" data-validation="required number"  data-name="typ02"> -->
+<!-- 								{{#select typ02}} -->
+<!-- 								<option value="1" selected	>{{transl 'ent_type_02_01'}}</option> -->
+<!-- 								<option value="2"			>{{transl 'ent_type_02_02'}}</option> -->
+<!-- 								<option value="3"			>{{transl 'ent_type_02_03'}}</option> -->
+<!-- 								<option value="4"			>{{transl 'ent_type_02_04'}}</option> -->
+<!-- 								{{/select}}	 -->
+<!-- 							</select> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_roles'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<div class="col-lg-9 col-md-9 col-sm-9 no-padding-left">
+								<input id="inp_roles" class="objData form-control" type="text" data-name="roles" value="{{roles}}" />
+							</div>
+							<a class="col-lg-1 col-md-1 col-sm-1" style="padding-top: 7px" data-right="view:">
+								<i class="fa fa-plus pull-right"
+									title="{{transl 'ent_roles_add'}}"
+									style="font-size:18px;margin-right: 8px;color:red" id="btn_role_add"></i>
+							</a>
+							
+							<a class="col-lg-1 col-md-1 col-sm-1" style="padding-top: 7px">
+								<i class="fa fa-eye pull-right"
+									title="{{transl 'ent_roles_see'}}"
+									style="font-size:18px;margin-right: 8px" id="btn_role_see"></i>
+							</a>
+						</div>
+						
+
+							
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_rights'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<div class="col-lg-9 col-md-9 col-sm-9 no-padding-left">
+								<input id="inp_rights" class="objData form-control" type="text" data-name="rights" value="{{rights}}" />
+							</div>
+							<a class="col-lg-1 col-md-1 col-sm-1" style="padding-top: 7px" data-right="view:">
+								<i class="fa fa-plus pull-right"
+									title="{{transl 'ent_rights_add'}}"
+									style="font-size:18px;margin-right: 8px;color:red" id="btn_right_add"></i>
+							</a>
+							
+							<a class="col-lg-1 col-md-1 col-sm-1" style="padding-top: 7px">
+								<i class="fa fa-eye pull-right"
+									title="{{transl 'ent_rights_see'}}"
+									style="font-size:18px;margin-right: 8px" id="btn_right_see"></i>
+							</a>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+

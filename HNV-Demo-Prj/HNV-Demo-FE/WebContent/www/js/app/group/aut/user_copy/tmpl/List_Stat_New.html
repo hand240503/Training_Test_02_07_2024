@@ -1,0 +1,42 @@
+<div class="box box-default box-solid" data-right="view:">
+	<div class="card">
+		<div class="card-body">
+
+			<div class="media">
+				<div class="col-8">
+					<h4 class="card-title mb-4 datatable_title">{{transl "aut_user_list_stat_new"}}</h4>
+				</div>
+
+				<div class="col-4">
+					<div class="text-sm-right">
+						<a 	class="btn btn-refresh no-padding" data-toggle="tooltip" data-placement="top" title="" > 
+							<i	class="mdi mdi-refresh font-size-18"></i>
+						</a>
+						
+						<a data-divtoogle="#div_List_Cont_Stat_New" class="btn btn-resize no-padding" data-toggle="tooltip" data-placement="top" title=""> <i
+							class="mdi mdi-window-minimize font-size-18"></i>
+						</a>
+						
+						
+					</div>
+				</div>
+			</div>
+
+			<div id="div_List_Cont_Stat_New" class="shp_table_padding" >
+				<table class="table table-striped table-hover table-datatableDyn  table-centered table-nowrap">
+					<thead>
+						<tr>
+							<th data-name="id" 			data-visible="true" data-class="text-right" >{{transl "aut_user_list_id"}}</th>
+							<th data-name="login01" 	data-visible="true">{{transl "aut_user_list_login"}}	</th> 
+							<th data-name="inf01" 	    data-visible="true">{{transl "aut_user_list_email"}}	</th>
+							<th data-name="inf02" 	    data-visible="true">{{transl "aut_user_list_tel"}}		</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

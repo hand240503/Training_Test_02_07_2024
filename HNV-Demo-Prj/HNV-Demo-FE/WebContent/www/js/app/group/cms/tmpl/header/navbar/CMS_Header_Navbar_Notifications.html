@@ -1,0 +1,28 @@
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+	{{#iff length '==' 0}}
+		<i class="fa fa-bell-o"></i> <span class="label label-warning"></span>
+	{{else}}
+	 	<i class="fa fa-bell-o"></i> <span class="label label-warning">{{length}}</span>
+	{{/iff}}
+	
+</a>
+<ul class="dropdown-menu">
+	{{#iff length '>' 0}}
+	<li class="header">{{length}} {{transl "lastest_notification"}} </li>
+	<li>
+		<!-- inner menu: contains the actual data -->
+		<ul id="wygo-notification" class="menu">
+			{{#each this.data}}
+			<li data-index="{{@index}}">
+				<a href="#"> 
+					<i class="fa fa-users text-aqua"></i> {{cont02}}
+				</a>
+			</li>
+			{{/each}}
+		</ul>
+	</li>
+	{{else}}
+		<li class="header">{{transl "no_lastest_notification"}} </li>
+	{{/iff}}
+	<li class="footer"><a href="#">{{transl "view_all_notifications"}}</a></li>
+</ul>

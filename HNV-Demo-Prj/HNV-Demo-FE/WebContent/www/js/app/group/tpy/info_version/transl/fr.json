@@ -1,0 +1,17 @@
+{
+
+"----------TPY INFORMATION----------"		:	"----------TPY INFORMATION----------",
+"lst_title_all_ref"                         :   "Liste des version",
+"tpy_ver_id"								:	"ID",
+"tpy_ver_number"							:	"Numéro de version",
+"tpy_ver_descr"								:	"Détail",
+"tpy_ver_date"								:	"Date",
+
+"tpy_info_version_dt01"						:	"Date de la version",
+"tpy_info_version_number"					:   "Numéro de version",
+"tpy_info_version_description"				:	"Détail de la version"
+
+
+
+
+}

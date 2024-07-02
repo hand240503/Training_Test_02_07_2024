@@ -1,0 +1,69 @@
+/* <!-- Preloader --> */
+@import url("../../www/css/preloader.css");
+
+/* <!-- jQuery UI 1.12.1 --> */
+@import url("../../www/js/lib/jQueryUI/jquery-ui.css");
+
+/* <!-- Bootstrap 3.3.6 --> */
+@import url("../../www/js/lib/bootstrap/css/bootstrap.min.css");
+
+/* <!-- Font Awesome --> */
+@import url("../../www/css/font-awesome.css");
+
+/* <!-- Ionicons --> */
+@import url("../../www/js/lib/ionicons/ionicons.min.css");
+
+/*<!-- iCheck for checkboxes and radio inputs -->*/
+@import url("../../www/js/lib/iCheck/all.css");
+
+/* <!-- Select2 --> */
+@import url("../../www/js/lib/select2/select2.css");
+
+/*<!-- Select2 --> */
+@import url("../../www/js/lib/jqxScheduler/styles/jqx.base.css");
+
+
+/*<!-- iCheck for checkboxes and radio inputs --> */
+@import url("../../www/js/lib/iCheck/all.css");
+
+@import url("../../www/js/lib/flag-icon/css/flag-icon.css");
+
+
+@import url("../../www/js/lib/timepicker/bootstrap-timepicker.css");
+@import url("../../www/js/lib/colorpicker/bootstrap-colorpicker.css");
+@import url("../../www/js/lib/bootstrap-dialog/css/bootstrap-dialog.min.css");
+
+
+@import url("../../www/js/lib/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css");
+
+
+/* @import url("../../www/js/lib/datatables/jquery.dataTables.min.css"); */
+@import url("../../www/js/lib/datatables/dataTables.bootstrap.css");
+@import url("../../www/js/lib/datatables/extensions/ColReorder/css/dataTables.colReorder.css");
+
+@import url("../../www/js/lib/daterangepicker/daterangepicker.css");
+@import url("../../www/js/lib/datepicker/bootstrap-datepicker3.css");
+
+@import url("../../www/js/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css");
+
+@import url("../../www/js/lib/calendar-pickmeup/pickmeup.css");
+
+
+@import url("../../www/js/lib/daypilot/wygo_white.css");
+
+/*<!-- Bootstrap Fileinput --> */
+@import url("../../www/js/lib/bootstrap-fileinput/css/fileinput.css");
+
+/*<!-- Bootstrap Tour --> */
+@import url("../../www/js/lib/bootstrap-tour/css/bootstrap-tour.css");
+
+/* <!--Theme style --> */
+@import url("../../www/css/skins/_all-skins.css");
+@import url("../../www/css/AdminLTE.css");
+@import url("../../www/css/scrollbar.css");
+@import url("../../www/css/custom.css");
+@import url("../../www/css/bootstrap-custom.css");
+
+@import url("../../www/js/lib/jqxScheduler/styles/jqx.base.css");
+
+@import url("../../www/js/lib/select-chosen/chosen.css");

@@ -1,0 +1,25 @@
+{
+"----------AUT RIGHT----------"			:	"----------AUT RIGHT----------",
+"aut_right_list_table"					:   "List des droits",
+"aut_right_id"							:	"Code de gestion",
+"aut_right_name"						:	"Nom de droit",
+"aut_right_grp"							:	"Groupe",
+"aut_right_descr"						:	"Description",
+
+"aut_right_grp_aut_adm"					:  "Admin",
+"aut_right_grp_aut_user"				:  "Utilisateur",
+"aut_right_grp_aut_role"				:  "Rôle",
+"aut_right_grp_aut_right"				:  "Droit",
+"aut_right_grp_mat_material"			:  "Matériel",
+
+"aut_right_grp_cfg_value"				:  "Configuration du système",
+"aut_right_grp_tpy_category"			:  "Catégory",
+"aut_right_grp_per_self"				: 	"Information interne",
+"aut_right_grp_per_client"				:	"Client",
+"aut_right_grp_per_supplier"			:	"Fournisseur",
+"aut_right_grp_per_producer"			:	"Produceur",
+"aut_right_grp_per_thirdparty"			:	"Partenaire",
+
+"aut_right_"							:	"Gestion _ "
+
+}

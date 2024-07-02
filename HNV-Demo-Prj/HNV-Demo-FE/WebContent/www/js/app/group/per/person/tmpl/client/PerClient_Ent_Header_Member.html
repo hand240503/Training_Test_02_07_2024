@@ -1,0 +1,139 @@
+<div class="box-header with-border">
+
+	<h3 class="box-title">{{transl "per_client_member_header_title"}}</h3>
+	<div class="box-tools pull-right">
+		<button type="button" class="btn btn-box-tool" data-widget="collapse">
+			<i class="fa fa-chevron-down"></i>
+		</button>
+	</div>
+</div>
+<form class="form-horizontal" id="div_frm_per_header">
+	<div class="box-body">	
+		<div class="col-lg-3 col-md-3 col-sm-12">
+			<label for="inp_per_header_logo">{{transl "per_ent_header_logo"}}</label>
+			<input id="inp_per_header_logo" class="fileinput objData" data-maxfile="1" type="file" data-type="logo" data-name="files" data-keepName="0" data-entTyp="30000" data-typ01="2"/>
+		</div>
+		
+		<div class="col-lg-5 col-md-5 col-sm-12">
+			<br/>
+			
+			<div class="form-group">
+				<label for="typ01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_typ01"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select class="form-control objData" data-name="typ01" disabled>
+						<option value="1000002">{{transl "per_person_type_physic"}}</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="name01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_name01"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" value="{{decodeUTF8 name01}}" data-name="name01" data-validation="required" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="name02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_name02"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" value="{{decodeUTF8 name02}}" data-name="name02" data-validation="required" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="info06" class="col-md-4 col-sm-4 control-label">{{transl "nso_order_tab_client_sex"}}</label>
+				<div class="col-md-8 col-sm-8">
+					<select id="info06" class="form-control objData" data-name="info06" disabled>
+						<option value="2">{{transl "nso_order_tab_client_action"}}</option>
+						<option value="0">{{transl "nso_order_client_sex_0"}}</option>
+						<option value="1">{{transl "nso_order_client_sex_1"}}</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="dtNew" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_dtNew"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control" value="{{dtNew}}" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="dtMod" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_dtMod"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control" value="{{dtMod}}" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group" id="div_per_partner_societe">
+				<label for="inp_per_partner_societe" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_ent_header_societe"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="hidden" class="objData" data-name="parent" id ="socId" value="{{parent}}">
+					<input type="text" class="form-control objData" id="inp_per_partner_societe" placeholder="{{transl 'per_partner_ent_header_societe_help'}}">
+				</div>
+			</div>	
+		</div>
+
+		<div class="col-lg-4 col-md-4 col-sm-12">
+			<br/>
+			<div class="form-group">
+				<label for="typ02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_societe_label_typ02"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_list_typ02" class="form-control objData" data-name="typ02" disabled>
+						<option value="1010008">{{transl "aut_user_ent_header_type_member"}}</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="code" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_code"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="code" value="{{decodeUTF8 code}}" data-name="code" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="info01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_info01"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" value="{{info01}}" data-name="info01" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="info10" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_info10"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" value="{{info10}}" data-name="info10" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="info07" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_info07"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" data-name="info07" value="{{info07}}"disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="info03" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_info03"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input class="form-control objData" data-name="info03" value="{{info03}}" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="info10" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_client_label_stat"}}</label>
+
+				<div class="col-md-8 col-sm-8">
+					<select class="form-control objData" data-name="stat" id="stat" disabled>
+						<option value="0">{{transl "per_partner_stat_00"}}</option>
+						<option value="1">{{transl "per_partner_stat_01"}}</option>
+						<option value="2">{{transl "per_partner_stat_02"}}</option>
+						<option value="3">{{transl "per_partner_stat_03"}}</option>
+						<option value="10">{{transl "per_partner_stat_10"}}</option>
+						<option value="11">{{transl "per_partner_stat_11"}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

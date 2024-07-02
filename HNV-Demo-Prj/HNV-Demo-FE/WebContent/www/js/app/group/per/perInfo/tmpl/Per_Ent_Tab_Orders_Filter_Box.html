@@ -1,0 +1,92 @@
+<form class="form-horizontal" id="div_SorOrder_Filter_Rep">
+	<div class="row">
+		<div class="row form-group col-lg-3 col-md-3 col-sm-12">
+			<label for="inp_mat_code01"
+				class="col-lg-12 col-md-12 col-sm-12 control-label">{{transl "sor_order_report_sale_dt01"}}
+			</label>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<input id="inp_order_ent_dt01" data-provide="datepicker" class="form-control objData dt01" type="text"
+					value="{{dateFormatLocalShort dt01}}" data-name="dt01" data-validation="date" data-format="date"
+					data-date-format="dd/mm/yyyy" data-msgClass="errMsgInline" />
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<input id="inp_order_ent_tm01" type="text" class="form-control objData tmpicker mr-5" value=""
+					data-provide="timepicker" />
+			</div>
+		</div>
+		<div class="row form-group col-lg-3 col-md-3 col-sm-12">
+			<label for="inp_mat_code03"
+				class="col-lg-12 col-md-12 col-sm-12 control-label">{{transl "sor_order_report_sale_dt02"}}
+			</label>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<input id="inp_order_ent_dt02" data-provide="datepicker" class="form-control objData dt01" type="text"
+					value="{{dateFormatLocalShort dt02}}" data-name="dt02" data-validation="date" data-format="date"
+					data-date-format="dd/mm/yyyy" data-msgClass="errMsgInline" />
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<input id="inp_order_ent_tm02" type="text" class="form-control objData tmpicker mr-5" value=""
+					data-provide="timepicker" />
+			</div>
+		</div>
+
+		<div class="form-group col-lg-3 col-md-3 col-sm-12">
+			<label for="inp_ord_mat_id"
+				class="col-lg-12 col-md-12 col-sm-12 control-label">{{transl "sor_order_report_sale_mat_id"}}
+			</label>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<input id="mat_id" type="hidden" class="objData" data-validation="number" data-name="matID" value="{{id}}" />
+				<input id="inp_ord_mat_id" data-msgClass="errMsgInline" class="objData form-control" type="text"
+					data-name="matId" value="{{matId}}" />
+			</div>
+		</div>
+
+		<div class="form-group col-lg-3 col-md-3 col-sm-12">
+			<label for="inp_ord_mat_code"
+				class="col-lg-12 col-md-12 col-sm-12 control-label">{{transl "sor_order_report_sale_mat_code"}}
+			</label>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<input id="inp_ord_mat_code" data-msgClass="errMsgInline" class="objData form-control" type="text"
+					data-name="code" value="" />
+			</div>
+		</div>
+	</div>
+
+	<div class="pull-center">
+		<a id="btn_ReportSale_filter" class="btn btn-app custom-btn-app" data-toggle="tooltip"
+			title="{{transl 'common_btn_search'}}">
+			<i class="fa fa-search"></i>
+		</a>
+	</div>
+
+	<hr />
+
+	<div class="row">
+		<div class="form-group col-lg-4 col-md-4 col-sm-12">
+			<label for="inp_order_sum_1"
+				class="col-lg-12 col-md-12 col-sm-12 control-label">{{transl "sor_order_report_sale_sum_disc"}}
+			</label>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<input id="inp_ord_sum_1" data-msgClass="errMsgInline" class="objData form-control text-right" type="text"
+					data-name="id" value="{{sum01}}" disabled />
+			</div>
+		</div>
+		<div class="form-group col-lg-4 col-md-4 col-sm-12">
+			<label for="inp_order_sum_2"
+				class="col-lg-12 col-md-12 col-sm-12 control-label">{{transl "sor_order_report_sale_sum"}}
+			</label>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<input id="inp_ord_sum_2" data-msgClass="errMsgInline" class="objData form-control text-right" type="text"
+					data-name="id" value="{{sum02}}" disabled />
+			</div>
+		</div>
+		<div class="form-group col-lg-4 col-md-4 col-sm-12">
+			<label for="inp_order_sum_3"
+				class="col-lg-12 col-md-12 col-sm-12 control-label">{{transl "sor_order_report_sale_sum_final"}}
+			</label>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<input id="inp_ord_sum_3" data-msgClass="errMsgInline" class="objData form-control text-right" type="text"
+					data-name="id" value="{{sum03}}" disabled />
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,105 @@
+{
+
+"----------MATERIAL----------"				:	"----------MATERIAL----------",
+"lst_title_node"			:	"Liste des Noeuds/Machines",
+"lst_title_app"				:	"Liste des applications",
+"lst_title_env"				:	"Liste des environnement",
+"lst_title_dbs"				:	"Liste des services de base de données ",
+"lst_title_kun"				:	"Liste des Kubemets",
+"lst_title_sa"				:	"Liste des services applicatifs ",
+"lst_title_ca"				:	"Liste des composant applicatifs",
+
+"lst_title_all"				:	"Toutes les catégories",
+
+"lst_title_all_ref"			:	"Tous les référentiels",
+"lst_title_all_active"		:	"Tous matériels actives",
+"lst_title_all_review"		:	"Tous matériels désactivés",
+
+"ent_header_title"			:	"Les informations du matériel",
+
+"ent_id"					:	"DB Id",
+"ent_name01"				:	"Libellé/Nom",
+"ent_name02"				:	"Autre nom",
+"ent_code01"				:	"Réf principal",
+"ent_code02"				:	"Réf secondaire",
+"ent_code03"				:	"Autre référence",
+"ent_code04"				:	"Tag de recherche",
+"ent_code05"				:	"Autre code/tag",
+
+"ent_typ01"					:	"Type principal", 
+"ent_typ01_100"				:	"Référentiel",
+
+
+"ent_typ02"					:	"Niveau", 
+"ent_typ02_01"				:	"Niveau 1",
+"ent_typ02_02"				:	"Niveau 2",
+"ent_typ02_03"				:	"Niveau 3",
+
+	
+"ent_stat01"				:	"Etat",
+"ent_stat01_new"			:	"En attente",
+"ent_stat01_act"				:	"Non defini",
+"ent_stat01_inc"				:	"En attente",
+
+"ent_avatar"				: 	"Avatar",
+"ent_parent"				: 	"Category parent",
+
+"ent_inf01"					:	"Description générale",
+"ent_inf02"					:	"Description 02",
+"ent_inf02_10"				:	"MOE",
+"ent_inf02_30"				:	"Autre commentaire",
+"ent_inf02_50"				:	"Version du SE",
+"ent_inf02_60"				:	"Autre commentaire",
+"ent_inf02_70"				:	"Autre commentaire",
+"ent_inf02_80"				:	"Diffusion sans indisponibilité",
+"ent_inf02_100"				:	"Progiciel et version",
+
+"ent_inf03"					:	"Description 03",
+"ent_inf03_10"				:	"MOA",
+"ent_inf03_30"				:	"Comportement après incident de sauvegarde",
+"ent_inf03_50"				:	"Description du SE",
+"ent_inf03_60"				:	"Autre commentaire",
+"ent_inf03_70"				:	"Autre commentaire",
+"ent_inf03_80"				:	"Diffusion si indisponibilité",
+"ent_inf03_100"				:	"Autre commentaire",
+
+"ent_inf04"					:	"Description 04",
+"ent_inf04_10"				:	"Liste Code Appli",
+"ent_inf04_30"				:	"Continuité de Service",
+"ent_inf04_50"				:	"Model",
+"ent_inf04_60"				:	"Autre commentaire",
+"ent_inf04_70"				:	"Autre commentaire",
+"ent_inf04_80"				:	"Autre commentaire",
+"ent_inf04_100"				:	"Autre commentaire",
+
+"ent_inf05"					:	"Description 05",
+"ent_inf05_10"				:	"Autre commentaire",
+"ent_inf05_30"				:	"Autre commentaire",
+"ent_inf05_50"				:	"Autre commentaire",
+"ent_inf05_60"				:	"Autre commentaire",
+"ent_inf05_70"				:	"Autre commentaire",
+"ent_inf05_80"				:	"Service  aux utilisateurs (Jour:Heure Ouverture:Heure Fermeture)",
+"ent_inf05_100"				:	"Autre commentaire",
+
+"ent_inf10"					:	"Groupe responsable",
+
+"ent_dt03"					:  "Date de mise en service",
+"ent_dt04"					:  "Date d'entrée astreinte",
+"ent_dt05"					:  "Date de fin de garantie",
+
+"ent_files"					: 	"Fichiers attachés",
+
+"ent_tab_detail"			: 	"Autres matériels présents sur ce matériel",
+"ent_det_cmt"				: 	"Commentaire",
+"ent_det_stat"				: 	"Etat",
+"ent_det_stat_00"			: 	"Inactive",
+"ent_det_stat_01"			: 	"Active",
+"ent_det_stat_05"			: 	"A vérifier",
+
+"ent_det_action"			:   " ",
+
+"ent_tab_cat"				: 	"Source de référentiel"
+
+
+
+}

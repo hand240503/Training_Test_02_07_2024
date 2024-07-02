@@ -1,0 +1,426 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_manager" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_ent_header_01'>
+			<div class="box-body row">
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<label>{{transl "per_student_ent_avatar"}}</label>
+					<input class="fileinput objData" data-maxfile="1" type="file" 
+							data-type="avatar" data-name="files" data-keepName="0" data-entTyp="10000" data-typ01="1" data-typ02="1"/>
+				</div>
+				
+				<div class="col-lg-8 col-md-8 col-sm-12">
+					<div class="form-group">
+						<input type="hidden" class="objData" value={{id}} 		data-name="id" 		data-validation="number"/>
+						<input type="hidden" class="objData" value="{{typ02}}"  data-name="typ02" 	data-validation="number"/>	
+						<input type="hidden" class="objData" value="{{typ03}}"  data-name="typ03" 	data-validation="number"/>	
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_name" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_name'}} *</label>
+						<div class="col-lg-3 col-md-3 col-sm-3">
+							<input 	type="text" class="objData form-control"  
+									data-name="name01" value="{{name01}}" data-validation="required" data-msgClass="errMsgInline"/>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3">
+							<input 	type="text" class="objData form-control"  
+									data-name="name02" value="{{name02}}" data-validation="" data-msgClass="errMsgInline"/>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2">
+							<input 	type="text" class="objData form-control"  
+									data-name="name03" value="{{name03}}" data-validation="required" data-msgClass="errMsgInline"/>
+						</div>
+					</div>
+					
+					
+					<div class="form-group row">
+						<label for="sel_parType" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_sex'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_Sex" class="form-control objData" data-validation="required" data-name="typ03">
+								<option value="0" selected>	{{transl "per_student_ent_sex_00"}}</option>
+								<option value="1">			{{transl "per_student_ent_sex_01"}}</option>
+								<option value="2">			{{transl "per_student_ent_sex_02"}}</option>								
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_birthday'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="datepicker form-control objData" value="{{dateFormatLocalShort dt03}}" 
+									data-name="dt03" data-format="date " data-validation="date" data-date-start-date="01/01/2005"/>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_birthplace'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData" data-group= "inf01"  data-name="b_place" value="{{inf01.b_place}}" />
+						</div>
+					</div>
+										
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_ethnic'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData" data-group= "inf01"  data-name="ethnic" value="{{inf01.ethnic}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="sel_parType" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_religion'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_Religion" class="form-control objData" data-validation="required" data-name="typ04">
+								<option value="0" selected>	{{transl "per_student_ent_religion_00"}}</option>
+								<option value="1">			{{transl "per_student_ent_religion_01"}}</option>
+								<option value="2">			{{transl "per_student_ent_religion_02"}}</option>		
+								<option value="3">			{{transl "per_student_ent_religion_03"}}</option>								
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="sel_parType" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_politic'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_Politic" class="form-control objData" data-validation="required" data-name="typ05">
+								<option value="0" selected>	{{transl "per_student_ent_politic_00"}}</option>
+								<option value="1">			{{transl "per_student_ent_politic_01"}}</option>
+								<option value="2">			{{transl "per_student_ent_politic_02"}}</option>		
+								<option value="3">			{{transl "per_student_ent_politic_03"}}</option>								
+							</select>
+						</div>
+					</div>
+	 				
+	 				<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_politicDt'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="datepicker form-control objData" value="{{dateFormatLocalShort inf01.politic_dt}}" 
+									data-group= "inf01" data-name="politic_dt" data-format="date " data-validation="date" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- thông tin cá nhân -->
+		<div class="form-horizontal custom-scroll-header" id = 'div_ent_header_02'>
+			<div class="box-body row">
+			
+				<!-- thông tin giấy tờ -->
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<div class="form-group row">
+		                <h4 class="card-title mb-4 shp_font_size">{{transl "per_student_ent_info_01"}}</h4>
+		            </div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_nationID'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-name="code01" value="{{code01}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_nationID_Dt'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="datepicker form-control objData" value="{{dateFormatLocalShort inf01.id_dt}}" 
+									data-group= "inf01" data-name="id_dt" data-format="date " data-validation="date" data-date-start-date="01/01/2005"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_nationID_Pl'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData" data-group= "inf01"  data-name="id_pl" value="{{inf01.id_pl}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_secuID'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-name="code03" value="{{code03}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_email'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData" data-group= "inf01"  data-name="email" value="{{inf01.email}}" data-validation="email"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_tel01'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData" data-group= "inf01"  data-name="tel01" value="{{inf01.tel01}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_tel02'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData" data-group= "inf01"  data-name="tel02" value="{{inf01.tel02}}" />
+						</div>
+					</div>
+					
+				</div>
+				
+				<!-- thông tin thường trú, cần để nghiên cứu số liệu -->
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<div class="form-group row">
+		                <h4 class="card-title mb-4 shp_font_size">{{transl "per_student_ent_info_02"}}</h4>
+		            </div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_01'}}</label> <!--Số nhà/đường/thôn/tổ:-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_main_01" value="{{inf01.addr_main_01}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_02'}}</label> <!--Xã/phường-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_main_02" value="{{inf01.addr_main_02}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_03'}}</label> <!--Quận/huyện -->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_main_03" value="{{inf01.addr_main_03}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_04'}}</label> <!--Tỉnh/thành phố -->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_main_04" value="{{inf01.addr_main_04}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_05'}}</label> <!--Quốc gia -->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_main_05" value="{{inf01.addr_main_05}}" placeholder= "Việt Nam"/>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_06'}}</label> <!--Mã bưu chính -->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_main_06" value="{{inf01.addr_main_06}}" />
+						</div>
+					</div>
+				</div>
+				
+				<!-- thông tin tạm trú, cần để liên lạc -->
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<div class="form-group row">
+		                <h4 class="card-title mb-4 shp_font_size">{{transl "per_student_ent_info_03"}}</h4>
+		            </div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_01'}}</label> <!--Số nhà/đường/thôn/tổ:-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_sub_01" value="{{inf01.addr_sub_01}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_02'}}</label> <!--Xã/phường-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_sub_02" value="{{inf01.addr_sub_02}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_03'}}</label> <!--Quận/huyện -->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_sub_03" value="{{inf01.addr_sub_03}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_04'}}</label> <!--Tỉnh/thành phố -->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_sub_04" value="{{inf01.addr_sub_04}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_05'}}</label> <!--Quốc gia -->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_sub_05" value="{{inf01.addr_sub_05}}" placeholder= "Việt Nam"/>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_addr_06'}}</label> <!--Mã bưu chính -->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="addr_sub_06" value="{{inf01.addr_sub_06}}" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- thông tin nhập học -->
+		<div class="form-horizontal custom-scroll-header" id = 'div_ent_header_03'>
+			<div class="box-body row">
+				<div class="col-lg-4 col-md-4 col-sm-12">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-12">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-12">
+				</div>
+			</div>
+		</div>
+		
+		<!-- thông tin gia đình -->
+		<div class="form-horizontal custom-scroll-header" id = 'div_ent_header_03'>
+			<div class="box-body row">
+				<!-- thông tin cha -->
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<div class="form-group row">
+		                <h4 class="card-title mb-4 shp_font_size">{{transl "per_student_ent_info_05"}}</h4>
+		            </div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_name'}}</label> <!--họ tên-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_01_name" value="{{inf01.par_01_name}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_id'}}</label> <!--CMND-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_01_id" value="{{inf01.par_01_id}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_addr'}}</label> <!--địa chỉ-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_01_addr" value="{{inf01.par_01_addr}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_email'}}</label> <!--email-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_01_email" value="{{inf01.par_01_email}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_tel'}}</label> <!--điện thoại-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_01_tel" value="{{inf01.par_01_tel}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_cmt'}}</label> <!--Ghi chú khác-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_01_cmt" value="{{inf01.par_01_cmt}}" />
+						</div>
+					</div>
+				</div>
+				<!-- thông tin mẹ -->
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<div class="form-group row">
+		                <h4 class="card-title mb-4 shp_font_size">{{transl "per_student_ent_info_06"}}</h4>
+		            </div>
+		            <div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_name'}}</label> <!--họ tên-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_02_name" value="{{inf01.par_02_name}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_id'}}</label> <!--CMND-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_02_id" value="{{inf01.par_02_id}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_addr'}}</label> <!--địa chỉ-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_02_addr" value="{{inf01.par_02_addr}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_email'}}</label> <!--email-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_02_email" value="{{inf01.par_02_email}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_tel'}}</label> <!--điện thoại-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_02_tel" value="{{inf01.par_02_tel}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_cmt'}}</label> <!--Ghi chú khác-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_02_cmt" value="{{inf01.par_02_cmt}}" />
+						</div>
+					</div>
+				</div>
+				
+				<!-- thông tin người thân khác có thể liên lạc-->
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<div class="form-group row">
+		                <h4 class="card-title mb-4 shp_font_size">{{transl "per_student_ent_info_07"}}</h4>
+		            </div>
+		            <div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_name'}}</label> <!--họ tên-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_03_name" value="{{inf01.par_03_name}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_id'}}</label> <!--CMND-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_03_id" value="{{inf01.par_03_id}}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_addr'}}</label> <!--địa chỉ-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_03_addr" value="{{inf01.par_03_addr}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_email'}}</label> <!--email-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_03_email" value="{{inf01.par_03_email}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_tel'}}</label> <!--điện thoại-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_03_tel" value="{{inf01.par_03_tel}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'per_student_ent_par_cmt'}}</label> <!--Ghi chú khác-->
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="form-control objData"  data-group= "inf01" data-name="par_03_cmt" value="{{inf01.par_03_cmt}}" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

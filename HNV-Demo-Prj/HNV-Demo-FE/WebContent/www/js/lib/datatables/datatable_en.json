@@ -1,0 +1,45 @@
+{
+	"oAria"				: {
+		"sSortAscending"	: ": activate to sort column ascending",
+		"sSortDescending"	: ": activate to sort column descending"
+	},
+	
+	"oPaginate"			: {
+		"sFirst"	: "First",
+		"sLast"		: "Last",
+		"sNext"		: ">",
+		"sPrevious"	: "<"
+	},
+	
+	"sEmptyTable"		: "No data available",
+	
+	"sInfo"				: "_START_ - _END_ of _TOTAL_ entries",
+	
+	"sInfoEmpty"		: "0 entries",
+	
+	"sInfoFiltered"		: "(filtered from _MAX_ total entries)",
+	
+	"sInfoPostFix"		: "",
+	
+	"sDecimal"			: "",
+	
+	"sThousands"		: ",",
+	
+	"sLengthMenu"		: "_MENU_ entries",
+	
+	"sLoadingRecords"	: "Loading...",
+	
+	"sProcessing"		: "Processing...",
+	
+	"sSearch"			: "",
+	
+	"sSearchPlaceholder": "Search",
+	
+	"sUrl"				: "",
+	
+	"sZeroRecords"		: "No matching records found",
+	
+	"sPage"				: "Page",
+	
+	"sOf"				: "/"
+}

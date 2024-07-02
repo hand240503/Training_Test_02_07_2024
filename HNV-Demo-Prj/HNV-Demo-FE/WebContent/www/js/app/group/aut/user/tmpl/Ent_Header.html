@@ -1,0 +1,195 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_manager" class="btn-resize" data-toggle="tooltip" data-placement="top"
+						title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id='div_frm_manager'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				<div class="col-lg-4 col-md-4 col-sm-12" id="div_avt">
+					<label for="inp_ent_avatar">{{transl "aut_user_ent_avatar"}}</label>
+					<input id="inp_ent_avatar" class="fileinput objData" type="file" data-maxfile="1" data-name="files"
+						data-type="avatar" data-keepName="0" data-entTyp="1000" data-typ01="1" data-typ02="1" />
+				</div>
+
+				<div class="col-lg-8 col-md-8 col-sm-12">
+					<input type="hidden" class="objData" value={{id}} data-name="id" data-validation="number" />
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_login01"}}*</label>
+						<div class="col-8">
+							<input id="inp_ent_login01" class="form-control objData" type="text" data-name="login01"
+								data-validation="required" value="{{login01}}" />
+						</div>
+					</div>
+
+					<!-- 					<div class="form-group row"> -->
+					<!-- 						<label class="col-4 control-label">{{transl "aut_user_ent_login02"}}</label> -->
+					<!-- 						<div class="col-8"> -->
+					<!-- 							<input id="inp_ent_login02" class="form-control objData" type="text" -->
+					<!-- 								data-name="login" data-validation="required" value="{{login02}}" /> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_typ"}}</label>
+						<div class="col-8">
+							<select id="inp_ent_typ" class="form-control objData" data-name="typ01"
+								data-validation="number">
+								{{#select typ01}}
+								<option value="1">{{transl "aut_user_ent_typ01_adm"}}</option>
+								<option value="2">{{transl "aut_user_ent_typ01_agent"}}</option>
+								{{/select}}
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="inp_ent_stat" class="col-4 control-label">{{transl "aut_user_ent_stat"}}</label>
+						<div class="col-8">
+							<select id="inp_ent_stat" class="form-control objData" data-name="stat" data-validation="number">
+								{{#select stat}}
+								<option value="0">{{transl 'aut_user_ent_stat_0'}}</option>
+								<option value="1">{{transl 'aut_user_ent_stat_1'}}</option>
+								<option value="5">{{transl 'aut_user_ent_stat_5'}}</option>
+								<option value="10">{{transl 'aut_user_ent_stat_10'}}</option>
+								{{/select}}
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_name"}}</label>
+						<div class="col-8">
+							<input id="inp_ent_perName" class="form-control editable" type="text" value="{{per.name}}"
+								placeholder="{{transl 'aut_user_ent_person_help'}}" />
+							<input id="inp_ent_perId" class="objData" type="hidden" data-name="perId"
+								data-validation="number" value="{{perId}}" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_email"}}</label>
+						<div class="col-8">
+							<input id="inp_ent_email" class="form-control objData" type="text" data-name="inf01"
+								data-validation="email" value="{{inf01}}" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_tel"}}</label>
+						<div class="col-8">
+							<input id="inp_ent_tel" class="form-control objData" type="text" data-name="inf02"
+								value="{{inf02}}" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_inf"}}</label>
+						<div class="col-8">
+							<input id="inp_ent_inf" class="form-control objData" type="text" data-name="inf03"
+								value="{{inf03}}" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_societe"}}</label>
+						<div class="col-8">
+							<input id="inp_ent_manName" type="text" class="form-control editable" value="{{man.name}}"
+								placeholder="{{transl 'aut_user_ent_societe_help'}}">
+							<input id="inp_ent_manId" type="hidden" class="objData" data-name="manId"
+								data-validation="number" value="{{manId}}">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_supervisor"}}</label>
+
+						<div class="col-8">
+							<input id="inp_ent_supName" type="text" class="form-control editable"
+								value="{{sup.login01}}" placeholder="{{transl 'aut_user_ent_supervisor_help'}}">
+							<input id="inp_ent_uId03" type="hidden" class="objData" data-name="uId03"
+								data-validation="number" value="{{uId03}}">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="dt01" class="col-4 control-label">{{transl "aut_user_ent_dt01"}}</label>
+						<div class="col-8">
+							<input type="text" class="form-control" value="{{dateFormatLocal dt01}}" placeholder=""
+								disabled>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_dt02"}}</label>
+						<div class="col-8">
+							<input type="text" class="form-control" value="{{dateFormatLocal dt02}}" placeholder=""
+								disabled>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_dt03"}}</label>
+						<div class="col-8">
+							<input id="inp_ent_dt03" type="text" class="form-control datepicker objData"
+								value="{{dateFormatLocalShort dt03}}" placeholder="" data-name="dt03"
+								data-format="date " data-validation="date">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_user_ent_dt04"}}</label>
+						<div class="col-8">
+							<input id="inp_ent_dt04" type="text" class="form-control datepicker objData"
+								value="{{dateFormatLocalShort dt04}}" placeholder="" data-name="dt04"
+								data-format="date " data-validation="date">
+						</div>
+					</div>
+
+
+					<div class="form-group row" style="text-align:right">
+						{{#if id}}
+						<label for="btn_change_pass" class="col-4 control-label"></label>
+						<div class="col-8">
+							<button id="btn_change_pass" class="btn btn-primary objData">{{transl
+								'aut_user_change_pass'}}</button>
+						</div>
+						{{/if}}
+					</div>
+
+					<div id="div_ent_password" class="col-lg-12 col-md-12 col-sm-12 noData"
+						style="display:none; padding-left:0; padding-right:0">
+						<div class="form-group row">
+							<label class="col-4 control-label">{{transl "aut_user_ent_pass"}} *</label>
+							<div class="col-8">
+								<input id="inp_ent_pass" class="form-control objData" autocomplete="off" type="password"
+									data-name="pass01" data-validation="required" data-skip-if-hidden="1" value="" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 control-label">{{transl "aut_user_ent_pass_match"}} *</label>
+							<div class="col-8">
+								<input id="inp_ent_pass_match" class="form-control objData" autocomplete="off"
+									type="password" data-name="pass_match" data-compare="eq #inp_ent_pass"
+									data-msg="compare:aut_user_ent_pass_err_match" data-validation="required"
+									data-skip-if-hidden="1" value="" />
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- 	.......................... -->
+			</div>
+		</div>
+	</div>
+</div>

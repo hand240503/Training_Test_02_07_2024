@@ -1,0 +1,125 @@
+<!-- ------------------------------main----------------------------- -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" id="div_create_prj_appointment">
+                <div class="outer-repeater">
+                    <div data-repeater-list="outer-group" class="outer">
+                        <div data-repeater-item class="outer">
+                            <!-- name -->
+                            <div class="form-group row mb-4">
+                                <div class="col-lg-12">
+                                    <label for="projectname" class="col-form-label h5">{{transl
+                                        'prj_appointment_title'}}</label>
+                                    <div>
+                                        {{title}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- name -->
+                            <div class="form-group row mb-4">
+                                <div class="col-lg-12">
+                                    <label for="cmt03" class="col-form-label h5">{{transl
+                                        'prj_appointment_area'}}</label>
+                                    <div>
+                                        {{cmt03}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- descr01 -->
+                            <div class="row mb-4">
+                                <div class="col-lg-12">
+                                    <label for="projectdesc" class="col-form-label h5">{{transl
+                                        'prj_appointment_cmt'}}</label>
+                                    <div>
+                                        {{cmt02}}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row mb-4">
+                                <!-- date -->
+                                <div class="col-lg-6">
+                                    <label class="col-form-label h5">{{transl 'prj_project_start_date'}}</label>
+                                    <div>
+                                        {{reqFormatDate dt02}}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label class="col-form-label h5">{{transl 'prj_project_end_date'}}</label>
+                                    <div>
+                                        {{reqFormatDate dt03}}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- addr04 -->
+                            {{#if addr04}}
+                            <div class="row mb-4">
+                                <div class="col-lg-12">
+                                    <label class="col-form-label h5">{{transl 'prj_appointment_link_direct'}}</label>
+                                    <div><a href="{{addr04}}" target="_blank">{{transl
+                                            "prj_appointment_link_access"}}</a></div>
+                                </div>
+                            </div>
+                            {{/if}}
+
+                            <!-- member -->
+                            <div class="row mb-4" id="div_list_member_par">
+                                <div class="col-lg-12">
+                                    <label class="col-form-label h5">{{transl
+                                        'prj_project_member_level_worker'}}</label>
+                                    <div class="" id="div_list_member">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- customer -->
+                            <div class="mb-4" id="div_list_email_customer_par">
+                                <label class="col-form-label h5">{{transl 'prj_project_add_customer'}}</label>
+                                <div class="row justify-content-end">
+                                    <div class="col-lg-12 d-flex" id="div_list_email_customer"></div>
+                                </div>
+                            </div>
+
+                            <!-- files -->
+                            <div class="row mb-4" id="div_list_files_par">
+                                <div class="col-lg-12">
+                                    <label class="col-form-label h5">{{transl 'prj_project_attached_files'}}</label>
+                                    <div class="" id="div_list_files">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-lg-12">
+                                <div id="div_prj_docs">
+                                    <label class="col-form-label h5">{{transl 'prj_project_attached_files'}}</label>
+                                    <div>
+                                        <form class="dropzone inputfile">
+                                            <div class="fallback">
+                                                <input data-name="file" type="file" multiple />
+                                            </div>
+             
+                                            <div class="dz-message needsclick">
+                                                <div class="mb-3">
+                                                    <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                                                </div>
+                                                <h4>{{transl 'prj_project_drop_files'}}</h4>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+{
+"----------AUT RIGHT----------"			:	"----------AUT RIGHT----------",
+"aut_right_list_table"					:   "Danh mục các quyền",
+"aut_right_id"							:	"Số hiệu QL",
+"aut_right_name"						:	"Tên",
+"aut_right_grp"							:	"Nhóm",
+"aut_right_descr"						:	"Miêu tả",
+
+"aut_right_grp_aut_user"				:  "Người dùng",
+"aut_right_grp_aut_role"				:  "Vai trò",
+"aut_right_grp_aut_right"				:  "Quyền hạn",
+
+"aut_right_grp_job_holiday"					:	"Quản lý ngày nghỉ",
+"aut_right_grp_job_report"					:	"Khai báo làm việc",
+"aut_right_grp_job_off"						:	"Khai báo ngày nghỉ",
+"aut_right_grp_job_ctrl"					:	"Thiết bị kiểm soát",
+
+"aut_right_grp_sys_report"					:	"Cấu hình báo cáo tổng kết",
+"aut_right_grp_cfg_group"					:	"Cấu hình hệ thống",
+"aut_right_grp_tpy_category"				:	"Thông tin nhóm/phân loại",
+
+"aut_right_grp_mat_material"				:	"Sản phẩm",
+"aut_right_grp_mat_unit"					:	"Đơn vị xuất nhập",
+"aut_right_grp_mat_provider_pricing"		:	"Báo giá",
+"aut_right_grp_sor_pricing"					:	"Đơn giá",
+"aut_right_grp_sor_deal"					:	"Khuyến mãi",
+
+"aut_right_grp_mat_warehouse"				:	"Kho bãi",
+"aut_right_grp_mat_stock_in_order"			:	"Phiếu nhập kho",
+"aut_right_grp_mat_stock_out_order"			:	"Phiếu xuất kho",
+
+"aut_right_grp_sor_order_in"				:	"Đơn hàng nhập",
+"aut_right_grp_sor_order_out"				:	"Đơn hàng xuất",
+"aut_right_grp_inv_invoice_in"				:	"Hóa đơn nhập",
+"aut_right_grp_inv_invoice_out"				:	"Hóa đơn bán",
+"aut_right_grp_inv_balance"					:	"Thu chi",
+"aut_right_grp_inv_accounting"				:	"Kế toán",
+"aut_right_grp_inv_tax"						:	"Hệ thống thuế",
+
+"aut_right_grp_per_self"					:	"Thông tin nội bộ",
+"aut_right_grp_per_client"					:	"Khách hàng",
+"aut_right_grp_per_supplier"				:	"Nhà cung ứng",
+"aut_right_grp_per_producer"				:	"Nhà sản xuất",
+"aut_right_grp_per_thirdparty"				:	"Đối tác khác",
+"aut_right_grp_per_contract"				:	"Hợp đồng",
+
+"aut_right_"							:	"QL "
+
+}

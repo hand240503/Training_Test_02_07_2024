@@ -1,0 +1,190 @@
+{"----------AUT ROLE----------"			:	"----------AUT ROLE----------",
+
+"aut_user_list_id"						:	"ID",
+"aut_user_list_login"					:	"Tài khoản",
+"aut_user_list_email"     				:   "Email",
+"aut_user_list_tel"     				:   "ĐT",
+
+
+
+"aut_user_ent_tab_01_tabtitle"				:	"Thông tin cá nhân",
+"aut_user_ent_tab_02_tabtitle"				:	"Chức vụ",
+"aut_user_ent_tab_files_tabtitle"			:	"Đính kèm",
+"aut_user_ent_tab_cat"						:	"Cấp bậc",
+"aut_user_ent_tab_cat_tabtitle"				:	"Cấp bậc tư vấn viên",
+
+
+"aut_user_list_type_Agent"				:	"Nhân viên và cộng tác viên",
+"aut_user_list_type_Adm"				:	"Quản trị viên",
+"aut_user_list_type_Cand"				:	"Người cần tìm việc",
+"aut_user_list_type_Recr"				:	"Người cung cấp việc làm",
+"aut_user_list_stat_new"				:	"Tài khoản chờ xác thực",
+"aut_user_list_stat_review"				:	"Tài khoản cần kiểm tra",
+"aut_user_list_stat_deleted"     		:   "Tài khoản  bị xóa",
+
+
+
+
+"aut_user_ent_avatar"			:	"Ảnh đại diện",
+"aut_user_ent_login01"			:	"Tên đăng nhập",
+
+"aut_user_ent_name"				:	"Tên người dùng",
+"aut_user_ent_person_help"		:	"Chọn thông tin người dùng",
+
+"aut_user_ent_email"			:	"Email",
+"aut_user_ent_tel"				:	"Điện thoại",
+"aut_user_ent_inf"				:	"Thông tin khác",
+
+"aut_user_ent_dt01"				:	"Ngày tạo",
+"aut_user_ent_dt02"				:	"Ngày chỉnh sửa",
+"aut_user_ent_dt03"				:	"Ngày giới hạn",
+
+"aut_user_ent_stat"				:	"Trạng thái",
+"aut_user_ent_stat_0"			:	"Chưa kích hoạt",
+"aut_user_ent_stat_1"			:	"Kích hoạt",
+"aut_user_ent_stat_5"			:	"Cần xem xét",
+"aut_user_ent_stat_10"			:	"Đã xóa",
+
+
+"aut_user_ent_typ"			:	"Kiểu người dùng",
+"aut_user_ent_typ01_adm"  		:   "Quản trị viên",
+"aut_user_ent_typ01_agent"  	:   "Nhân viên và cộng tác viên",
+"aut_user_ent_typ02_cand"  		:   "Người cần tìm việc làm",
+"aut_user_ent_typ02_recr"  		:   "Người cung cấp việc làm",
+
+"aut_user_ent_societe"			:	"Tổ chức quản lý",
+"aut_user_ent_societe_help"		:	"Chọn tổ chức",
+
+"aut_user_ent_supervisor"		:	"Người dùng quản lý",
+"aut_user_ent_supervisor_help"	:	"Chọn quản lý trực tiếp cho người dùng này",
+
+"aut_user_change_pass"			:	"Thay đổi mật khẩu",
+"aut_user_ent_pass"				:	"Mật khẩu",
+"aut_user_ent_pass_match"		:	"Xác nhận lại",
+"aut_user_ent_pass_err_match"	:	"Mật khẩu không đồng nhất",
+
+"aut_user_ent_affiliate"       	:   "Người giới thiệu",
+
+"aut_user_ent_category"       	:   "Lĩnh vực",
+
+"aut_user_ent_cost"				:	"Mức lương mong muốn (giờ)",
+
+"aut_user_ent_free_time"		:	"Chọn thời gian rảnh",
+
+"aut_user_ent_create_time"		:	"Thêm thời gian",
+
+"aut_user_btn_save"             : "Lưu thay đổi",
+
+"aut_user_ent_time_list"        : "Danh sách thời điểm",
+
+"--------------------"			:	"--------------------",
+
+
+"aut_user_ent_tab_role_title"			:	"Vai trò của người dùng",
+"aut_user_ent_tab_role_name"			: 	"Vai trò",
+"aut_user_ent_tab_role_inf"				: 	"Miêu tả",
+"aut_user_ent_free_time"                :   "Thời gian rảnh",
+
+"aut_role_list_header_title"			:	"Danh sách vai trò",
+"aut_role_msg_save_content"				:	"Bạn có chắc chắn muốn lưu những thay đổi này?",
+"aut_role_edit_cancel_content"			:	"Bạn có chắc chắn muốn hủy bỏ tất cả những thay đổi hiện tại?",
+"aut_role_msg_del_content"				:	"Bạn có chắc chắn muốn xóa những dữ liệu này?",
+
+"aut_role_lst_filter"					:	"Công ty",
+
+"aut_role_list_code"					:	"Mã số",
+"aut_role_list_name"					:	"Tên",
+"aut_role_list_domain"					:	"Nhóm",
+
+"aut_role_dt01"							:	"Ngày bắt đầu",
+"aut_role_dt02"							:	"Ngày kết thúc",
+
+"aut_role_ent_code"				:	"Mã số",
+"aut_role_ent_name"				:	"Tên",
+"aut_role_ent_descr"			:   "Mô tả",
+"aut_role_ent_domain"			:	"Nhóm",
+
+"aut_ent_tab_doc_all"				:	"Tập tin đính kèm",
+
+"aut_user_ent_tab01_legalstat"			:	"Chức danh",
+"aut_user_ent_tab01_name_01"			:	"Họ",
+"aut_user_ent_tab01_name_02"			:	"Tên đệm",
+"aut_user_ent_tab01_name_03"			:	"Tên",
+"aut_user_ent_tab01_info02"			    :	"Nghề nghiệp hiện tại",
+"aut_user_ent_tab01_info04_i"			:	"Số CMND",
+"aut_user_ent_tab01_info04_d"			:	"Ngày cấp",
+"aut_user_ent_tab01_info04_p"           :   "Nơi cấp",
+"aut_user_ent_tab01_info05_f"           :   "Tk Facbook",
+"aut_user_ent_tab01_info05_i"           :   "Tk Instagram",
+"aut_user_ent_tab01_info05_l"           :   "Tk Linkedin",
+"aut_user_ent_tab01_info05_g"           :   "Tk Google",
+"aut_user_ent_tab01_info05_t"           :   "Tk Twitter",
+"aut_user_ent_tab01_info07"             :   "Địa chỉ",
+"aut_user_ent_tab01_dtBirthday"			:	"Ngày sinh",
+"aut_user_ent_tab01_info09"				:	"Số điện thoại",
+
+"aut_user_ent_tab_post"						:	"Bài đăng",
+"aut_user_ent_tab_post_title"				:	"Tiêu đề",
+"aut_user_ent_tab_post_cont01"				:	"Nội dung",
+"aut_user_ent_tab_post_stat"				:	"Trạng thái",
+"aut_user_ent_tab_post_file"				:	"Đính kèm",
+"aut_user_ent_tab_post_stat_draft"			:	"Nháp",
+"aut_user_ent_tab_post_stat_not_validated"	:	"Chưa xác nhận",
+"aut_user_ent_tab_post_stat_validated"		:	"Đã xác nhận",
+"aut_user_ent_tab_post_stat_reported"		:	"Bị báo cáo",
+"aut_user_ent_tab_post_stat_deleted"		:	"hủy bỏ",
+
+"aut_user_ent_tab_contact"					:	"Mối quan hệ",
+"aut_user_ent_tab_contact_name"				:	"Họ và tên",
+"aut_user_ent_tab_contact_relation"			:	"Mối quan hệ",
+"aut_user_ent_tab_contact_addr"				:	"Địa chỉ",
+"aut_user_ent_tab_contact_code_postal"		:	"Mã vùng",
+"aut_user_ent_tab_contact_city"				:	"Thành phố",
+"aut_user_ent_tab_contact_tel"				:	"Số điện thoại",
+"aut_user_ent_tab_contact_email"			:	"Email",
+"aut_user_ent_tab_contact_relation_01"      :   "Bố",
+"aut_user_ent_tab_contact_relation_02"      :   "Mẹ",
+"aut_user_ent_tab_contact_relation_03"      :   "Anh, chị",
+"aut_user_ent_tab_contact_relation_04"      :   "Em trai, em gái",
+"aut_user_ent_tab_contact_relation_05"      :   "Ông bà",
+"aut_user_ent_tab_contact_relation_06"      :   "Bạn thân",
+"aut_user_ent_tab_contact_relation_07"      :   "Khác",
+
+
+
+"aut_role_tab_01_read"      			:   "Xem",
+"aut_role_tab_01_add"      				:   "Thêm",
+"aut_role_tab_01_modify"      			:   "Chỉnh sửa",
+"aut_role_tab_01_delete"      			:   "Xóa",
+"aut_role_tab_01_report"      			:   "Tổng hợp",
+"aut_role_tab_01_quick_check"      		:   "Chọn nhanh",																							
+
+"role_aut_user"      					:   "Quản lý người dùng",
+"role_aut_author"      					:   "Quản lý quyền hạn",
+"role_per_client"      					:   "Quản lý khách hàng",
+"role_per_company"      				:   "Quản lý doanh nghiệp",
+"role_per_supl"      					:   "Quản lý nhà phân phối",
+"role_per_prod"      					:   "Quản lý nhà sản xuất",
+"role_per_tpart"      					:   "Quản lý đối tác",
+"role_per_other"      					:   "Quản lý khác",
+"role_per_branch"      					:   "Quản lý chi nhánh",
+"role_per_department"      				:   "Quản lý phòng ban",
+"role_mat_material_simple"      		:   "Quản lý sản phẩm đơn lẻ",
+"role_mat_material_complex"      		:   "Quản lý sản phẩm phức hợp",
+"role_mat_material_unit"      			:   "Quản lý đơn vị",
+"role_mat_material_price"      			:   "Quản lý giá bán",
+"role_mat_material_warehouse"      		:   "Quản lý kho hàng",
+"role_mat_material_stock"      		    :   "Quản lý tồn kho",
+"role_mat_material_alarm"      		    :   "Quản lý báo động",
+"role_sor_order_in_stk_buy"      		:   "Quản lý nhập kho mua",
+"role_sor_order_in_stk_shop"      		:   "Quản lý nhập kho do chuyển kho",
+"role_sor_order_in_stk_bal"      		:   "Quản lý nhập kho cân bằng",
+"role_sor_order_in_stk_other"      		:   "Quản lý nhập kho khác",
+"role_sor_order_in_info"      		    :   "Báo giá nhập",
+"role_sor_order_ou_info"      		    :   "Báo giá xuất",
+"role_sor_order_out_stk_sell"      		:   "Quản lý xuất kho bán",
+"role_sor_order_out_stk_shop"      		:   "Quản lý xuất kho do chuyển kho",
+"role_sor_order_out_stk_bal"      		:   "Quản lý xuất kho cân bằng",
+"role_sor_order_out_stk_other"      	:   "Quản lý xuất kho khác",
+"role_sor_order_deal"      				:   "Quản lý khuyến mãi"
+}

@@ -1,0 +1,36 @@
+<div class="box box-default box-solid" data-right="view:10000">
+	<div class="card">
+		<div class="card-body">
+			<div class="media">
+				<div class="col-sm-10">
+					<h4 class="card-title mb-4 shp_font_size">{{transl  title}}</h4>
+				</div>
+
+				<div class="col-sm-2">
+					<div class="text-sm-right">
+						<a data-divtoogle="#div_List_Stat_{{stat}}" class="btn-resize"> 
+							<i class="mdi mdi-window-minimize font-size-18"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="shp_table_padding" id="div_List_Stat_{{stat}}">
+				<table class="table table-striped table-hover table-datatableDyn  table-centered table-nowrap">
+					<thead>
+						<tr>
+							<th data-name="id" 		data-visible="false">ID</th>
+							<th data-name="name01" 	data-visible="true">{{transl "per_person_list_name"}}</th>
+							<th data-name="code01" 	data-visible="true">{{transl "per_person_list_code01"}}</th>
+							<th data-name="code02" 	data-visible="true">{{transl "per_person_list_code02"}}</th>
+							<th data-name="code07" 	data-visible="true">{{transl "per_person_list_email"}}</th>
+							<th data-name="code09" 	data-visible="true">{{transl "per_person_list_phone"}}</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

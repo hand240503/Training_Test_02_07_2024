@@ -1,0 +1,162 @@
+<div class="box-header with-border">
+	<h3 class="box-title"></h3>
+</div>
+
+<div class="form-horizontal custom-scroll-header">
+	<div class="box-body">
+		<input id="inp_per_contract_id" type="hidden" class="objData" value="{{id}}" data-name="id" />
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div class="form-group">
+				<label for="inp_per_contract_code" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_code"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input id="inp_per_contract_code" class="form-control objData" type="text" value="{{code}}" data-name="code"
+						data-validation="alphanumeric" data-msgClass="errMsgInline" data-disable="2"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inp_per_contract_title" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_title"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input id="inp_per_contract_title" class="form-control objData" type="text" value="{{title}}" data-name="title"
+						data-validation="alphanumeric" data-accept=" " data-msgClass="errMsgInline" data-disable="2"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="inp_per_contract_pers01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_pers01"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">				
+					<input class="objData" type="hidden" value="{{pers01}}" data-name="pers01" id="pers01"/>
+				 	<input id="inp_per_contract_pers01" class="form-control img_inp_search objData" type="text" value="{{pers01Label}}"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="inp_per_contract_pers02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_pers02"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">				
+					<input class="objData" type="hidden" value="{{pers02}}" data-name="pers02" id="pers02"/>
+				 	<input id="inp_per_contract_pers02" class="form-control img_inp_search objData" type="text" value="{{pers02Label}}"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inp_per_contract_parent" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_parent"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">				
+					<input class="objData" type="hidden" value="{{parent}}" data-name="parent" id="parent"/>
+				 	<input id="inp_per_contract_parent" class="form-control img_inp_search objData" type="text" value="{{parLabel}}"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sel_per_contract_stat" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_stat"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_per_contract_stat" class="form-control objData" data-name="stat"
+						data-validation="alphanumeric" data-msgClass="errMsgInline" data-disable="2">
+						<option value="">{{transl "common_sel_null"}}</option>
+						<option value="0" {{#ifCond stat "==" 0}}selected{{/ifCond}}>{{transl "per_contract_ent_stat_0"}}</option>
+						<option value="1" {{#ifCond stat "==" 1}}selected{{/ifCond}}>{{transl "per_contract_ent_stat_1"}}</option>
+						<option value="2" {{#ifCond stat "==" 2}}selected{{/ifCond}}>{{transl "per_contract_ent_stat_2"}}</option>
+						<option value="3" {{#ifCond stat "==" 3}}selected{{/ifCond}}>{{transl "per_contract_ent_stat_3"}}</option>
+					</select>
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div class="form-group">
+				<label for="inp_per_contract_dt04" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_dt04"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input id="inp_per_contract_dt04" class="form-control objData datepicker" type="text" value="{{dateFormatLocalShort dt04}}" data-name="dt04"
+						data-validation="required date" data-format="date" data-msgClass="errMsgInline" data-disable="2"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inp_per_contract_dt05" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_dt05"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input id="inp_per_contract_dt05" class="form-control objData datepicker" type="text" value="{{dateFormatLocalShort dt05}}" data-name="dt05"
+						data-validation="date" data-format="date" data-msgClass="errMsgInline" data-disable="2"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inp_per_contract_dt06" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_dt06"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input id="inp_per_contract_dt06" class="form-control objData datepicker" type="text" value="{{dateFormatLocalShort dt06}}" data-name="dt06"
+						data-validation="date" data-format="date" data-msgClass="errMsgInline" disabled/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inp_per_contract_dt01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_dt01"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input id="inp_per_contract_dt01" class="form-control datepicker" type="text" value="{{dateFormatLocalShort dt01}}" data-name="dt01"
+						data-validation="date" data-format="date" data-msgClass="errMsgInline" disabled/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inp_per_contract_dt02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_dt02"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input id="inp_per_contract_dt02" class="form-control datepicker" type="text" value="{{dateFormatLocalShort dt02}}" data-name="dt02"
+						data-validation="date" data-format="date" data-msgClass="errMsgInline" disabled/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sel_per_contract_typ01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_typ01"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_per_contract_typ01" class="form-control objData" data-name="typ01"
+						data-validation="alphanumeric" data-msgClass="errMsgInline" data-disable="2">
+						<option value="">{{transl "common_sel_null"}}</option>
+						<option value="1" {{#ifCond typ01 "==" 1}}selected{{/ifCond}}>{{transl "per_contract_ent_typ01_1"}}</option>
+						<option value="2" {{#ifCond typ01 "==" 2}}selected{{/ifCond}}>{{transl "per_contract_ent_typ01_2"}}</option>
+						<option value="3" {{#ifCond typ01 "==" 3}}selected{{/ifCond}}>{{transl "per_contract_ent_typ01_3"}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sel_per_contract_typ02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_typ02"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_per_contract_typ02" class="form-control objData" data-name="typ02"
+						data-validation="alphanumeric" data-msgClass="errMsgInline" data-disable="2">
+						<option value="">{{transl "common_sel_null"}}</option>
+						<option value="1" {{#ifCond typ02 "==" 1}}selected{{/ifCond}}>{{transl "per_contract_ent_typ02_1"}}</option>
+						<option value="2" {{#ifCond typ02 "==" 2}}selected{{/ifCond}}>{{transl "per_contract_ent_typ02_2"}}</option>
+						<option value="3" {{#ifCond typ02 "==" 3}}selected{{/ifCond}}>{{transl "per_contract_ent_typ02_3"}}</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="inp_per_contract_inter" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_inter"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input id="inp_per_contract_inter" class="form-control objData" type="text" value="{{inter}}" data-name="inter"
+						data-validation="double" data-msgClass="errMsgInline" data-disable="2"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="sel_per_contract_unitId" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_unitId"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_per_contract_unitId" class="form-control objData" data-name="unitId"
+						data-validation="alphanumeric" data-msgClass="errMsgInline" data-disable="2">
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group" id="div_per_contract_societe">
+				<label for="inp_per_contract_societe" class="col-md-4 col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_contract_ent_header_societe"}}</label>
+				<div class="col-md-8 col-lg-8 col-md-8 col-sm-8">
+					<input type="hidden" class="objData" data-name="manId" id ="socId" value="{{manId}}">
+					<input type="text" class="form-control objData" id="inp_per_contract_societe" value="{{name01}}" placeholder="{{transl 'per_contract_ent_header_societe_help'}}">
+				</div>
+			</div>	
+			
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,2157 @@
+package com.hnv.api.service.sub.aut;
+
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
+import org.jsoup.Jsoup;
+
+import com.hnv.api.def.DefAPI;
+import com.hnv.api.def.DefJS;
+import com.hnv.api.def.DefRight;
+import com.hnv.api.def.DefTime;
+import com.hnv.api.interf.IService;
+import com.hnv.api.main.API;
+import com.hnv.api.model.aut.TaAutAuthorization;
+import com.hnv.api.model.aut.TaAutUser;
+import com.hnv.api.model.per.TaPerPerson;
+import com.hnv.api.model.tpy.TaTpyCategoryEntity;
+import com.hnv.api.model.tpy.TaTpyDocument;
+import com.hnv.api.model.tpy.TaTpyInformation;
+import com.hnv.api.service.sub.APIAuth;
+import com.hnv.api.service.sub.ResultPagination;
+import com.hnv.api_interface.LockInterface;
+import com.hnv.common.tool.ToolData;
+import com.hnv.common.tool.ToolJSON;
+import com.hnv.common.tool.ToolLogServer;
+import com.hnv.common.tool.ToolSet;
+import com.hnv.common.util.CacheData;
+import com.hnv.common_tool.DateTool;
+import com.hnv.common_tool.ToolSet;
+import com.hnv.common_tool.StringTool;
+import com.hnv.data.json.JSONArray;
+import com.hnv.data.json.JSONObject;
+import com.hnv.ec.api.service.job.ServiceJobPosition;
+import com.hnv.ec.api.service.per.ServicePerPerson;
+import com.hnv.ec.db.config.DBConfig;
+import com.hnv.ec.db.model.aut.TaAutUserRight;
+import com.hnv.ec.db.model.aut.ViAutUserInfo;
+import com.hnv.ec.db.model.aut.ViAutUserInfoMentor;
+import com.hnv.ec.db.model.aut.ViAutUserPerson;
+import com.hnv.ec.db.model.job.TaJobPosition;
+import com.hnv.ec.db.model.per.TaPerPersonPosition;
+import com.hnv.tool.api.main.AutTool;
+import com.hnv.tool.api.main.CategoryTool;
+import com.hnv.tool.api.main.DocTool;
+import com.hnv.tool.api.main.InfoTool;
+import com.hnv.tool.api.main.LockTool;
+import com.hnv.tool.api.service.ServiceAuthentification;
+import com.hnv.tool.db.tpy_cfg.model.TaTpyCalendar;
+import com.hnv.tool.db.tpy_cfg.model.TaTpyRelationship;
+
+
+/**
+ * ----- ServiceAutUser by H&V
+ * ----- Copyright 2017------------
+ */
+public class ServiceAutUser_tmp implements IService {
+
+	//--------------------------------Service Definition----------------------------------
+	public static final String SV_MODULE 				= "EC_V3".toLowerCase();
+
+	public static final String SV_CLASS 				= "ServiceAutUser".toLowerCase();	
+
+	public static final String SV_GET 				= "SVGet".toLowerCase();	
+	public static final String SV_LST 				= "SVLst".toLowerCase();
+	public static final String SV_LST_WITH_PERSON 	= "SVLstWithPerson".toLowerCase();
+	public static final String SV_LST_DYN			= "SVLstDyn".toLowerCase();
+	
+	public static final String SV_FIN_LST_DYN		= "SVFinLstDyn".toLowerCase();
+
+	public static final String SV_DO_PER_USER_LST_EMP       	= "SVLstEmp".toLowerCase();
+
+	public static final String SV_NEW 		= "SVNew".toLowerCase();
+	public static final String SV_NEW_WADM	= "SVNewWADM".toLowerCase(); // new user in workadm
+	public static final String SV_MOD 		= "SVMod".toLowerCase();	
+	public static final String SV_DEL 		= "SVDel".toLowerCase();
+
+	public static final String SV_NEW_FB		= "SVNewFB".toLowerCase();	
+	public static final String SV_NEW_GG		= "SVNewGG".toLowerCase();
+	public static final String SV_NEW_SIMPLE 	= "SVNewSimple".toLowerCase();	
+
+	public static final String SV_FILES		= "SVFiles".toLowerCase();	
+
+	public static final String SV_LCK_REQ 	= "SVLckReq".toLowerCase(); //req or refresh	
+	public static final String SV_LCK_SAV 	= "SVLckSav".toLowerCase(); //save and continue
+	public static final String SV_LCK_END 	= "SVLckEnd".toLowerCase();
+	public static final String SV_LCK_DEL 	= "SVLckDel".toLowerCase();
+
+	public static final String SV_SEARCH	= "SVSearch".toLowerCase();
+	public static final String SV_SEARCH_UI	= "SVSearchUI".toLowerCase();
+
+	public static final String SV_CALENDAR_NEW		= "SVCalendarNew".toLowerCase();
+	public static final String SV_CALENDAR_MOD		= "SVCalendarMod".toLowerCase();
+	public static final String SV_CALENDAR_DEL		= "SVCalendarDel".toLowerCase();
+	public static final String SV_CALENDAR_LST		= "SVCalendarLst".toLowerCase();
+
+	public static final String SV_PROFILE_MOD		= "SVProfileMod".toLowerCase();
+
+	public static final String SV_WITH_CV_LST_GRID		= "SVWithCvLstGrid".toLowerCase();
+	public static final String SV_WITH_CV_GET 		= "SVWithCvGet".toLowerCase();	
+
+	//-----------------------------------------------------------------------------------------------
+	//-------------------------Default Constructor - Required -------------------------------------
+	public ServiceAutUser_tmp(){
+		ToolLogServer.doLogInf("----" + SV_CLASS + " is loaded -----");
+	}
+
+	//-----------------------------------------------------------------------------------------------
+
+	@Override
+	public void doService(JSONObject json, HttpServletResponse response) throws Exception {
+		String 		sv 		= API.reqSVFunctName(json);
+		TaAutUser 	user	= (TaAutUser) json.get("userInfo");
+
+		try {
+			if(sv.equals(SV_GET)				&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_G)){
+				doAutUserGet(user, json, response);
+			} else if(sv.equals(SV_LST)			&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_G)){
+				doAutUserLst(user, json, response);
+			} else if(sv.equals(SV_LST_WITH_PERSON)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_G)){
+				doAutUserLstWithPerson(user, json, response);
+			}  else  if(sv.equals(SV_LST_DYN)	&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_G)){
+				doAutUserListDyn(user, json, response);
+			}  else  if(sv.equals(SV_SEARCH)	&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_G)){
+				doAutUserSearch(user, json, response);
+			}  else  if(sv.equals(SV_SEARCH_UI)	&& APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserSearchUI(user, json, response);
+
+			}  else  if(sv.equals(SV_FIN_LST_DYN)	&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_G)){
+				doAutUserFinListDyn(user, json, response);
+
+			}  else if(sv.equals(SV_DO_PER_USER_LST_EMP)	&&  APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserLstEmp(user, json, response);
+			}  else if(sv.equals(SV_NEW)		){ //chua check quyeen vi co new user la thanh vien dang ky public
+				doAutUserNew(user, json, response);
+			
+			}  else if(sv.equals(SV_NEW_WADM)		){
+				doAutUserNew_WorkADM(user, json, response);
+			
+			} else if(sv.equals(SV_MOD)			&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_M)){
+				doAutUserMod(user, json, response);
+			} else  if(sv.equals(SV_DEL)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_D)){
+				doAutUserDel(user, json, response);
+
+			} else if(sv.equals(SV_NEW_FB)		){
+				doAutUserNewFB(user, json, response);
+			} else if(sv.equals(SV_NEW_GG)		){
+				doAutUserNewGG(user, json, response);
+			} else if(sv.equals(SV_NEW_SIMPLE)		){
+				doAutUserNewSimple(user, json, response);
+				
+
+			} else if(sv.equals(SV_LCK_REQ)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_M)){
+				doAutUserLckReq(user, json, response);
+			} else if(sv.equals(SV_LCK_SAV)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_M)){
+				doAutUserLckSav(user, json, response);
+			} else if(sv.equals(SV_LCK_END)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_M)){
+				doAutUserLckEnd(user, json, response);
+			} else if(sv.equals(SV_LCK_DEL)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_M)){
+				doAutUserLckDel(user, json, response);
+
+			}else if(sv.equals(SV_CALENDAR_NEW)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserCalendarNew(user, json, response);
+
+			}else if(sv.equals(SV_CALENDAR_MOD)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserCalendarMod(user, json, response);
+
+			}else if(sv.equals(SV_CALENDAR_DEL)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserCalendarDel(user, json, response);
+
+			}else if(sv.equals(SV_CALENDAR_LST)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserCalendarLst(user, json, response);
+
+			}else if(sv.equals(SV_PROFILE_MOD)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserProfileMod(user, json, response);
+
+			}else if(sv.equals(SV_WITH_CV_LST_GRID)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserMentorList(user, json, response);
+			}else if(sv.equals(SV_WITH_CV_GET)		&& APIAuth.canAuthorize(user, DefRight.RIGHT_)){
+				doAutUserMentorGet(user, json, response);
+
+			} else {
+				API.doResponse(response, DefAPI.API_MSG_ERR_UNKNOW);
+			}	
+
+		}catch(Exception e){
+			API.doResponse(response, DefAPI.API_MSG_ERR_API);
+		}
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+
+	private static final int WORK_GET 	= 1;
+	private static final int WORK_LST 	= 2;
+	private static final int WORK_NEW 	= 3;
+	private static final int WORK_MOD 	= 4;
+	private static final int WORK_DEL 	= 5;
+	private static final int WORK_UPL 	= 10; //upload
+
+	private static boolean canWorkWithObj ( TaAutUser user, int typWork, Object...params){
+		if (params==null|| params.length==0 || user==null) return false;
+		int userType	= (int) user.req(TaAutUser.ATT_I_TYPE);
+		if (userType== TaAutUser.TYPE_01_ADM_ALL) return true;
+
+		if (((String)user.req(TaAutUser.ATT_T_LOGIN)).toLowerCase().equals("adm")) return true;
+
+		switch(typWork){
+
+		case WORK_MOD : 
+		case WORK_GET : 
+		case WORK_DEL :
+			TaAutUser 	uInfo 	= (TaAutUser)params[0];	
+			Integer			soc1 	= user.reqPerManagerId();
+			if (userType== TaAutUser.TYPE_01_ADM && soc1.equals(1)) return true;
+
+			Integer			soc2 	= (Integer) uInfo.req(TaAutUser.ATT_I_PER_MANAGER);
+			if (soc1 != null && soc2 != null && !soc1.equals(soc2)) {
+				return false;
+			}	
+
+			return true;
+		case WORK_LST : 	return true;
+		case WORK_NEW : 
+			//check something with params
+
+			//check the login is unique
+			JSONObject 		u 			= (JSONObject)params[0];	
+			
+			boolean 		forPublic 	= (boolean)params[1];	
+			if (!forPublic && !APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_N)) return false;
+			
+			String 			log		= (String)u.get("login");
+			String 			email	= (String)u.get("email");
+			if (log==null||log.equals("")||email==null||email.equals("")) return false;
+			try {
+				TaAutUser	chk		= TaAutUser.DAO.reqEntityByValue(TaAutUser.ATT_T_LOGIN, log);
+				if (chk!=null) return false;
+				chk		= TaAutUser.DAO.reqEntityByValue(TaAutUser.ATT_T_INFO_01, email);
+				if (chk!=null) return false;
+			}catch(Exception e) {
+
+			}			
+
+			return true;
+		}
+
+		return false;
+	}
+	
+	private static boolean canWorkWithObjSimple ( TaAutUser user, int typWork, Object...params){
+		if (params==null|| params.length==0 || user==null) return false;
+		int userType	= (int) user.req(TaAutUser.ATT_I_TYPE);
+		if (userType== TaAutUser.TYPE_01_ADM_ALL) return true;
+
+		if (((String)user.req(TaAutUser.ATT_T_LOGIN)).toLowerCase().equals("adm")) return true;
+
+		switch(typWork){
+
+		case WORK_MOD : 
+		case WORK_GET : 
+		case WORK_DEL :
+			TaAutUser 	uInfo 	= (TaAutUser)params[0];	
+			Integer			soc1 	= user.reqPerManagerId();
+			if (userType== TaAutUser.TYPE_01_ADM && soc1.equals(1)) return true;
+
+			Integer			soc2 	= (Integer) uInfo.req(TaAutUser.ATT_I_PER_MANAGER);
+			if (soc1 != null && soc2 != null && !soc1.equals(soc2)) {
+				return false;
+			}	
+
+			return true;
+		case WORK_LST : 	return true;
+		case WORK_NEW : 
+			//check something with params
+
+			//check the login is unique
+			JSONObject 		u 			= (JSONObject)params[0];	
+			
+			boolean 		forPublic 	= (boolean)params[1];	
+			if (!forPublic && !APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_N)) return false;
+			
+			String 			log		= (String)u.get("login");
+			if (log==null||log.equals("")) return false;
+			try {
+				TaAutUser	chk		= TaAutUser.DAO.reqEntityByValue(TaAutUser.ATT_T_LOGIN, log);
+				if (chk!=null) return false;
+			}catch(Exception e) {
+
+			}			
+
+			return true;
+		}
+
+		return false;
+	}
+	//---------------------------------------------------------------------------------------------------------
+	private void doAutUserListDyn(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception {
+		// if user is a super-adm => manId = null, show all other user
+		Integer					manId					= user.reqPerManagerId();
+		Integer					socId 					= API.reqParamInt(request, "socId");
+		Integer 				type 					= API.reqParamInt(request, "type", null);
+		String 					typeMulti				= ToolData.reqStr (json, "typeMulti"	, null);
+		Integer 				stat 					= API.reqParamInt(request, "stat", null);
+
+		Object[] 				dataTableOption 		= reqDataTableOption(request);		
+
+		if(socId != null) 		manId					= socId;
+
+		Set<Integer>			status					= new HashSet<Integer>();
+		if(stat == null) {
+			status.add(TaAutUser.STAT_ACTIVE);
+			status.add(TaAutUser.STAT_WAITING);
+			status.add(TaAutUser.STAT_INACTIVE);
+		} else
+			status.add(stat);
+
+
+		if (!canWorkWithObj(user, WORK_LST, manId)){
+			API.doResponse(response,ToolJSON.reqJSonString(		//filter,
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO));	
+			return ;
+		}
+
+		int 					userType				= (int) user.req(TaAutUser.ATT_I_TYPE);
+
+		if (manId==1)
+			if (userType== TaAutUser.TYPE_01_ADM || userType== TaAutUser.TYPE_01_ADM_ALL) manId = null;
+		List<ViAutUserInfo> 	autUserList 			= reqViAutUserListDyn(manId, status, typeMulti, type, null, dataTableOption);
+
+		// List<TaMatCalendarDyn> materialCalendarList = reqMatCalendarListDyn((int)beginDisplay, (int)nbDisplay, keyword);
+		// PG-1900: Fix for sorting ascending or descending Calendar List - END.
+		if (autUserList==null ){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+
+		JSONArray aaData = new JSONArray();
+		Set<Integer> 				manIds 	= ToolSet.reqSetInt(autUserList, ViAutUserInfo.ATT_I_PER_MANAGER);
+		Map<Integer, TaPerPerson>	manPer	= manIds.size()>0?TaPerPerson.DAO.reqMap(Restrictions.in(TaPerPerson.ATT_I_ID, manIds)): new HashMap<Integer, TaPerPerson>();
+
+		for (ViAutUserInfo u : autUserList){					
+			int 	id 			= (Integer) u.req(ViAutUserInfo.ATT_I_ID);
+			String 	login	 	= (String) 	u.req(ViAutUserInfo.ATT_T_LOGIN);
+			String 	name01		= (String) 	u.req(ViAutUserInfo.ATT_T_NAME_01);
+			String 	name02		= (String) 	u.req(ViAutUserInfo.ATT_T_NAME_02);
+			String 	name03		= (String) 	u.req(ViAutUserInfo.ATT_T_NAME_03);
+
+			String 	name		= (name01!=null?name01+ " ":"") +  (name02!=null?name02+" ":"")  + (name03!=null?name03:"");
+			name				= name.trim();
+
+			Integer	idMan 		= (Integer) u.req(ViAutUserInfo.ATT_I_PER_MANAGER);
+			String  manName 	= "";
+
+			if (idMan!=null) {
+				TaPerPerson per    	= manPer.get(idMan);
+
+				if (per!=null) {
+					String 	pN01		= (String) 	per.req(TaPerPerson.ATT_T_NAME_01);
+					String 	pN02		= (String) 	per.req(TaPerPerson.ATT_T_NAME_02);
+					String 	pN03		= (String) 	per.req(TaPerPerson.ATT_T_NAME_03);
+					manName				= (pN01!=null?pN01+ " ":"") +  (pN02!=null?pN02+ " ":"")  + (pN03!=null?pN03:"");
+					manName             = manName.trim();
+				}
+			}
+
+
+			JSONObject o	= new JSONObject();
+			o.put("id"			, id);
+			o.put("login"		, login);					
+			o.put("name"		, name);
+			o.put("manName"		, manName);
+
+			aaData.add(o);
+		}
+
+		//Integer	countAllEle = reqViStockIOOrderListDyn();
+		Integer iTotalRecords 			= reqViAutUserListDynCount(manId, status, typeMulti, type);				
+		Integer iTotalDisplayRecords 	= reqViAutUserListDynCount(manId, status, typeMulti, type, dataTableOption);
+
+		API.doResponse(response,ToolJSON.reqJSonString(		//filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,					
+				"iTotalRecords"				, iTotalRecords,
+				"iTotalDisplayRecords"		, iTotalDisplayRecords,
+				"aaData"					, aaData.toString()
+				));		
+
+
+
+	}
+
+	private void doAutUserSearch(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception {
+		// if user is a super-adm => manId = null, show all other user
+		Integer					manId					= user.reqPerManagerId();
+		Integer 				type 					= ToolData.reqInt (json, "type"		, null);
+		String 					typeMulti				= ToolData.reqStr (json, "typeMulti"	, null);
+		Integer 				typeDif 				= ToolData.reqInt (json, "typeDif"		, null);
+		String					searchkey				= ToolData.reqStr (json, "searchkey"	, "%");
+		Integer					nbLineMax				= ToolData.reqInt (json, "nbLine"		, 20);
+		String					stat					= ToolData.reqStr (json, "stat"        , TaAutUser.STAT_ACTIVE+"");
+
+		Set<Integer>			status					= ToolSet.reqSetInt(stat); //new ArrayList<Integer>();
+		//		status.add(TaAutUser.STAT_ACTIVE); status.add(TaAutUser.STAT_WAITING); status.add(TaAutUser.STAT_INACTIVE);
+
+		List<ViAutUserInfo> 	autUserList 			= reqViAutUserListSearch(manId, status, typeMulti, type, typeDif, searchkey, nbLineMax);
+
+		// List<TaMatCalendarDyn> materialCalendarList = reqMatCalendarListDyn((int)beginDisplay, (int)nbDisplay, keyword);
+		// PG-1900: Fix for sorting ascending or descending Calendar List - END.
+		if (autUserList==null){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+
+		JSONArray aaData = new JSONArray();
+		for (ViAutUserInfo stockIO : autUserList){					
+			int 	id 			= (Integer) stockIO.req(ViAutUserInfo.ATT_I_ID);
+			String 	login	 	= (String) 	stockIO.req(ViAutUserInfo.ATT_T_LOGIN);
+			String 	name		= (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_01);
+			name += (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_02) == null ? "": " " + (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_02);
+			name += (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_03) == null ? "": " " + (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_03);
+			String 	email		= (String)	stockIO.req(ViAutUserInfo.ATT_T_EMAIL);
+			Integer perId		= (Integer)	stockIO.req(ViAutUserInfo.ATT_I_PER_PERSON);
+
+			JSONObject o	= new JSONObject();
+			o.put("id"			, id);
+			o.put("login"		, login);					
+			o.put("name"		, name);
+			o.put("email"		, email);					
+			o.put("perId"		, perId);
+
+			aaData.add(o);
+		}
+
+		API.doResponse(response,ToolJSON.reqJSonString(		//filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,			
+				DefJS.RES_DATA		, aaData
+				));		
+	}
+	private void doAutUserSearchUI(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception {
+		// if user is a super-adm => manId = null, show all other user
+		Integer					manId					= user.reqPerManagerId();
+		Integer 				type 					= ToolData.reqInt (json, "type"		, null);
+		String 					typeMulti				= ToolData.reqStr (json, "typeMulti"	, null);
+		Integer 				typeDif 				= ToolData.reqInt (json, "typeDif"		, null);
+		String					searchkey				= ToolData.reqStr (json, "searchkey"	, "%");
+		Integer					nbLineMax				= ToolData.reqInt (json, "nbLine"		, 20);
+		String					stat					= ToolData.reqStr (json, "stat"        , TaAutUser.STAT_ACTIVE+"");
+
+		Set<Integer>			status					= ToolSet.reqSetInt(stat); //new ArrayList<Integer>();
+		//		status.add(TaAutUser.STAT_ACTIVE); status.add(TaAutUser.STAT_WAITING); status.add(TaAutUser.STAT_INACTIVE);
+
+		List<ViAutUserInfo> 	autUserList 			= reqViAutUserListSearch(manId, status, typeMulti, type, typeDif, searchkey, nbLineMax);
+
+		// List<TaMatCalendarDyn> materialCalendarList = reqMatCalendarListDyn((int)beginDisplay, (int)nbDisplay, keyword);
+		// PG-1900: Fix for sorting ascending or descending Calendar List - END.
+		if (autUserList==null){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+
+		JSONArray aaData = new JSONArray();
+		for (ViAutUserInfo stockIO : autUserList){					
+			int 	id 			= (Integer) stockIO.req(ViAutUserInfo.ATT_I_ID);
+			String 	login	 	= (String) 	stockIO.req(ViAutUserInfo.ATT_T_LOGIN);
+			String 	name		= (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_01);
+			name += (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_02) == null ? "": " " + (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_02);
+			name += (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_03) == null ? "": " " + (String) 	stockIO.req(ViAutUserInfo.ATT_T_NAME_03);
+			String 	email		= (String)	stockIO.req(ViAutUserInfo.ATT_T_EMAIL);
+			Integer perId		= (Integer)	stockIO.req(ViAutUserInfo.ATT_I_PER_PERSON);
+
+			JSONObject o	= new JSONObject();
+			o.put("id"			, id);
+			o.put("login"		, login);					
+			o.put("name"		, name);
+			o.put("email"		, email);					
+			o.put("perId"		, perId);
+
+			aaData.add(o);
+		}
+
+		API.doResponse(response,ToolJSON.reqJSonString(		//filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,			
+				DefJS.RES_DATA		, aaData
+				));		
+	}
+
+	private static Integer reqViAutUserListDynCount(Integer manId, Set<Integer>	status, String typeMulti, Integer type) throws Exception {
+		Integer result = ViAutUserInfo.reqCountAutUser(manId,status, typeMulti, type);
+		return result;
+	}
+
+	private static Integer reqViAutUserListDynCount(Integer manId, Set<Integer>	status, String typeMulti, Integer type, Object[] dataTableOption) throws Exception {
+		List<String>			searchKey				= (List<String>)dataTableOption[0];
+		Integer result = ViAutUserInfo.reqCountAutUser(manId, status, typeMulti, type, searchKey);
+		return result;
+	}
+
+	private static List<ViAutUserInfo> reqViAutUserListDyn(Integer manId, Set<Integer>	status, String typeMulti, Integer type, Integer typeDif, Object[] dataTableOption) throws Exception {
+		List<String>	searchKey	= (List<String>)dataTableOption[0];
+		int 			begin 		= (int)(long)	dataTableOption[1];
+		int 			number 		= (int)(long)	dataTableOption[2]; 
+		int 			sortCol 	= (int)(long)	dataTableOption[3]; 
+		int 			sortTyp 	= (int)(long)	dataTableOption[4];
+
+		String sortColName = ViAutUserInfo.COL_T_LOGIN;
+		String sortDir	   = null;
+
+		switch(sortCol) {
+		//case 0: sortColName = ViAutUserInfo.COL_I_ID; break;
+		case 1: sortColName = ViAutUserInfo.COL_T_LOGIN; break;
+		case 2: sortColName = ViAutUserInfo.COL_T_NAME_01 + "," + ViAutUserInfo.COL_T_NAME_02 + "," + ViAutUserInfo.COL_T_NAME_03; break;
+		}
+
+		if (sortColName != null) {
+			switch(sortTyp) {
+			case 0: sortDir = " ASC"; break;
+			case 1: sortDir = " DESC"; break;								
+			}
+		}
+
+		List<ViAutUserInfo> lst = ViAutUserInfo.reqListAutUser(manId, status, typeMulti, type, typeDif, begin, number, searchKey, sortColName, sortDir);
+
+		return lst;
+	}
+
+	private static List<ViAutUserInfo> reqViAutUserListSearch(Integer manId, Set<Integer> status, String typeMulti, Integer type, Integer typeDif, String searchKey, Integer nbLineMax) throws Exception {
+		List<String> keyword 	= new ArrayList<String>();	
+		if (searchKey!=null && searchKey.length()>0){				
+			StringTokenizer token = new StringTokenizer(searchKey, " ");
+			while (token.hasMoreTokens()){
+				String s = "%" +token.nextToken()+ "%";
+				s = s.replace("%+", "");
+				s = s.replace("+%", "");
+				keyword.add(s.toLowerCase());
+			}			
+		}else{
+			keyword.add("%");
+		}
+
+		int 			begin 		= 0;
+		int 			number 		= nbLineMax; 
+
+		String sortDir	   = " ASC";
+		String sortColName = ViAutUserInfo.COL_T_LOGIN+ "," + ViAutUserInfo.COL_T_NAME_01 + "," + ViAutUserInfo.COL_T_NAME_02 + "," + ViAutUserInfo.COL_T_NAME_03;
+
+		List<ViAutUserInfo> lst = ViAutUserInfo.reqListAutUser(manId, status, typeMulti, type, typeDif, begin, number, keyword, sortColName, sortDir);
+		return lst;
+	}
+
+	private static Object[] reqDataTableOption(JSONObject json){
+		/*{"sEcho":3,"iColumns":2,"sColumns":",",
+		"iDisplayStart":0,	"iDisplayLength":10,
+		"mDataProp_0":"code","sSearch_0":"","bRegex_0":false,"bSearchable_0":true,"bSortable_0":true,
+		"mDataProp_1":"name","sSearch_1":"","bRegex_1":false,"bSearchable_1":true,"bSortable_1":true,
+		"sSearch":"f","bRegex":false,
+		"iSortCol_0":0,"sSortDir_0":"desc","iSortingCols":1}]
+		 */
+		Object[] res = new Object[5];
+
+		String dataTableParam	= request.getParameter("dataTableParam");				
+		JSONObject dataTableParams = null;
+		if (dataTableParam!=null){
+			dataTableParams = ToolJSON.reqJSonFromString(dataTableParam);		
+			//System.out.println(dataTableParams);
+		}	
+
+		List<String> keyword 	= new ArrayList<String>();
+		String searchKey = (String) dataTableParams.get("sSearch");
+		if (searchKey!=null && searchKey.length()>0){				
+			StringTokenizer token = new StringTokenizer(searchKey, " ");
+			while (token.hasMoreTokens()){
+				String s = "%" +token.nextToken()+ "%";
+				s = s.replace("%+", "");
+				s = s.replace("+%", "");
+				keyword.add(s.toLowerCase());
+			}			
+		}else{
+			keyword.add("%");
+		}
+
+		long beginDisplay 	= (long)dataTableParams.get("iDisplayStart");
+		long nbDisplay		= (long)dataTableParams.get("iDisplayLength");
+
+		long  colToSort		= (long)dataTableParams.get("iSortCol_0");				
+		long  sortOption	= 0;
+		String tmp	= (String) dataTableParams.get("sSortDir_0");
+		if(tmp.equals("desc")) sortOption = 1;
+
+
+		res[0]		= keyword;
+		res[1]		= beginDisplay;
+		res[2]		= nbDisplay;
+		res[3]		= colToSort;
+		res[4]		= sortOption;
+		return res;
+
+	}
+
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserLstEmp(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doLst --------------");
+
+		List<TaAutUser> 	list = doAutUserEmployeLst(user, request);
+
+		if (list==null ){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+		for(TaAutUser ent : list) {
+			ent.doBuildPerson(true);
+			ent.doBuildDocuments(true);
+		}
+		API.doResponse(response,ToolJSON.reqJSonString(		//filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+				DefJS.RES_DATA		, list 
+				));
+
+	}
+
+	private static List<TaAutUser> doAutUserEmployeLst(TaAutUser user, JSONObject json, Object...params) throws Exception {
+		Integer				idPerMan	= user.reqPerManagerId();
+
+		if (!canWorkWithObj(user, WORK_LST, idPerMan)){
+			return null;
+		}
+
+
+		List<TaAutUser> list =   TaAutUser.DAO.reqList(Restrictions.eq(TaAutUser.ATT_I_PER_MANAGER, idPerMan ),
+				Restrictions.eq(TaAutUser.ATT_I_STATUS, TaAutUser.STAT_ACTIVE),
+				Restrictions.eq(TaAutUser.ATT_I_TYPE,   TaAutUser.TYPE_EMP));
+		return list;
+	}
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserGet(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {	
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doGet --------------");
+		Integer 			objId	= ToolData.reqInt (json, "id"		, -1	);				
+		Boolean				forced	= ToolData.reqBool (json, "forced"	, false	);
+
+		TaAutUser 		ent 	= TaAutUser.DAO.reqEntityByRef(objId, forced);
+
+		if (ent==null){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+
+		if (!canWorkWithObj(user, WORK_GET, ent)){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_ERR_RIGHT));
+			return;
+		}
+
+		//		Session sess = TaAutUser.DAO.reqSessionCurrent();
+		//		try {
+		//			
+		//			ent.doBuildSupervisor	(sess, true);
+		//			ent.doBuildPerson		(sess, true);
+		//			ent.doBuildPosition		(sess, true);
+		//			ent.doBuildDocuments	(sess, true);
+		//			ent.doBuildCalendars	(sess, true);
+		//			
+		//			TaAutUser.DAO.doSessionCommit(sess);
+		//		}catch(Exception e) {
+		//			TaAutUser.DAO.doSessionRollback(sess);
+		//		}
+
+		ent.doBuildSupervisor	(true);
+		ent.doBuildPerson		(true);
+		ent.doBuildPosition		(true);
+		ent.doBuildDocuments	(true);
+		ent.doBuildCategorys    (true);
+		ent.doBuildOfferCV		(true);
+		ent.doBuildRelation		(true);	
+		ent.doBuildInformation	(true);	
+		ent.doBuildAvatar		(false);
+		ent.doBuildUserRights	(false);
+		//ent.doBuildCalendars	(true);
+
+
+		Set<String> filter = new HashSet<String>();
+		filter.add(TaAutUser.class.getSimpleName()+"."+TaAutUser.ATT_T_PASS);
+
+		API.doResponse(response,ToolJSON.reqJSonString(	filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+				DefJS.RES_DATA		, ent 
+				));			
+	}
+
+	private static CacheData<TaAutUser> 	cache_entity		= new CacheData<TaAutUser>		(500, DefTime.TIME_SLEEP_20_00_00_000);
+	private static Set<String> filterAutUser = new HashSet<String>();
+	static {
+		filterAutUser.add(TaAutUser.class.getSimpleName()+"."+TaAutUser.ATT_T_PASS);
+	}
+
+	private static void doAutUserMentorGet(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {	
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doGet --------------");
+		Integer 			objId	= ToolData.reqInt (json, "id"		, -1	);				
+		Boolean				forced	= ToolData.reqBool (json, "forced"	, false	);
+
+		// Not allow guest 
+		if (user.req(TaAutUser.ATT_T_LOGIN).equals("visitor"))	{
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+
+		String 				key		= objId+"";
+		TaAutUser 		ent 	= cache_entity.reqData(key);	
+		if (forced || ent == null) {
+			ent 	= TaAutUser.DAO.reqEntityByRef(objId, forced);
+
+			if (ent==null){
+				API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+				return;
+			}
+
+			//			if (!canWorkWithObj(user, WORK_GET, ent)){
+			//				API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_ERR_RIGHT));
+			//				return;
+			//			}
+
+
+			ent.doBuildPerson		(forced);
+			ent.doBuildDocuments	(forced);
+			ent.doBuildOfferCV		(forced);
+			ent.doBuildEval         (forced);
+			ent.doBuildCategorys    (forced);
+			ent.doBuildConnects     (forced);
+
+			if (ent!=null) cache_entity.doPut(key, ent);
+		}else {				
+			ToolLogServer.doLogInf("---reqNsoOfferGet use cache-----");
+			cache_entity.doCheckIfOld(key); //cache in 20 hour
+		}
+
+		//		if(!forManager && (Integer)ent.req(TaNsoOffer.ATT_I_STATUS) != TaNsoOffer.OFFER_STATUS_VALIDATED) return null;
+
+		API.doResponse(response,ToolJSON.reqJSonString(	filterAutUser,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+				DefJS.RES_DATA		, ent 
+				));			
+	}
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserLst(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doLst --------------");
+
+		List<TaAutUser> 	list = doAutUserLst(user, request); //and other params if necessary
+		if (list==null || list.size()==0){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+
+		Set<String> filter = new HashSet<String>();
+		filter.add(TaAutUser.class.getSimpleName()+"."+TaAutUser.ATT_T_PASS);
+		API.doResponse(response,ToolJSON.reqJSonString(		filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+				DefJS.RES_DATA		, list 
+				));
+		//----------------------------------------------------------------------------------------------------------------------
+		//----------------------------------------------------------------------------------------------------------------------
+
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserLstWithPerson(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doLst --------------");
+
+		List<TaAutUser> 	list = doAutUserLstWithPerson(user, request); //and other params if necessary
+		if (list==null || list.size()==0){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+
+		Set<String> filter = new HashSet<String>();
+		filter.add(TaAutUser.class.getSimpleName()+"."+TaAutUser.ATT_T_PASS);
+		API.doResponse(response,ToolJSON.reqJSonString(		filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+				DefJS.RES_DATA		, list 
+				));
+		//----------------------------------------------------------------------------------------------------------------------
+		//----------------------------------------------------------------------------------------------------------------------
+
+	}
+
+	private static Criterion reqCriterion(Object...params) throws Exception{
+		if (params==null || params.length==0) return null;
+
+		Criterion cri = Restrictions.gt("I_ID", 0);		
+
+		if (params!=null && params.length>0){
+			//int type 	= (int) params[0];
+			//cri 		= Restrictions.and(cri, Restrictions.eqOrIsNull(TaAutUser.ATT_I_TYPE, type));
+		}			
+
+		if (params!=null && params.length>1){
+			//do something
+		}
+
+		return cri;
+	}
+
+	private static List<TaAutUser> doAutUserLst(TaAutUser user, JSONObject json, Object...params) throws Exception {
+		Integer 			objTyp	= ToolData.reqInt (json, "typ"		, -1	);
+		//other params here
+
+		if (!canWorkWithObj(user, WORK_LST, objTyp)){ //other param after objTyp...
+			return null;
+		}
+
+		Criterion 			cri		= reqCriterion (objTyp); //and other params	
+		List<TaAutUser> 	list 	= null;
+		if (cri==null) 
+			list =   TaAutUser.DAO.reqList();
+		else
+			list =   TaAutUser.DAO.reqList(cri);
+
+
+		if (params!=null){
+			//do something with list before return
+		}	
+		//do something else with request
+
+		return list;
+	}
+
+	private static List<TaAutUser> doAutUserLstWithPerson(TaAutUser user, JSONObject json, Object...params) throws Exception {
+		Integer 			objTyp	= ToolData.reqInt (json, "typ"		, -1	);
+		//other params here
+
+		if (!canWorkWithObj(user, WORK_LST, objTyp)){ //other param after objTyp...
+			return null;
+		}
+
+		Criterion 			cri		= reqCriterion (objTyp); //and other params	
+		List<TaAutUser> 	list 	= null;
+		if (cri==null) 
+			list =   TaAutUser.DAO.reqList();
+		else
+			list =   TaAutUser.DAO.reqList(cri);
+
+
+		if (params!=null){
+			//do something with list before return
+		}	
+		//do something else with request
+		for (TaAutUser u : list){		
+			u.doBuildPerson		(false,true);
+		}
+
+		return list;
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserNew(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+
+		TaAutUser 			ent		= reqNew		(user, request);
+		if (ent==null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+			Integer 				forPublic	= ToolData.reqInt (json, "forPublic", 1);
+			Set<Integer> 			uIds 		= new HashSet<Integer>();
+			uIds.add((Integer)ent.reqRef());
+
+			if (forPublic.equals(1)) {
+				API.doResponse(response,ToolJSON.reqJSonString( 
+						DefJS.SESS_STAT		, true, 
+						DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+						DefJS.RES_DATA		, ent
+						));	
+				TaAutAuthorization.doRefreshAutorization(uIds);
+			}else {
+				//can optimize, neu la register thi khong can nhung len duoi
+				TaAutAuthorization.doRefreshAutorization(uIds);
+				ent.doBuildPerson		(true);
+				ent.doBuildPosition		(true);
+				ent.doBuildDocuments	(true);
+				ent.doBuildSupervisor	(true);
+				Set<String> filter = new HashSet<String>();
+				filter.add(TaAutUser.class.getSimpleName()+"."+TaAutUser.ATT_T_PASS);
+				
+				API.doResponse(response,ToolJSON.reqJSonString( filter,
+						DefJS.SESS_STAT		, true, 
+						DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+						DefJS.RES_DATA		, ent
+						));	
+			}
+
+		}
+
+	}
+	
+	
+	
+	private static final int 		TYPE_INFO_ADDRESS 	= 1;
+	private static final int 		TYPE_INFO_SOCIAL 	= 2;
+
+	private static TaAutUser reqNew(TaAutUser user, JSONObject json) throws Exception {
+		JSONObject				obj			= API.reqParamJson 	(request, "obj");
+		Integer 				forPublic	= ToolData.reqInt (json, "forPublic", 1);
+		boolean					wValid		= forPublic==1?true:false;
+		int 					typ			= Integer.parseInt(obj.get("typ").toString());
+		
+		if (!canWorkWithObj(user, WORK_NEW, obj, wValid)){ //other param after obj...
+			return null;
+		}
+
+		//---create person + information first------------------------------------
+		TaAutUser  			uInf	= null;
+		JSONObject			per		= (JSONObject) obj.get("per");
+		if (per!=null){	
+
+			//check mail first //	//---send email for validate
+			Map<String, Object> 	attr	= null;
+
+			
+			// just for test email ok
+			if (forPublic.equals(1)) {			
+				attr 	= API.reqMapParamsByClass(obj, TaAutUser.class);
+				uInf	= new TaAutUser(attr);
+				//				boolean 	emailOK = false;
+				//				emailOK = AutTool.canDoPartnerNewConfirmByEmail(((String)uInf.req(TaAutUser.ATT_T_EMAIL)));
+				//				if (!emailOK) {
+				//					return null;
+				//				}
+			}else {
+				if (!APIAuth.canAuthorize(user, DefRight.RIGHT_AUT_USER_N)) return null;
+			}
+			//--------------if ok --------------------------------------------------------------------
+			//person natural
+			per.put("typ01", TaPerPerson.TYP_01_NATURAL);
+
+			//employee
+			if (forPublic.equals(1))
+				per.put("typ02", TaPerPerson.TYP_02_CLIENT_PUBLIC);
+			else
+				per.put("typ02", TaPerPerson.TYP_02_AGENT);
+
+
+			TaPerPerson 		perEnt 	= null;
+			Integer				userType= null;
+			if (forPublic.equals(1)) {				
+				attr 		= API.reqMapParamsByClass(per, TaPerPerson.class);				
+				perEnt	 	= new TaPerPerson(attr);	
+				perEnt.reqSet(TaPerPerson.ATT_I_ID			, null);
+				perEnt.reqSet(TaPerPerson.ATT_I_STATUS		, 1);
+				perEnt.reqSet(TaPerPerson.ATT_I_DB_FLAG		, 0);
+				perEnt.reqSet(TaPerPerson.ATT_D_DATE_NEW	, new Date());
+				perEnt.reqSet(TaPerPerson.ATT_I_PARENT		, 1);
+
+				TaPerPerson.DAO.doPersist(perEnt);
+
+				userType	= TaAutUser.TYPE_CLIENT_PUBLIC;
+				//for combosEdu and happyTalk
+				if(typ==TaAutUser.TYPE_01_MENTOR)	userType = TaAutUser.TYPE_01_MENTOR;
+				if(typ==TaAutUser.TYPE_SELLER)	userType = TaAutUser.TYPE_SELLER;
+			}else {
+				perEnt	= ServicePerPerson.reqPerPersonNew (user, request, per);				
+			}
+
+			//---create user-----------------------------------------------------
+			String		code	= StringTool.reqHashString("SHA-256", ((int)(Math.random()* 10000000)) + "");		
+			Integer 	perId	= (Integer) perEnt.req(TaPerPerson.ATT_I_ID);
+
+			Date 		now		= new Date();
+			attr 	= API.reqMapParamsByClass(obj, TaAutUser.class);
+
+			if (attr.get(TaAutUser.ATT_I_PER_MANAGER) == null) {
+				attr.put(TaAutUser.ATT_I_PER_MANAGER, user.reqPerManagerId());
+			}
+
+			TaAutUser	urs	= null;
+			try {
+				urs		= AutTool.reqNewUser(attr, userType, perId, wValid, code, now, DateTool.reqDateByAdding(now, 0, 0, 1, 12, 0, 0), wValid?TaAutUser.STAT_WAITING_ST01: (Integer)attr.get(TaAutUser.ATT_I_STATUS));
+			}catch(Exception e) {
+				urs	= null;
+			}
+
+			if (urs==null) {
+				TaPerPerson.DAO.doRemove(perEnt);
+				return null;
+			}
+
+			uInf				= new TaAutUser(urs);	
+			Integer 	uId 	= (Integer) uInf.reqRef();
+			uInf.reqSet(TaAutUser.ATT_O_PERSON, perEnt);
+
+			//---check position ---------
+			if (forPublic.equals(1)) {	
+				TaJobPosition pos = null;
+				
+				if (userType == TaAutUser.TYPE_01_MENTOR)
+					pos = TaJobPosition.DAO.reqEntityByValue(TaJobPosition.ATT_T_CODE, "POS_CLI_EDU");
+				else
+					pos = TaJobPosition.DAO.reqEntityByValue(TaJobPosition.ATT_T_CODE, "POS_CLI_PUB");
+				if (pos!=null) {
+					Integer posId 	= (Integer) pos.reqRef();
+					TaPerPersonPosition pp = new TaPerPersonPosition(perId, posId, new Date());
+					TaPerPersonPosition.DAO.doPersist(pp);
+				}
+			}else {
+				//				uInf.doBuildPosition(true);
+				//				Set<Integer> 		listOldIds 	= ToolSet.reqSetInt((Collection)uInf.req(TaAutUser.ATT_O_POSITIONS), TaJobPosition.ATT_I_ID);
+				Set<Integer> 		listOldIds 	= new HashSet<Integer>();
+				ServiceJobPosition.doAttachUserPosition(perId, listOldIds, (JSONObject)obj.get("pos"));
+				
+				//-----------------------------------------------------------------------------------
+				Integer 				manId 	= (Integer) uInf.req(TaAutUser.ATT_I_PER_MANAGER);
+				Integer 				uSup 	= (Integer) uInf.req(TaAutUser.ATT_I_SUPERVISOR);
+				Integer 				uManId 	= user.reqPerManagerId();
+				if (uManId.equals(manId)) {
+					//---in same company
+					if(uSup == null) {
+						uSup 	= user.reqUserId();
+						uInf.reqSet(TaAutUser.ATT_I_SUPERVISOR, uSup);
+						TaAutUser.DAO.doMerge(uInf);
+					}
+				}
+			}
+
+			//---check file ---------
+			JSONArray str_files =  (JSONArray)obj.get("files");
+			if(str_files != null) {
+				List<TaTpyDocument> lstDoc =  DocTool.reqTpyDocumentMod(DBConfig.ID_TA_PER_PERSON, perId, str_files);
+				uInf.reqSet(TaAutUser.ATT_O_DOCUMENTS, lstDoc);
+			}		
+
+			JSONArray		cats		= (JSONArray) obj.get("cats");
+			if(cats!=null && cats.size() > 0) {
+				List<TaTpyCategoryEntity> lstCat =  CategoryTool.reqTpyCategoryEntityNew(DBConfig.ID_TA_AUT_USER_MENTOR, uId, cats);
+				uInf.reqSet(TaAutUser.ATT_O_CATS, lstCat);
+			}
+
+			//---send validation email ---------
+			if (forPublic.equals(1)) {			
+				boolean 	emailOK = false;
+				emailOK = AutTool.canDoAutUserNewConfirmByEmail(((String)uInf.req(TaAutUser.ATT_T_EMAIL)), (String)uInf.req(TaAutUser.ATT_T_LOGIN), code);
+				if (!emailOK) {
+					ToolLogServer.doLogErr("--Cannot send email to : " + (String)uInf.req(TaAutUser.ATT_T_EMAIL));
+				}
+			}	
+
+			//---do Something here with login and code
+
+			//--create informations for relation personne ------------------------
+			JSONArray 				tpyInfos 	=  (JSONArray) obj.get("tpyInfos");
+			if(tpyInfos != null && !tpyInfos.isEmpty()) {
+				List<TaTpyInformation> 	listInfs 	 = InfoTool.reqTpyInformationNew(DBConfig.ID_TA_AUT_USER, uId, tpyInfos);
+				uInf.reqSet(TaAutUser.ATT_O_INFORMATIONS, listInfs);
+			}
+
+			//---for typ seller ---------
+			JSONObject				relation	= (JSONObject) obj.get("relation");
+			if(relation!=null) {
+				Map<String, Object> attrRel 	= API.reqMapParamsByClass(relation, TaTpyRelationship.class);
+				TaTpyRelationship  	rel	 		= new TaTpyRelationship(attrRel);
+				rel.reqSet(TaTpyRelationship.ATT_I_ENTITY_ID_02, uId);
+				rel.reqSet(TaTpyRelationship.ATT_I_ENTITY_TYPE_02, DBConfig.ID_TA_AUT_USER);
+				rel.reqSet(TaTpyRelationship.ATT_D_DATE_NEW, new Date());
+				TaTpyRelationship.DAO.doPersist(rel);
+				uInf.reqSet(TaAutUser.ATT_O_RELATION, rel);
+			}
+			
+			//--create user rights ------------------------
+			JSONArray 				uRights 	=  (JSONArray) obj.get("uRights");
+			if(uRights != null && !uRights.isEmpty()) {
+				List<TaAutUserRight> 	listRights 	 = TaAutUserRight.reqRightMod(uId, uRights);
+				uInf.reqSet(TaAutUser.ATT_O_USER_RIGHTS, listRights);
+			}
+		}
+
+		return uInf;
+	}	
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserNew_WorkADM(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+
+		TaAutUser 			ent		= reqNew02		(user, request);
+		if (ent==null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+			Integer 				forPublic	= ToolData.reqInt (json, "forPublic", 1);
+			Set<Integer> 			uIds 		= new HashSet<Integer>();
+			uIds.add((Integer)ent.reqRef());
+
+			if (forPublic.equals(1)) {
+				API.doResponse(response,ToolJSON.reqJSonString( 
+						DefJS.SESS_STAT		, true, 
+						DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+						DefJS.RES_DATA		, ent
+						));	
+				TaAutAuthorization.doRefreshAutorization(uIds);
+			}else {
+				//can optimize, neu la register thi khong can nhung len duoi
+				TaAutAuthorization.doRefreshAutorization(uIds);
+				ent.doBuildPerson		(true);
+				ent.doBuildPosition		(true);
+				ent.doBuildDocuments	(true);
+				ent.doBuildSupervisor	(true);
+				Set<String> filter = new HashSet<String>();
+				filter.add(TaAutUser.class.getSimpleName()+"."+TaAutUser.ATT_T_PASS);
+				
+				API.doResponse(response,ToolJSON.reqJSonString( filter,
+						DefJS.SESS_STAT		, true, 
+						DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+						DefJS.RES_DATA		, ent
+						));	
+			}
+
+		}
+
+	}
+
+	private static TaAutUser reqNew02(TaAutUser user, JSONObject json) throws Exception {
+		JSONObject				obj			= API.reqParamJson 	(request, "obj");
+		Integer 				forPublic	= ToolData.reqInt (json, "forPublic", 1);
+		boolean					wValid		= forPublic==1?true:false;
+		
+//		if (!canWorkWithObj(user, WORK_NEW, obj, wValid)){ //other param after obj...
+//			return null;
+//		}
+
+		//---create person + information first------------------------------------
+		TaAutUser  			uInf	= null;
+		JSONObject				per		= (JSONObject) obj.get("per");
+		if (per!=null){	
+			Map<String,Object> attr	= API.reqMapParamsByClass(per, TaPerPerson.class);
+			String			T_Code  = "";
+			Integer			typ02	= (Integer) attr.get(TaPerPerson.ATT_I_TYPE_02);
+
+			String s = DateTool.reqString(new Date(), "yyMMddHHmmss");
+			switch(typ02) {
+			case TaPerPerson.TYP_02_PRODUCER  	: T_Code  = "PRO_" + s; break; 
+			case TaPerPerson.TYP_02_SUPPLIER	: T_Code  = "SUP_" + s; break;
+			case TaPerPerson.TYP_02_TPARTY 		: T_Code  = "PAR_" + s; break; 
+			case TaPerPerson.TYP_02_PROSPECT  	: T_Code  = "TMP_" + s; break; 
+			}
+
+
+			attr.put(TaPerPerson.ATT_I_STATUS 	, TaPerPerson.STAT_ACTIVE_LV_01);
+			attr.put(TaPerPerson.ATT_D_DATE_NEW , new Date());
+			attr.put(TaPerPerson.ATT_T_CODE 	, T_Code);
+			attr.put(TaPerPerson.ATT_I_DB_FLAG 	, 0);
+			if(attr.get(TaPerPerson.ATT_I_MANAGER) == null)
+				attr.put(TaPerPerson.ATT_I_MANAGER, user.reqPerManagerId());
+
+			/*	"UserProfile (Person):
+			- info01: số đt
+			(đã có cột ngày sinh riêng)
+			- info03: about/ghi chú
+			- info04: ID
+			- info05: MXH
+			- info06: Giới tính
+			- info07: --
+			- info08: Quoc tich
+			- info09: So HC
+			- info10: Email""
+			+ 	"\"ID ={\"\"i\"\": 01234, \"\"d\"\":01/01/2000, \"\"p\"\": CA DN}\r\n" + 
+				"MXH = [{\"\"k\"\":\"\"fb\"\",\"\"v\"\":\"\"...\"\"}, {\"\"k\"\":\"\"tw\"\",\"\"v\"\":\"\"...\"\"},...]\" */
+
+			TaPerPerson perCompany = new TaPerPerson(attr);	
+			TaPerPerson.DAO.doPersist(perCompany);
+			Integer compId	= perCompany.reqID();
+			
+			
+
+			TaPerPerson perUser = new TaPerPerson(attr);	
+			TaPerPerson.DAO.doPersist(perUser);
+			Integer perId	= perUser.reqID();
+			
+			//---create user-----------------------------------------------------
+			String		code	= StringTool.reqHashString("SHA-256", ((int)(Math.random()* 10000000)) + "");		
+			
+			Date 		now		= new Date();
+			final String 		email = (String)perCompany.req(TaPerPerson.ATT_T_INFO_10);
+			attr = API.reqMapParamsByClass(obj, TaAutUser.class);
+			attr.put(TaAutUser.ATT_I_PER_MANAGER, compId);
+			attr.put(TaAutUser.ATT_T_EMAIL, email);
+
+			Integer userType	= TaAutUser.TYPE_01_ADM;
+			TaAutUser	urs		= null;
+			try {
+				urs		= AutTool.reqNewUser(attr, userType, perId, wValid, code, now, 
+						DateTool.reqDateByAdding(now, 0, 0, 1, 12, 0, 0), 
+						wValid?TaAutUser.STAT_WAITING_ST01: (Integer)attr.get(TaAutUser.ATT_I_STATUS)
+						);
+			}catch(Exception e) {
+				urs	= null;
+			}
+
+			if (urs==null) {
+				TaPerPerson.DAO.doRemove(perCompany);
+				return null;
+			}
+
+			uInf				= new TaAutUser(urs);	
+			Integer 	uId 	= (Integer) uInf.reqRef();
+			uInf.reqSet(TaAutUser.ATT_O_PERSON, perCompany);
+
+			//---check position ---------
+			if (forPublic.equals(1)) {	
+				TaJobPosition pos = TaJobPosition.DAO.reqEntityByValue(TaJobPosition.ATT_T_CODE, "POS_ADM_AGENCE");
+				if (pos!=null) {
+					Integer posId 	= (Integer) pos.reqRef();
+					TaPerPersonPosition pp = new TaPerPersonPosition(perId, posId, new Date());
+					TaPerPersonPosition.DAO.doPersist(pp);
+				}
+				
+			}
+
+
+			//---send validation email ---------
+			if (forPublic.equals(1)) {			
+				boolean 	emailOK = false;
+				emailOK = AutTool.canDoAutUserNewConfirmByEmail(((String)uInf.req(TaAutUser.ATT_T_EMAIL)), (String)uInf.req(TaAutUser.ATT_T_LOGIN), code);
+				if (!emailOK) {
+					ToolLogServer.doLogErr("--Cannot send email to : " + (String)uInf.req(TaAutUser.ATT_T_EMAIL));
+				}
+			}	
+
+			//---do Something here with login and code
+			//--create informations for relation personne ------------------------
+			JSONArray 				tpyInfos 	=  (JSONArray) obj.get("tpyInfos");
+			if(tpyInfos != null && !tpyInfos.isEmpty()) {
+				List<TaTpyInformation> 	listInfs 	 = InfoTool.reqTpyInformationNew(DBConfig.ID_TA_AUT_USER, uId, tpyInfos);
+				uInf.reqSet(TaAutUser.ATT_O_INFORMATIONS, listInfs);
+			}
+
+			//--create user rights ------------------------
+			JSONArray 				uRights 	=  (JSONArray) obj.get("uRights");
+			if(uRights != null && !uRights.isEmpty()) {
+				List<TaAutUserRight> 	listRights 	 = TaAutUserRight.reqRightMod(uId, uRights);
+				uInf.reqSet(TaAutUser.ATT_O_USER_RIGHTS, listRights);
+			}
+		}
+
+		return uInf;
+	}	
+	
+	//---------------------------------------------------------------------------------------------------------
+	//--only for public
+	private static void doAutUserNewSimple(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+
+		TaAutUser 			ent		= reqNewSimple		(user, request);
+		if (ent==null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+			Set<Integer> 			uIds 		= new HashSet<Integer>();
+			uIds.add((Integer)ent.reqRef());
+
+			API.doResponse(response,ToolJSON.reqJSonString( 
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+					DefJS.RES_DATA		, ent
+					));	
+			TaAutAuthorization.doRefreshAutorization(uIds);
+		}
+	}
+
+	private static TaAutUser reqNewSimple(TaAutUser user, JSONObject json) throws Exception {
+		JSONObject				obj			= API.reqParamJson 	(request, "obj");
+		Integer 				forPublic	= 1;
+		boolean					wValid		= forPublic==1?true:false;
+		if (!canWorkWithObjSimple(user, WORK_NEW, obj, wValid)){ //other param after obj...
+			return null;
+		}
+
+		//---create person + information first------------------------------------
+		
+		JSONObject				per		= (JSONObject) obj.get("per");
+		if (per!=null){	
+			Map<String, Object> attr	= API.reqMapParamsByClass(obj, TaAutUser.class);
+			TaAutUser  		uInf	= new TaAutUser(attr);
+			
+			//--------------if ok --------------------------------------------------------------------
+			per.put("typ01", TaPerPerson.TYP_01_NATURAL);
+			per.put("typ02", TaPerPerson.TYP_02_CLIENT_PUBLIC);
+
+
+			TaPerPerson 		perEnt 	= null;
+			Integer				userType= null;
+			attr 						= API.reqMapParamsByClass(per, TaPerPerson.class);				
+			perEnt	 					= new TaPerPerson(attr);	
+			perEnt.reqSet(TaPerPerson.ATT_I_ID			, null);
+			perEnt.reqSet(TaPerPerson.ATT_I_STATUS		, 1);
+			perEnt.reqSet(TaPerPerson.ATT_I_DB_FLAG		, 0);
+			perEnt.reqSet(TaPerPerson.ATT_D_DATE_NEW	, new Date());
+			perEnt.reqSet(TaPerPerson.ATT_I_PARENT		, 1);
+
+			TaPerPerson.DAO.doPersist(perEnt);
+			userType	= TaAutUser.TYPE_CLIENT_PUBLIC;
+
+			//---create user-----------------------------------------------------
+			Integer 	perId	= (Integer) perEnt.req(TaPerPerson.ATT_I_ID);
+
+			attr 				= API.reqMapParamsByClass(obj, TaAutUser.class);
+			attr.put(TaAutUser.ATT_I_PER_MANAGER, 1);
+
+			TaAutUser	urs	= null;
+			try {
+				urs		= AutTool.reqNewUser(attr, userType, perId, false, null, null, null, TaAutUser.STAT_ACTIVE);
+			}catch(Exception e) {
+				urs	= null; //duplicate user name
+			}
+
+			if (urs==null) {
+				TaPerPerson.DAO.doRemove(perEnt);
+				return null;
+			}
+
+			uInf				= new TaAutUser(urs);	
+			uInf.reqSet(TaAutUser.ATT_O_PERSON, perEnt);
+
+			//---check position ---------
+			TaJobPosition pos = TaJobPosition.DAO.reqEntityByValue(TaJobPosition.ATT_T_CODE, "POS_CLI_PUB");
+			if (pos!=null) {
+				Integer posId 	= (Integer) pos.reqRef();
+				TaPerPersonPosition pp = new TaPerPersonPosition(perId, posId, new Date());
+				TaPerPersonPosition.DAO.doPersist(pp);
+			}
+			
+			return uInf;
+		}
+		return null;
+	}
+	
+	//---user FB---------------------------------------------------------------------------------------------
+	private static void doAutUserNewFB(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+		TaAutUser 			ent		= reqNewSocial("FB_", user, request);
+		if (ent==null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+			Set<Integer> 			uIds 		= new HashSet<Integer>();
+			uIds.add((Integer)ent.reqRef());
+
+			API.doResponse(response,ToolJSON.reqJSonString( 
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES						
+					));	
+			TaAutAuthorization.doRefreshAutorization(uIds);
+		}
+	}
+
+	private static void doAutUserNewGG(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+		TaAutUser 			ent		= reqNewSocial("GG_", user, request);
+		if (ent==null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+			Set<Integer> 			uIds 		= new HashSet<Integer>();
+			uIds.add((Integer)ent.reqRef());
+
+			API.doResponse(response,ToolJSON.reqJSonString( 
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES						
+					));	
+			TaAutAuthorization.doRefreshAutorization(uIds);
+		}
+	}
+
+	private static TaAutUser reqNewSocial(String preLogin, TaAutUser user, JSONObject json) throws Exception {
+		JSONObject				obj			= API.reqParamJson 	(request, "obj");
+		//---check first------
+
+		//---create person + information first------------------------------------
+		String 					login	= obj.get("login").toString();
+		if (login.indexOf(preLogin) !=0){
+			login 	= preLogin + login;
+			obj.put ("login", login);
+		}
+
+		TaAutUser  			uInf	= TaAutUser.reqUser (login);
+		if (uInf != null) {
+			String tVal01 = (String) uInf.req(TaAutUser.ATT_T_VAL_01);
+			if(tVal01 == null || tVal01.length() == 0) {
+				uInf.reqSet(TaAutUser.ATT_T_VAL_01, (String)((JSONObject) obj.get("per")).get("name01"));
+				TaAutUser.DAO.doMerge(uInf);
+			}
+			return uInf;
+		}
+
+		JSONObject				per		= (JSONObject) obj.get("per");
+		if (per!=null){	
+			//check mail first //	//---send email for validate
+			Map<String, Object> 	attr	= null;
+			//--------------if ok --------------------------------------------------------------------
+			//person natural
+			per.put("typ01", TaPerPerson.TYP_01_NATURAL);
+			per.put("typ02", TaPerPerson.TYP_02_CLIENT_PUBLIC);
+
+
+			TaPerPerson 		perEnt 	= null;
+			Integer				userType= null;
+			attr 						= API.reqMapParamsByClass(per, TaPerPerson.class);				
+			perEnt	 					= new TaPerPerson(attr);	
+			perEnt.reqSet(TaPerPerson.ATT_I_ID			, null);
+			perEnt.reqSet(TaPerPerson.ATT_I_STATUS		, 1);
+			perEnt.reqSet(TaPerPerson.ATT_I_DB_FLAG		, 0);
+			perEnt.reqSet(TaPerPerson.ATT_D_DATE_NEW	, new Date());
+			perEnt.reqSet(TaPerPerson.ATT_I_PARENT		, 1);
+
+			TaPerPerson.DAO.doPersist(perEnt);
+			userType	= TaAutUser.TYPE_CLIENT_PUBLIC;		
+
+			//---create user-----------------------------------------------------
+			Integer 	perId	= (Integer) perEnt.req(TaPerPerson.ATT_I_ID);
+
+			Date 		now		= new Date();
+			attr 	= API.reqMapParamsByClass(obj, TaAutUser.class);
+
+			if (attr.get(TaAutUser.ATT_I_PER_MANAGER) == null) {
+				attr.put(TaAutUser.ATT_I_PER_MANAGER, user.reqPerManagerId());
+			}
+			
+			attr.put(TaAutUser.ATT_T_VAL_01, perEnt.req(TaPerPerson.ATT_T_NAME_01));
+
+			TaAutUser	urs	= null;
+			try {
+				urs		= AutTool.reqNewUser(attr, userType, perId, false, null, now, DateTool.reqDateByAdding(now, 20, 0, 0, 0, 0, 0), TaAutUser.STAT_ACTIVE);
+			}catch(Exception e) {
+				urs	= null;
+			}
+
+			if (urs==null) {
+				TaPerPerson.DAO.doRemove(perEnt);
+				return null;
+			}
+
+			uInf				= new 	TaAutUser(urs);	
+			Integer 	uId 	= (Integer) uInf.reqRef();
+			uInf.reqSet(TaAutUser.ATT_O_PERSON, per);
+
+			TaJobPosition pos = TaJobPosition.DAO.reqEntityByValue(TaJobPosition.ATT_T_CODE, "POS_CLI_PUB");
+			if (pos!=null) {
+				Integer posId 	= (Integer) pos.reqRef();
+				TaPerPersonPosition pp = new TaPerPersonPosition(perId, posId, new Date());
+				TaPerPersonPosition.DAO.doPersist(pp);
+			}
+
+			//---check file ---------
+			//			JSONArray str_files =  (JSONArray)obj.get("files");
+			//			if(str_files != null) {
+			//				List<TaTpyDocument> lstDoc =  DocTool.reqTpyDocumentNew(DBConfig.ID_TA_PER_PERSON, perId, str_files);
+			//				uInf.reqSet(TaAutUser.ATT_O_DOCUMENTS, lstDoc);
+			//			}
+
+			//---check file ---------
+			JSONObject files =  (JSONObject)obj.get("files");
+			if (files!=null && files.size()>0){
+				Map<String, Object> attrs 	= API.reqMapParamsByClass(files, TaTpyDocument.class);	
+
+				TaTpyDocument		ent 	= new TaTpyDocument(attrs);
+
+				ent				.reqSet( TaTpyDocument.ATT_T_NAME	        , login);
+				ent				.reqSet( TaTpyDocument.ATT_I_PARENT_TYPE	, DBConfig.ID_TA_PER_PERSON);
+				ent				.reqSet( TaTpyDocument.ATT_I_PARENT_ID		, perId);
+				ent				.reqSet( TaTpyDocument.ATT_I_TYPE_01		, 1);
+				ent				.reqSet( TaTpyDocument.ATT_I_TYPE_02		, 1);
+				ent				.reqSet( TaTpyDocument.ATT_D_DATE		    , new Date());
+				TaTpyDocument	.DAO.doPersist(ent);
+			}
+		}
+
+		return uInf;
+	}	
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserMod(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doMod --------------");
+
+		TaAutUser	ent		= reqMod(user, request); 					
+		if (ent == null){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+		} else {
+			Set<Integer> uIds = new HashSet<Integer>();
+			uIds.add((Integer)ent.reqRef());
+
+			TaAutAuthorization.doRefreshAutorization(uIds);
+			AutTool.doRefreshCache((Integer)ent.reqRef());
+			
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true,	DefJS.SV_CODE, DefAPI.SV_CODE_API_YES, DefJS.RES_DATA, ent));
+		}			
+
+	}
+
+	private static String html2text(String html) {
+		if (html==null) return null;
+		return Jsoup.parse(html).text();
+	}
+	private static void formatInfo(JSONObject inf) throws Exception {
+		inf.put("info01", html2text((String)inf.get("info01")));
+		inf.put("info02", html2text((String)inf.get("info02")));
+		inf.put("info03", html2text((String)inf.get("info03")));
+		inf.put("info04", html2text((String)inf.get("info04")));
+		inf.put("info05", html2text((String)inf.get("info05")));
+		inf.put("info06", html2text((String)inf.get("info06")));
+		inf.put("info07", html2text((String)inf.get("info07")));
+		inf.put("info08", html2text((String)inf.get("info08")));
+		inf.put("info09", html2text((String)inf.get("info09")));
+		inf.put("info10", html2text((String)inf.get("info10")));		
+	}
+	
+
+	private static TaAutUser reqMod(TaAutUser user, JSONObject json) throws Exception {
+		
+		JSONObject			obj		= API.reqParamJson 		(request, "obj");
+		Integer				entId	= Integer.parseInt(obj.get("id").toString());	
+		TaAutUser  		ent	 	= TaAutUser.DAO.reqEntityByRef(entId);
+		Integer 			perId	= (Integer) ent.req(TaAutUser.ATT_I_PER_PERSON);
+		if (ent==null){
+			return null;
+		}
+
+		if (!canWorkWithObj(user, WORK_MOD, ent)){ //other param after obj...
+			return null;
+		}
+
+
+		Map<String, Object> attr 	= API.reqMapParamsByClass(obj, TaAutUser.class);			
+		attr.remove(TaAutUser.ATT_D_DATE_NEW);
+		attr.remove(TaAutUser.ATT_I_DB_FLAG);
+		attr.remove(TaAutUser.ATT_I_ID);
+		attr.remove(TaAutUser.ATT_T_LOGIN);
+
+		TaAutUser.DAO.doMerge(ent, attr);	
+
+		TaPerPerson per = ServicePerPerson.reqPerPersonMod(user, request, (JSONObject)obj.get("per"));
+		ent.doBuildPerson(true);
+		//		ent.reqSet(TaAutUser.ATT_O_PERSON, null);
+		//		ent.reqSet(TaAutUser.ATT_O_PERSON, per);
+		ent.doBuildPosition(true);
+		ent.doBuildSupervisor(true);
+		Set<Integer> 		listOldIds 	= ToolSet.reqSetInt((Collection)ent.req(TaAutUser.ATT_O_POSITIONS), TaJobPosition.ATT_I_ID);
+
+		ServiceJobPosition.doAttachUserPosition(perId, listOldIds, (JSONObject)obj.get("pos"));
+		ent.doBuildPosition(true);
+
+		JSONArray str_files =  (JSONArray)obj.get("files");
+		if(str_files != null) {
+			List<TaTpyDocument> lstDoc =  DocTool.reqTpyDocumentMod(DBConfig.ID_TA_PER_PERSON, perId, str_files);
+			ent.reqSet(TaAutUser.ATT_O_DOCUMENTS, lstDoc);
+		}
+
+		JSONArray		cats		= (JSONArray) obj.get("cats");
+		if(cats!=null && cats.size() > 0) {
+			List<TaTpyCategoryEntity> lstCat =  CategoryTool.reqTpyCategoryEntityMod(DBConfig.ID_TA_AUT_USER_MENTOR, entId, cats);
+			ent.reqSet(TaAutUser.ATT_O_CATS, lstCat);
+		}
+
+		//--mod informations for relation personne ------------------------
+		JSONArray 				tpyInfos 	=  (JSONArray) obj.get("tpyInfos");
+		if(tpyInfos != null && !tpyInfos.isEmpty()) {
+			for (Object o : tpyInfos) formatInfo((JSONObject)o);
+			List<TaTpyInformation> 	listInfs 	 = InfoTool.reqTpyInformationMod(DBConfig.ID_TA_AUT_USER, entId, tpyInfos);
+			ent.reqSet(TaAutUser.ATT_O_INFORMATIONS, listInfs);
+		}
+
+		//---for typ seller ---------
+		JSONObject				relation		= (JSONObject) obj.get("relation");
+		if(relation!=null) {
+			//			Integer relId = (Integer) relation.get("id");
+			Object relId = relation.get("id");
+
+			//			int relId = Integer.parseInt(relation.get("id").toString());	
+			if(relId != null) {
+				int relaId = Integer.parseInt(relation.get("id").toString());
+				TaTpyRelationship  	entRel	 	= TaTpyRelationship.DAO.reqEntityByRef(relaId);
+				if (entRel!=null){
+					Map<String, Object> attrRel 	= API.reqMapParamsByClass(relation, TaTpyRelationship.class);
+					attrRel.put(TaTpyRelationship.ATT_D_DATE_MOD, new Date());
+					TaTpyRelationship.DAO.doMerge(entRel, attrRel);
+					ent.reqSet(TaAutUser.ATT_O_RELATION, entRel);
+				}
+			}
+			else {
+				Integer 			uId	= (Integer) ent.req(TaAutUser.ATT_I_ID);
+				Map<String, Object> attrRel 	= API.reqMapParamsByClass(relation, TaTpyRelationship.class);
+				TaTpyRelationship  	rel	 	= new TaTpyRelationship(attrRel);
+				rel.reqSet(TaTpyRelationship.ATT_I_ENTITY_ID_02, uId);
+				rel.reqSet(TaTpyRelationship.ATT_I_ENTITY_TYPE_02, DBConfig.ID_TA_AUT_USER);
+				rel.reqSet(TaTpyRelationship.ATT_D_DATE_NEW, new Date());
+				TaTpyRelationship.DAO.doPersist(rel);
+				ent.reqSet(TaAutUser.ATT_O_RELATION, rel);
+			}
+
+		}
+		
+		//--create user rights ------------------------
+		JSONArray 				uRights 	=  (JSONArray) obj.get("uRights");
+		if(uRights != null && !uRights.isEmpty()) {
+			List<TaAutUserRight> 	listRights 	 = TaAutUserRight.reqRightMod(entId, uRights);
+			ent.reqSet(TaAutUser.ATT_O_USER_RIGHTS, listRights);
+		}
+
+		//AutTool.doRefreshCache((String)ent.req(TaAutUser.ATT_T_LOGIN));
+		AutTool.doRemoveCache((Integer)ent.reqRef());
+		return ent;
+	}	
+
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserDel(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//--chk lock-----------------------------------------------------------------------------------------------------------------
+		JSONObject 		jLock 	= API.reqParamJson(request, "lock");		
+		LockInterface 	lock 	= LockTool.reqLock(jLock, user.reqUserId());
+
+		if (lock.reqStatus() == 0){
+			API.doResponse(response,ToolJSON.reqJSonString(						
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO,
+					DefJS.RES_DATA		, lock
+					));	
+			return;
+		}	
+
+		//----------------------------------------------------------------------------------------------------------------------
+		boolean		ok		= doAutUserDel(user, request); 				
+		if (!ok){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+		} else {
+			Integer objId	= ToolData.reqInt (json, "id"		, -1	);	
+			TaAutAuthorization.doDelByUserId(objId);
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true,	DefJS.SV_CODE, DefAPI.SV_CODE_API_YES));
+		}
+		//--del lock-----------------------------------------------------------------------------------------------------------------
+		LockTool.canDeleteLock(lock.reqLockID(), user.reqUserId());	
+	}
+
+	private static boolean doAutUserDel(TaAutUser user, JSONObject json) throws Exception {
+		Integer 		objId	= ToolData.reqInt (json, "id"		, -1	);	
+
+		TaAutUser  	ent	 	= TaAutUser.DAO.reqEntityByRef(objId);
+		if (ent==null){
+			return false;
+		}
+
+		if (!canWorkWithObj(user, WORK_DEL, ent)){ //other param after ent...
+			return false;
+		}		
+
+		int status = (Integer) ent.req(TaAutUser.ATT_I_STATUS);
+		if (status == TaAutUser.STAT_ACTIVE){
+			ent.reqSet(TaAutUser.ATT_I_STATUS, TaAutUser.STAT_DELETED);		
+			ent.reqSet(TaAutUser.ATT_I_SUPERVISOR, null);
+			TaAutUser.DAO.doMerge(ent);	
+		} else if (status == TaAutUser.STAT_WAITING || status== TaAutUser.STAT_INACTIVE|| status== TaAutUser.STAT_DELETED){
+			//remove all other object connecting to this ent first-------
+			if (ent.canRemoveRelationship()) {
+				TaAutUser.DAO.doRemove(ent);
+			}else
+				return false;			
+		}
+
+		AutTool.doRemoveCache((String)ent.req(TaAutUser.ATT_T_LOGIN));
+		return true;
+	}
+	//---------------------------------------------------------------------------------------------------------
+	//---------------------------------------------------------------------------------------------------------
+	//---------------------------------------------------------------------------------------------------------
+	private void doAutUserLckReq(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doLckReq --------------");		
+		JSONObject 		obj 	= API.reqParamJson(request, DefJS.REQ_DATA); 
+
+		LockInterface 	lock 	= LockTool.reqLock(obj, user.reqUserId());
+		if (lock.reqStatus() == 0){
+			API.doResponse(response,ToolJSON.reqJSonString(						
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO,
+					DefJS.RES_DATA		, lock
+					));	
+		}else{
+			/* check right on type of object if ....
+					/*
+					int				objId	= (int) obj.get(DefJS.LOCK_OBJ_ID);
+					TaAutUser  	ent	 	= TaAutUser.DAO.reqEntityByRef(objId);
+					if (!canWorkWithObj(user, WORK_MOD, ent)){ //other param after ent...
+						API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+						return;
+					}
+			 */
+
+			API.doResponse(response,ToolJSON.reqJSonString(						
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+					DefJS.RES_DATA		, lock
+					));	
+		}				
+
+	}
+
+	private void doAutUserLckSav(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doLckSav --------------");	
+		int 	idLock		= Integer.parseInt(request.getParameter(DefJS.LOCK_ID));
+		boolean isLocked 	= LockTool.canExistLock(idLock , user.reqUserId());
+		if(isLocked){
+			TaAutUser ent = reqMod(user, request);
+			if(ent == null) {
+				API.doResponse(response,ToolJSON.reqJSonString(	
+						DefJS.SESS_STAT		, true, 
+						DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO
+						));
+			} else {
+				ent.doBuildPerson(false);
+				ent.doBuildPosition(false);
+				Set<String> filter = new HashSet<String>();
+				filter.add(TaAutUser.class.getSimpleName()+"."+TaAutUser.ATT_T_PASS);
+				API.doResponse(response,ToolJSON.reqJSonString(	filter,
+						DefJS.SESS_STAT		, true, 
+						DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+						DefJS.RES_DATA		, ent
+						));
+			}
+		}else{
+			API.doResponse(response,ToolJSON.reqJSonString(	
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO
+					));
+		}
+
+
+	}
+
+
+	//user when modify object with lock
+	private void doAutUserLckEnd(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doLckEnd --------------");	
+
+		int 	idLock		= Integer.parseInt(request.getParameter(DefJS.LOCK_ID));
+		boolean isLocked 	= LockTool.canExistLock(idLock , user.reqUserId());
+		if(isLocked){
+			TaAutUser ent = reqMod(user, request);
+			LockTool.canDeleteLock(idLock, user.reqUserId());
+			if(ent == null) {
+				API.doResponse(response,ToolJSON.reqJSonString(	
+						DefJS.SESS_STAT		, true, 
+						DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO
+						));
+			} else {
+				Set<Integer> 			uIds 		= new HashSet<Integer>();
+				uIds.add((Integer)ent.reqRef());
+				TaAutAuthorization.doRefreshAutorization(uIds);
+				ent.doBuildPerson(false);
+				ent.doBuildPosition(false);
+				ent.doBuildAvatar(true);
+				ent.doBuildSupervisor	(true);
+				Set<String> filter = new HashSet<String>();
+				filter.add(TaAutUser.class.getSimpleName()+"."+TaAutUser.ATT_T_PASS);
+				
+				AutTool.doRefreshCache((Integer)ent.reqRef());
+				API.doResponse(response,ToolJSON.reqJSonString(	filter,
+						DefJS.SESS_STAT		, true, 
+						DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+						DefJS.RES_DATA		, ent
+						));
+			}
+		}else{
+			API.doResponse(response,ToolJSON.reqJSonString(	
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO
+					));
+		}
+
+	}
+
+
+	private void doAutUserLckDel(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doLckDel --------------");
+		Integer	lockId		= API.reqParamInt(request, DefJS.LOCK_ID , -1);
+		boolean isDeleted 	= LockTool.canDeleteLock(lockId, user.reqUserId());				
+		API.doResponse(response,ToolJSON.reqJSonString(		
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+				DefJS.RES_DATA		, isDeleted
+				));		
+
+
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserCalendarNew(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+
+		JSONObject			tpyCal 	= API.reqParamJson(request, "tpyCal");
+		Map<String, Object> attr 	= API.reqMapParamsByClass(tpyCal, TaTpyCalendar.class);
+		TaTpyCalendar		ent 	= new TaTpyCalendar(attr);
+		boolean 			ok = false;
+		try{
+			ent				.reqSet( TaTpyCalendar.ATT_I_PARENT_TYPE	, DBConfig.ID_TA_AUT_USER);
+			ent				.reqSet( TaTpyCalendar.ATT_I_PARENT_ID		, user.reqUserId());
+			TaTpyCalendar	.DAO.doPersist(ent);
+			ok 				= true;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		List<TaTpyCalendar> lst		= TaTpyCalendar.DAO.reqList(Restrictions.eq(TaTpyCalendar.ATT_I_PARENT_ID, user.reqUserId()), Restrictions.eq(TaTpyCalendar.ATT_I_PARENT_TYPE, DBConfig.ID_TA_AUT_USER));
+
+		if (!ok || lst == null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+					DefJS.RES_DATA		, lst
+					));				
+		}
+
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserCalendarMod(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+
+		JSONObject			tpyCal 	= API.reqParamJson(request, "tpyCal");
+		Integer 			id		= Integer.parseInt(tpyCal.get("id").toString());
+		Map<String, Object> attr 	= API.reqMapParamsByClass(tpyCal, TaTpyCalendar.class);
+		TaTpyCalendar		ent 	= TaTpyCalendar.DAO.reqEntityByRef(id);
+		boolean 			ok 		= false;
+		try{
+			attr			.remove(TaAutUser.ATT_I_ID);
+			TaTpyCalendar	.DAO.doMerge(ent, attr);	
+			ok 				= true;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		List<TaTpyCalendar> lst		= TaTpyCalendar.DAO.reqList(Restrictions.eq(TaTpyCalendar.ATT_I_PARENT_ID, user.reqUserId()), Restrictions.eq(TaTpyCalendar.ATT_I_PARENT_TYPE, DBConfig.ID_TA_AUT_USER));
+
+		if (!ok || lst == null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+					DefJS.RES_DATA		, lst
+					));				
+		}
+
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserCalendarDel(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+
+		int 				id		= API.reqParamInt(request, "id");
+		TaTpyCalendar		ent 	= TaTpyCalendar.DAO.reqEntityByRef(id);
+		boolean 			ok 		= false;
+		try{
+			TaTpyCalendar	.DAO.doRemove(ent);;	
+			ok 				= true;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		List<TaTpyCalendar> lst		= TaTpyCalendar.DAO.reqList(Restrictions.eq(TaTpyCalendar.ATT_I_PARENT_ID, user.reqUserId()), Restrictions.eq(TaTpyCalendar.ATT_I_PARENT_TYPE, DBConfig.ID_TA_AUT_USER));
+
+		if (!ok || lst == null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+					DefJS.RES_DATA		, lst
+					));				
+		}
+
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserCalendarLst(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doNew --------------");
+
+		List<TaTpyCalendar> lst		= TaTpyCalendar.DAO.reqList(Restrictions.eq(TaTpyCalendar.ATT_I_PARENT_ID, user.reqUserId()), Restrictions.eq(TaTpyCalendar.ATT_I_PARENT_TYPE, DBConfig.ID_TA_AUT_USER));
+
+		if (lst == null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+					DefJS.RES_DATA		, lst
+					));				
+		}
+
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+	private static void doAutUserProfileMod(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doAutUserProfileMod --------------");
+		TaAutUser u = reqMod(user, request);
+
+		//--filter security...
+
+
+		if (u == null){
+			API.doResponse(response,ToolJSON.reqJSonString(
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_NO					
+					));
+		}else{
+			user.doBuildAll(true, true);
+			API.doResponse(response,ToolJSON.reqJSonString(
+					ServiceAuthentification.FILTER_AUT_INFO,
+					DefJS.SESS_STAT		, true, 
+					DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+					DefJS.RES_DATA		, user
+					));				
+		}
+
+	}
+
+
+	//---------------------------------------------------------------------------------------------------------
+	//--cache for UI public
+	private static CacheData<ResultPagination>		cache_rs 		= new CacheData<ResultPagination>	(100, DefTime.TIME_SLEEP_02_00_00_000);
+
+	private static void doAutUserMentorList(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception  {
+		//ToolLogServer.doLogDebug("--------- "+ SV_CLASS+ ".doLst --------------");
+
+		ResultPagination  	res = reqMentorLstGrid(user, request); //and other params if necessary
+		if (res.reqList()==null || res.reqList().size()==0){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+
+		API.doResponse(response,ToolJSON.reqJSonString(		//filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,
+				DefJS.RES_DATA		, res 
+				));					
+	}
+
+	private static ResultPagination reqMentorLstGrid(TaAutUser user, JSONObject json, Object...params) throws Exception {
+		//		Integer 		objMan		= ToolData.reqInt (json, "manId"		, null	);
+		//		Boolean 		objContBuild= ToolData.reqBool (json, "withBuild"	, false	);
+
+		Integer 		typ			= ToolData.reqInt (json, "typ"			, 5	); // typ = 5 = user member
+		String 			typMulti	= ToolData.reqStr (json, "typMulti"	, null); //typ 6 = mentor
+		String 			cats		= ToolData.reqStr (json, "cats"		, null); //typ 6 = mentor
+
+		Integer 		style		= ToolData.reqInt (json, "style"		, null	);
+		Integer 		perManId	= ToolData.reqInt (json, "perManId"	, null	);
+		Integer 		begin		= ToolData.reqInt (json, "begin"		, 0	);
+		Integer 		number		= ToolData.reqInt (json, "number"		, 20);
+		Integer 		total		= ToolData.reqInt (json, "total"		, 0	);
+
+		String 			status		= ToolData.reqStr (json, "status"		, "1"); //user active
+		String 			searchKey	= ToolData.reqStr (json, "sKey"		, null); //typ 6 = mentor
+
+		//		Integer 		companyId	= ToolData.reqInt (json, "companyId"	, null	);
+		//		Integer 		typ02		= ToolData.reqInt (json, "typ02"		, null	);//lang option
+		//other params here
+
+		if (!canWorkWithObj(user, WORK_LST, typ)){ //other param after objTyp...
+			return null;
+		}
+
+		//trong moi truong hop, mentor luon chi co typ = 6, cho du gui type nao len cung vay
+		//		typ 		= TaAutUser.TYPE_MENTOR;
+		typMulti 	= null;
+
+		String keyWord 	= typ + "_" + status + "_" + style +"_" + perManId +"_" + begin + "_" + number + "_" + total + "_" + typMulti + "_" + cats+ "_" + searchKey;
+		ResultPagination rs = cache_rs.reqData(keyWord);
+
+		if(rs==null) {
+			ToolLogServer.doLogInf("---reqMentorLstGrid build vi-----");
+			Set<Integer>				stat		= ToolSet.reqSetInt(status);
+			Set<String>					sKey		= null;
+
+			if (searchKey!=null){
+				searchKey = searchKey.trim().toLowerCase();
+				StringTokenizer st = new StringTokenizer(searchKey, ";, ");
+				if (st.hasMoreElements()) {
+					sKey = new HashSet<String>();
+					while (st.hasMoreElements()) sKey.add(st.nextToken());
+				}
+			}
+
+			List<ViAutUserInfoMentor> 	list 	= ViAutUserInfoMentor.reqListAutUserMentor (begin, number, perManId, stat, typMulti, typ, null, cats,sKey, null, null);
+			if (total == 0 )			total	= ViAutUserInfoMentor.reqCountAutUserMentor(perManId, stat, typMulti, typ, null,cats, sKey);
+			rs									= new ResultPagination(list, total, begin, number);
+			//			ViNsoOffer.doBuildTranslations(list);
+			cache_rs.doPut(keyWord, rs);			
+		} else {
+			ToolLogServer.doLogInf("---reqMentorLstGrid use cache-----");
+			cache_rs.doCheckIfOld(keyWord); //cache in 2 hour
+		}
+
+		return rs;
+	}
+
+	//---------------------------------------------------------------------------------------------------------
+	public static TaAutUser reqGetInfo(Integer idUser) throws Exception  {	
+		TaAutUser 		ent 	= TaAutUser.DAO.reqEntityByRef(idUser);
+
+		if (ent==null){
+			return null;
+		}
+
+		ent.doBuildPerson		(false);
+		ent.doBuildPosition		(false);
+		ent.doBuildDocuments	(false);
+
+		Set<String> filter = new HashSet<String>();
+		filter.add(TaAutUser.class.getSimpleName() + "." + TaAutUser.ATT_T_PASS);
+
+		return ent;	
+	}
+
+	public static TaAutUser reqGetInfoNoPassword(Integer idUser) throws Exception  {	
+		TaAutUser 		ent 	= TaAutUser.DAO.reqEntityByRef(idUser);
+
+		if (ent == null)	return null;
+
+		ent.reqSet(TaAutUser.ATT_T_PASS, "");
+		ent.doBuildPerson		(false);
+		ent.doBuildPosition		(false);
+		ent.doBuildDocuments	(false);
+
+		return ent;	
+	}
+	
+	private void doAutUserFinListDyn(TaAutUser user,  JSONObject json, HttpServletResponse response) throws Exception {
+		Integer 				type 					= API.reqParamInt(request, "type", null);
+
+		Object[] 				dataTableOption 		= reqDataTableOption(request);		
+
+		int 					userType				= (int) user.req(TaAutUser.ATT_I_TYPE);
+
+		List<ViAutUserPerson> 	autUserList 			= reqViAutUserFinListDyn(user.reqId(), dataTableOption);
+
+		// List<TaMatCalendarDyn> materialCalendarList = reqMatCalendarListDyn((int)beginDisplay, (int)nbDisplay, keyword);
+		// PG-1900: Fix for sorting ascending or descending Calendar List - END.
+		if (autUserList==null ){
+			API.doResponse(response,ToolJSON.reqJSonString(DefJS.SESS_STAT, true, DefJS.SV_CODE, DefAPI.SV_CODE_API_NO));
+			return;
+		}
+		
+		JSONArray aaData = new JSONArray();
+
+		for (ViAutUserPerson u : autUserList){					
+			int 	id 			= (Integer) u.req(ViAutUserPerson.ATT_I_ID);
+			String 	login	 	= (String) 	u.req(ViAutUserPerson.ATT_T_LOGIN);
+			String 	name		= (String) 	u.req(ViAutUserPerson.ATT_T_NAME);
+			int 	perId 		= (Integer) u.req(ViAutUserPerson.ATT_I_PERSON_ID);
+			
+			JSONObject o		= new JSONObject();
+			o.put("id"			, id);
+			o.put("perId"		, perId);
+			o.put("login"		, login);					
+			o.put("name"		, name);
+
+			aaData.add(o);
+		}
+
+		Integer iTotalRecords 			= reqViAutUserFinListDynCount(user.reqId());				
+		Integer iTotalDisplayRecords 	= reqViAutUserFinListDynCount(user.reqId(), dataTableOption);
+
+		API.doResponse(response,ToolJSON.reqJSonString(		//filter,
+				DefJS.SESS_STAT		, true, 
+				DefJS.SV_CODE		, DefAPI.SV_CODE_API_YES,					
+				"iTotalRecords"				, iTotalRecords,
+				"iTotalDisplayRecords"		, iTotalDisplayRecords,
+				"aaData"					, aaData.toString()
+				));		
+
+	}
+	private static List<ViAutUserPerson> reqViAutUserFinListDyn(Integer uId, Object[] dataTableOption) throws Exception {
+		List<String>	searchKey	= (List<String>)dataTableOption[0];
+		int 			begin 		= (int)(long)	dataTableOption[1];
+		int 			number 		= (int)(long)	dataTableOption[2]; 
+		int 			sortCol 	= (int)(long)	dataTableOption[3]; 
+		int 			sortTyp 	= (int)(long)	dataTableOption[4];
+
+		String sortColName = ViAutUserPerson.COL_T_LOGIN;
+		String sortDir	   = null;
+
+		switch(sortCol) {
+		//case 0: sortColName = ViAutUserInfo.COL_I_ID; break;
+		case 1: sortColName = ViAutUserPerson.COL_T_LOGIN; break;
+		case 2: sortColName = ViAutUserPerson.COL_T_NAME; break;
+		}
+
+		if (sortColName != null) {
+			switch(sortTyp) {
+			case 0: sortDir = " ASC"; break;
+			case 1: sortDir = " DESC"; break;								
+			}
+		}
+
+		List<ViAutUserPerson> lst = ViAutUserPerson.reqListAutUser(uId, begin, number, searchKey, sortColName, sortDir);
+
+		return lst;
+	}
+	
+	private static Integer reqViAutUserFinListDynCount(Integer uId) throws Exception {
+		Integer result = ViAutUserPerson.reqCountAutUser(uId);
+		return result;
+	}
+
+	private static Integer reqViAutUserFinListDynCount(Integer uId, Object[] dataTableOption) throws Exception {
+		List<String>			searchKey				= (List<String>)dataTableOption[0];
+		Integer result = ViAutUserPerson.reqCountAutUser(uId, searchKey);
+		return result;
+	}
+
+}

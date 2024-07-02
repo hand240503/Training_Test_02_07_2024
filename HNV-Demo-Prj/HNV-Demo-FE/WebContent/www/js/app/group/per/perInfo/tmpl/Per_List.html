@@ -1,0 +1,114 @@
+<div class="card">
+	<div class="card-body">
+		<div class="pull-right">
+			<button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-list-btn">
+				<i class="fa fa-fw fa-clone"></i>
+			</button>
+			
+			<a data-divtoogle="#div_Per_Lists" class="btn-minimize-list" data-toggle="tooltip" data-placement="top"
+				title="" data-original-title="Resize">
+				<i class="mdi mdi-window-minimize font-size-18"></i>
+			</a>
+		</div>
+
+		<div id="div_Per_Lists">
+			{{#equal perPersonType '2'}}
+
+			<div class="box box-default box-solid" id="div_Per_List_Client" data-right="1-view:20101">
+				<div class="card">
+					<div class="card-body">
+						<div id="div_Per_List_Client_Header"></div>
+						<div class="shp_table_padding" id="div_Per_List_Client_Content"></div>
+					</div>
+				</div>
+			</div>
+			{{/equal}}
+
+			{{#equal perPersonType '3'}}
+			<div class="box box-default box-solid" id="div_Per_List_Supplier" data-right="1-view:20201">
+				<div class="card">
+					<div class="card-body">
+						<div id="div_Per_List_Supplier_Header">
+						</div>
+						<div class="shp_table_padding" id="div_Per_List_Supplier_Content"></div>
+					</div>
+				</div>
+			</div>
+			{{/equal}}
+
+			{{#equal perPersonType '4'}}
+			<div class="box box-default box-solid" id="div_Per_List_Producer" data-right="1-view:20301">
+				<div class="card">
+					<div class="card-body">
+
+						<div id="div_Per_List_Producer_Header"></div>
+						<div class="shp_table_padding" id="div_Per_List_Producer_Content"></div>
+					</div>
+				</div>
+			</div>
+			{{/equal}}
+
+			{{#equal perPersonType '6'}}
+			<div class="box box-default box-solid" id="div_Per_List_Thirdparty" data-right="1-view:20401">
+				<div class="card">
+					<div class="card-body">
+						<div id="div_Per_List_Thirdparty_Header"></div>
+						<div class="shp_table_padding" id="div_Per_List_Thirdparty_Content"></div>
+					</div>
+				</div>
+			</div>
+			{{/equal}}
+
+
+			{{#equal perPersonType '0'}}
+			<div class="box box-default box-solid" id="div_Per_List_Client" data-right="1-view:20101">
+				<div class="card">
+					<div class="card-body">
+
+						<div id="div_Per_List_Client_Header"></div>
+						<div class="shp_table_padding" id="div_Per_List_Client_Content"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="box box-default box-solid" id="div_Per_List_Supplier" data-right="1-view:20201">
+				<div class="card">
+					<div class="card-body">
+						<div id="div_Per_List_Supplier_Header"></div>
+						<div class="shp_table_padding" id="div_Per_List_Supplier_Content"></div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="box box-default box-solid" id="div_Per_List_Producer" data-right="1-view:20301">
+				<div class="card">
+					<div class="card-body">
+						<div id="div_Per_List_Producer_Header"></div>
+						<div class="shp_table_padding" id="div_Per_List_Producer_Content"></div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="box box-default box-solid" id="div_Per_List_Thirdparty" data-right="1-view:20401">
+				<div class="card">
+					<div class="card-body">
+						<div id="div_Per_List_Thirdparty_Header"></div>
+						<div class="shp_table_padding" id="div_Per_List_Thirdparty_Content"></div>
+					</div>
+				</div>
+			</div>
+
+			{{/equal}}
+
+			<!-- <div class="box box-default box-solid box-not-show" id="div_Per_List_Doctor">
+				<div class="box-header with-border btn-minimize" id="div_Per_List_Doctor_Header"></div>
+				<div class="box-body" id="div_Per_List_Doctor_Content"></div>
+			</div>
+			 -->
+		</div>
+	</div>
+</div>

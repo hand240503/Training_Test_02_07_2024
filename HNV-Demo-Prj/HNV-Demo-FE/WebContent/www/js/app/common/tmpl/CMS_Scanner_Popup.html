@@ -1,0 +1,14 @@
+<!-- <div style="margin: 1vh 7vw;"> -->
+<!-- 	<video id="preview"></video> -->
+<!-- </div> -->
+
+<!-- <div> -->
+<!-- 	<button id="btn_scan" class="btn btn-primary btn-block">SCAN QR CODE</button> -->
+<!-- </div> -->
+
+<section style="width: 640px; height: 480px; margin: 0 auto;">
+	<select id="webcameraChanger" onchange="cameraChange($(this).val());"></select>
+	<!-- webcamera view component -->
+	<video id="webcameraPreview" playsinline autoplay controls muted loop
+		style="width: 100%;"></video>
+</section>

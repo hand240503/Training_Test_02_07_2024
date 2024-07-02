@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-body">
+
+    <div class="media">
+      <div class="col-9">
+        <h4 class="card-title mb-4 shp_font_size">{{transl "aut_role_tab_01_tabtitle"}} </h4>
+      </div>
+
+      <div class="col-3 isManager">
+        <div class="text-sm-right">
+          <a data-divtoogle="#tab_Aut_User_Ent_Tab_Roles_Resize" class="btn-resize" data-toggle="tooltip"
+            data-placement="top" title="" data-original-title="Resize">
+            <i class="mdi mdi-window-minimize font-size-18"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id='tab_Aut_User_Ent_Tab_Roles_Resize'>
+      <div class="box-body form-horizontal table_width_max shp_table_max_height">
+        <table class="table table-hover ">
+          <tr>
+            <th>{{transl 'aut_role_tab_01_tabtitle'}}</th>
+            <th>{{transl 'aut_role_tab_01_read'}}</th>
+            <th>{{transl 'aut_role_tab_01_add'}}</th>
+            <th>{{transl 'aut_role_tab_01_modify'}}</th>
+            <th>{{transl 'aut_role_tab_01_delete'}}</th>
+            <th>{{transl 'aut_role_tab_01_report'}}</th>
+            <th>{{transl 'aut_role_tab_01_quick_check'}}</th>
+          </tr>
+          {{#each this}}
+          <tr class="{{class}}">
+            <td>{{title}}
+              <input class="objData" type="hidden" data-group="roles" data-gIndex="{{@index}}" data-name="id" data-validation="number"
+                value="{{id}}" />
+              <input class="objData" type="hidden" data-group="roles" data-gIndex="{{@index}}" data-name="rId" data-validation="number"
+                value="{{rId}}" />
+            </td>
+
+            <td><input class="objData {{rId}}_r1" type="checkbox" data-group="roles" data-gIndex="{{@index}}"
+                data-name="r1" {{#ifCond r1 '>' 0}} checked {{/ifCond}} /></td>
+            <td><input class="objData {{rId}}_r2" type="checkbox" data-group="roles" data-gIndex="{{@index}}"
+                data-name="r2" {{#ifCond r2 '>' 0}} checked {{/ifCond}} /></td>
+            <td><input class="objData {{rId}}_r3" type="checkbox" data-group="roles" data-gIndex="{{@index}}"
+                data-name="r3" {{#ifCond r3 '>' 0}} checked {{/ifCond}} /></td>
+            <td><input class="objData {{rId}}_r4" type="checkbox" data-group="roles" data-gIndex="{{@index}}"
+                data-name="r4" {{#ifCond r4 '>' 0}} checked {{/ifCond}} /></td>
+            <td><input class="objData {{rId}}_r5" type="checkbox" data-group="roles" data-gIndex="{{@index}}"
+                data-name="r5" {{#ifCond r5 '>' 0}} checked {{/ifCond}} /></td>
+            <td><input class="objData {{rId}}_rAll" type="checkbox" data-gIndex="{{@index}}" /></td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

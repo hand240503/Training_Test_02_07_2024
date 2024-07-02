@@ -1,0 +1,30 @@
+{
+"per_person_ent_avatar"						: "Hình đại diện",
+
+"per_person_ent_name01"						: "Tên gọi",
+"per_person_ent_name02"						: "Tên khác",
+
+"per_person_ent_stat"						: "Trạng thái",
+
+"per_person_ent_code01"						: "Mã số thuế",
+"per_person_ent_code02"						: "Mã nội bộ",
+
+"per_person_ent_code07"						: "Email liên lạc",
+"per_person_ent_code08"						: "Email khác",
+"per_person_ent_code09"						: "Điện thoại liên lạc",
+"per_person_ent_code10"						: "Điện thoại khác",
+
+"per_person_ent_inf01"						: "Địa chỉ trụ sở",
+"per_person_ent_inf02"						: "Địa chỉ khác",
+
+"per_person_list_name"						: "Tên gọi",
+"per_person_list_code01"					: "MST",
+"per_person_list_code02"					: "MQL",
+"per_person_list_email"						: "Email",
+"per_person_list_phone"						: "Điện thoại",
+
+"per_person_list_stat_[0]"					: "DS mới tạo",
+"per_person_list_stat_[1]"					: "DS hoạt động",
+"per_person_list_stat_[5]"					: "DS cần kiểm tra",
+"per_person_list_stat_[10]"					: "DS bị xóa tạm thời"
+}

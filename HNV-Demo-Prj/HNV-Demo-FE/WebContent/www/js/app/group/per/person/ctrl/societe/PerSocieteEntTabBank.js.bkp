@@ -1,0 +1,217 @@
+define([
+	'jquery',
+	'text!template/per/societe/PerSociete_Ent_Tab_Bank_List.html',
+	'text!template/per/societe/PerSociete_Ent_Tab_Bank_Detail.html',
+	'text!template/per/common/Per_Sel_List_Bank.html'
+	],
+	function($,
+			PerSociete_Ent_Tab_Bank_List,
+			PerSociete_Ent_Tab_Bank_Detail,
+			Per_Sel_List_Bank
+	) {
+
+	var PerSocieteEntTabBank     = function (header,content,footer) {
+		var pr_divHeader 			= header  ? $(header) : null;
+		var pr_divContent 			= content ? $(content): null;
+		var pr_divFooter 			= footer  ? $(footer) : null;
+
+		//------------------------------------------------------------------------------------
+		var tmplName				= App.template.names;
+		var tmplContr				= App.template.controller;
+
+		var svClass 				= App['const'].SV_CLASS;
+		var svName					= App['const'].SV_NAME;
+		var sessId					= App['const'].SESS_ID;
+		var userId          		= App['const'].USER_ID;
+
+		var fVar					= App['const'].FUNCT_SCOPE;
+		var fName					= App['const'].FUNCT_NAME;
+		var fParam					= App['const'].FUNCT_PARAM;		
+
+		var self 					= this;
+		
+		//------------------------------------------------------------------------------------
+		var pr_OBJ_TYPE				= 100;
+		var pr_parentId				= null;
+		var pr_typeBankAcc			= 2;
+		
+		//------------------controllers------------------------------------------------------
+		var pr_ctr_Main 			= null;
+		var pr_ctr_Ent				= null;
+		var pr_ctr_EntHeader 		= null;
+		var pr_ctr_EntBtn 			= null;
+		var pr_ctr_EntTabs 			= null;
+		//-----------------------------------------------------------------------------------
+		var pr_object				= null;
+		var pr_mode					= null;
+		//--------------------APIs--------------------------------------//
+		this.do_lc_init		= function(){
+			pr_ctr_Main 			= App.controller.Per.Main;
+			pr_ctr_List				= App.controller.Per.List;
+			pr_ctr_Ent				= App.controller.Per.Ent;
+			pr_ctr_EntHeader 		= App.controller.Per.EntHeader;
+			pr_ctr_EntBtn 			= App.controller.Per.EntBtn;
+			pr_ctr_EntTabs 			= App.controller.Per.EntTabs;
+		}
+
+		this.do_lc_show		= function(obj, mode){
+			pr_object 				= obj;
+			pr_mode					= mode;
+			pr_parentId 			= obj.id;
+			try{
+				tmplName.PER_SOCIETE_ENT_TAB_BANK_LIST			= "PerSociete_Ent_Tab_Bank_List";
+				tmplName.PER_SOCIETE_ENT_TAB_BANK_DETAIL		= "PerSociete_Ent_Tab_Bank_Detail";
+				tmplName.PER_SEL_LIST_BANK						= "Per_Sel_List_Bank";
+				
+				tmplContr.do_lc_put_tmpl(tmplName.PER_SOCIETE_ENT_TAB_BANK_LIST, PerSociete_Ent_Tab_Bank_List); 	
+				tmplContr.do_lc_put_tmpl(tmplName.PER_SOCIETE_ENT_TAB_BANK_DETAIL, PerSociete_Ent_Tab_Bank_Detail);
+				tmplContr.do_lc_put_tmpl(tmplName.PER_SEL_LIST_BANK, Per_Sel_List_Bank); 
+
+				refreshListBankAcc(App.data.tpyListBank);
+			}catch(e) {
+				do_gl_show_Notify_Msg_Error("PerSocieteEntTabBank: " + e.toString());
+				do_gl_send_exception(App.path.BASE_URL_API_PRIV, pr_ctr_Main.var_lc_URL_Header, App.network, "per.societe", "PerSocieteEntTabBank", "do_lc_show", e.toString()) ;
+			}
+		};
+		
+		//---------Bind Event-------------------------------------
+		function do_bind_event(){
+			var listTpyInfo = App.data.tpyListBank;
+			$("#btn_add_bankAccount").hide();
+			if(pr_mode == pr_ctr_Main.var_lc_MODE_MOD || pr_mode == pr_ctr_Main.var_lc_MODE_NEW){
+				$("#btn_add_bankAccount").show();
+				$("#btn_add_bankAccount").off("click");
+				$("#btn_add_bankAccount").on("click", function() {
+					var selectedBankAccount = {};
+					selectedBankAccount.id 		= -1;
+					doShowBankAccount(selectedBankAccount);
+					bindEvent_SaveBankAcc(-1);
+				});
+			}
+			
+			$(".per_societe_bank_li").on("click", function() {
+				var tpyIndex = $(this).attr("data-tpyIndex");
+				var selectedTpyInfo = listTpyInfo[tpyIndex];
+				doShowBankAccount(selectedTpyInfo);
+				if(pr_mode == pr_ctr_Main.var_lc_MODE_MOD || pr_mode == pr_ctr_Main.var_lc_MODE_NEW){
+					bindEvent_SaveBankAcc(tpyIndex);
+					bindEvent_DelBankAcc(tpyIndex);
+				}
+			});
+		}
+		
+		function doShowBankAccount(selectedTpyInfo){
+			App.MsgboxController.do_lc_show({
+				title	: $.i18n("page_per_title_show_bank"),
+				content : tmplContr.req_lc_compile_tmpl(tmplName.PER_SOCIETE_ENT_TAB_BANK_DETAIL, selectedTpyInfo),
+				buttons	: "none"
+			});
+			$("#cfgValBank_select").html(tmplContr.req_lc_compile_tmpl(tmplName.PER_SEL_LIST_BANK, App.data.cfgValListBank));
+			if(selectedTpyInfo.id != -1){
+				var bankId = selectedTpyInfo.typ02;
+				for(var i = 0; i < App.data.cfgValListBank.length; i++){
+					if(bankId == App.data.cfgValListBank[i].id){
+						$("#cfgValBank_select").find("option[value='"+ bankId +"']").attr("selected","selected");
+						$("#cfgValBank_swift").val(App.data.cfgValListBank[i].val02);
+					}
+				}
+			}
+			$("#btn_save_bankAccount")	.hide();
+			$("#btn_del_bankAccount")	.hide();
+			
+			$("#cfgValBank_select").off("change");
+			$("#cfgValBank_select").on("change", function(e){
+				var value = $(this).val();
+				for(var i = 0; i < App.data.cfgValListBank.length; i++){
+					if(value == App.data.cfgValListBank[i].id){
+						$("#cfgValBank_swift").val(App.data.cfgValListBank[i].val02);
+					}
+				}
+			});
+		}
+
+		function bindEvent_SaveBankAcc(tpyIndex){
+			$("#div_PerSociete_Ent_Tab_Bank_Detail").find("input, select, textarea").removeAttr("disabled");
+			$("#cfgValBank_swift").attr("disabled", "disabled");
+			$("#btn_save_bankAccount").show();
+			$("#btn_save_bankAccount").off("click");
+			$("#btn_save_bankAccount").on("click", function() {
+				var option = {};
+				option.dataZoneDom 	= $("#div_PerSociete_Ent_Tab_Bank_Detail");
+				var infoTpyBank 		= req_gl_data(option);
+				var data = null;
+				var newList = App.data.tpyListBank;
+				if(infoTpyBank.hasError == false){
+					data = infoTpyBank.data;
+					data.typ01	= pr_typeBankAcc;
+					if(tpyIndex == -1){
+						newList.push(data);
+					} else {
+						newList = [];
+						for(var i = 0; i < App.data.tpyListBank.length; i++){
+							if(tpyIndex != i){
+								newList.push(App.data.tpyListBank[i]);
+							}else{
+								data.id = App.data.tpyListBank[i].id;
+								newList.push(data);
+							}
+						}
+					}
+					App.data.tpyListBank = newList;
+					refreshListBankAcc(newList);
+				} else {
+					return;
+				}
+			});
+		}
+		
+		function bindEvent_DelBankAcc(tpyIndex){
+			$("#btn_del_bankAccount").show();
+			$("#btn_del_bankAccount").off("click");
+			$("#btn_del_bankAccount").on("click", function() {
+				var newList = [];
+				for(var i = 0; i < App.data.tpyListBank.length; i++){
+					var tpyInfo = App.data.tpyListBank[i];
+					if( tpyIndex != i){
+						newList.push(tpyInfo);
+					}
+				}
+				App.data.tpyListBank = newList;
+				refreshListBankAcc(newList);
+			});
+		}
+		
+		function refreshListBankAcc(newList){
+			var listTpyBank = translateTyp02Val(newList);
+			$("#div_PerSociete_Ent_Tab_Bank").html(tmplContr.req_lc_compile_tmpl(tmplName.PER_SOCIETE_ENT_TAB_BANK_LIST, listTpyBank));
+			do_bind_event();
+		}
+		
+		function translateTyp02Val(listTpyBank){
+			var listEdited = [];
+			for (var i = 0; i < listTpyBank.length; i++){
+				var bankAccount = listTpyBank[i];
+				for(var j = 0; j < App.data.cfgValListBank.length; j++){
+					if(bankAccount.typ02 == App.data.cfgValListBank[j].id){
+						bankAccount.bankName = App.data.cfgValListBank[j].val01;
+						bankAccount.swift = App.data.cfgValListBank[j].val02;
+					}
+				}
+				listEdited.push(bankAccount);
+			}
+			return listEdited;
+		}
+	
+		var req_gl_Request_Content_Send = function(serviceName){
+			var ref 		= {};
+			ref[svClass] 	= pr_SERVICE_CLASS; 
+			ref[svName]		= serviceName;
+			ref[userId]		= App.data.user.id;
+			ref[sessId]		= App.data.session_id;	
+
+			return ref;
+		}
+	};
+
+	return PerSocieteEntTabBank;
+});

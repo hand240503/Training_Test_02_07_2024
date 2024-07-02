@@ -1,0 +1,111 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_main" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_frm_main'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<label for="inp_tpy_market_header_logo">{{transl "ent_header_logo"}}</label>
+					<input id="inp_tpy_market_header_logo" class="fileinput objData" data-maxfile="1" type="file" 
+							data-type="avatar" data-name="files" data-keepName="0" data-entTyp="30000" data-typ01="1" data-typ02="1"/>
+				</div>
+				
+				<div class="col-lg-8 col-md-8 col-sm-12">
+				
+					<div class="form-group row">
+						<label for="inp_id" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_id'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_id" 
+									data-msgClass="errMsgInline" class="objData form-control"
+									type="text" data-name="id" value="{{id}}"
+									data-label="{{transl 'id_label'}}"
+									data-validation="required number" />
+						</div>
+					</div>
+					
+					
+					<div class="form-group row">
+						<label for="inp_code" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_code'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_code" data-validation="required" class="form-control objData"
+								data-name="code" value="{{code}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_name" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_name'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_name" 
+								data-msgClass="errMsgInline" class="objData form-control"
+								type="text" data-name="name" value="{{name}}"
+								data-label="{{transl 'name_label'}}"
+								data-validation="required" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_inf01" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_inf01'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input id="inp_inf01" data-validation="" class="form-control objData"
+								data-name="inf01" value="{{inf01}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="sel_stat" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_stat'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_stat" class="form-control objData" data-validation="required number" data-name="stat01">
+								{{#select stat01}}
+								<option value="0" selected>{{transl "ent_stat_new"}}</option>
+								<option value="1"		   >{{transl "ent_stat_activ"}}</option>	
+								<option value="5"		   >{{transl "ent_stat_review"}}</option>	
+								<option value="10"		   >{{transl "ent_stat_deleted"}}</option>	
+								{{/select}}						
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="sel_type_01" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_type_01'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="sel_type_01" class="form-control objData" data-validation="required number" data-name="typ01">
+								{{#select typ01}}
+								<option value="0"   selected>{{transl "ent_type_01_selection"}}</option>
+								<option value="100"			>{{transl "ent_type_01_others"}}</option>	
+								{{/select}}							
+							</select>
+						</div>
+					</div>
+					
+	 				
+					
+					<div class="form-group row">
+						<label for="div_par_cat" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_parent'}}</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="hidden" class="objData" data-name="parId" id="inp_parId" data-validation="number" value="{{parId}}">
+							<input type="text" 	 class="form-control objData" id="inp_sel_parId" value="{{decodeUTF8 parName}}" disabled>
+							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+

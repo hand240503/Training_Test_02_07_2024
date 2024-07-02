@@ -1,0 +1,5 @@
+<select class="form-control objData" disabled>
+	{{#each list}}
+	<option value="{{id}}" {{#equal id ../selectId}}selected{{/equal}}>{{name}}</option>
+	{{/each}}
+</select>

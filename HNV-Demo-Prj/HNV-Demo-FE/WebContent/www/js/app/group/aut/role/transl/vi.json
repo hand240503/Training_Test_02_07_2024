@@ -1,0 +1,25 @@
+{
+
+"----------AUT ROLE----------"			:	"----------AUT ROLE----------",
+"aut_role_list_table":   "Danh mục các vai trò",
+
+"aut_role_id"							:	"Mã số",
+"aut_role_name"							:	"Tên",
+"aut_role_descr"						:	"Miêu tả",
+"aut_role_group"						: 	"Phân nhóm",
+
+"aut_role_stat"							: 	"Trạng thái",
+"aut_role_stat_on"						: 	"Hoạt động",
+"aut_role_stat_off"						: 	"Tắt",
+
+
+"aut_role_tab_right_tabtitle"			:	"Quyền hạn",
+"aut_role_list_header_title"			:	"Danh sách vai trò",
+
+"aut_role_rights"						:	"Các quyền liên quan",
+
+"aut_right_grp_aut_user"				:  "Người dùng",
+"aut_right_grp_aut_role"				:  "Vai trò",
+"aut_right_grp_aut_right"				:  "Quyền hạn"
+
+}

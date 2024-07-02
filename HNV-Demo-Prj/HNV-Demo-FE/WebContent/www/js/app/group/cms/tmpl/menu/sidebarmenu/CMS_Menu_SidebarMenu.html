@@ -1,0 +1,28 @@
+<ul id="ul_Menu_SidebarMenu" class="sidebar-menu">
+<!-- 	<li class="header">MAIN NAVIGATION</li> -->
+	<li id="li_Menu_SidebarMenu_Home" class="li_Menu_SidebarMenu_Item">
+		<a> <i class="fa fa-home"></i></a>
+	</li>
+	{{#each this}}
+		<li id="li_Menu_SidebarMenu_Item_{{id}}" class="li_Menu_SidebarMenu_Item {{#if child}}treeview{{/if}}" data-id="{{id}}" data-name="{{transl val01}}">
+			<a> 
+				<i class="fa {{replaceStrOrNot val02 'fa-dot-circle-o'}}"></i>
+				<span>{{transl_format val01 '""'}}</span>
+				{{#if child}}
+					<span class="pull-right-container">
+	            		<i class="fa fa-angle-left pull-right"></i>
+	            	</span>
+	            {{/if}}
+			</a>
+			{{#if child}}
+				<ul class="treeview-menu">
+		        	{{#each child}}
+		        		<li class="li_Menu_SidebarMenu_Child_Item" data-id="{{id}}" data-idParent="{{../id}}" data-name="{{transl val01}}">
+		        			<a href="{{val02}}?{{appVersion}}" target="_self" ><i class="fa fa-circle-o text-blue"></i>{{transl_format val01 '""'}}</a>
+		        		</li>
+		        	{{/each}}
+		        </ul>
+	        {{/if}}
+		</li>
+	{{/each}}
+</ul>

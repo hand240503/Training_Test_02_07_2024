@@ -1,0 +1,45 @@
+{
+	"oAria"				: {
+		"sSortAscending"	: ": kích hoạt để lọc cột theo chiều tăng dần",
+		"sSortDescending"	: ": kích hoạt để lọc cột theo chiều giảm dần"
+	},
+	
+	"oPaginate"			: {
+		"sFirst"	: "<<",
+		"sLast"		: ">>",
+		"sNext"		: ">",
+		"sPrevious"	: "<"
+	},
+	
+	"sEmptyTable"		: "Không tìm thấy dữ liệu",
+	
+	"sInfo"				: "_START_-_END_/_TOTAL_ dòng",
+	
+	"sInfoEmpty"		: "0 dòng",
+	
+	"sInfoFiltered"		: "(_MAX_ dòng)",
+	
+	"sInfoPostFix"		: "",
+	
+	"sDecimal"			: "",
+	
+	"sThousands"		: ",",
+	
+	"sLengthMenu"		: "_MENU_ dòng",
+	
+	"sLoadingRecords"	: "Đang nạp...",
+	
+	"sProcessing"		: "Đang xử lý...",
+	
+	"sSearch"			: "",
+	
+	"sSearchPlaceholder": "Tìm kiếm",
+	
+	"sUrl"				: "",
+	
+	"sZeroRecords"		: "Không tìm thấy dữ liệu",
+	
+	"sPage"				: "Trang",
+	
+	"sOf"				: "/"
+}

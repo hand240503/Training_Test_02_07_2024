@@ -1,0 +1,30 @@
+#div_Preloader,
+.ajax_loader {
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+	position: fixed;
+}
+
+html {
+	background: transparent;
+}
+
+.ajax_loader {
+	opacity: 0.6;
+	background: url("../img/preloader/current-ajax-loader.gif") no-repeat center center #FFF;
+}
+
+#div_Preloader {
+	opacity: 0.6;
+	background: url("../img/preloader/current-ajax-loader.gif") no-repeat center center #FFF;
+/* 	transition: 3s opacity; */
+}
+
+#div_Preloader.fade {
+/* 	opacity: 0; */
+/* 	transition: none; */
+/* 	transition: 3s opacity; */
+}

@@ -1,0 +1,60 @@
+{
+
+"nso_post_lst_title_draft"			    : 	"Các bài nháp",	
+"nso_post_lst_title_validated"			: 	"Các bài được duyệt",
+"nso_post_lst_title_reported"			: 	"Các bài bị phản ảnh",
+"nso_post_lst_title_deleted"			: 	"Các bài bị xóa tạm thời",
+"nso_post_lst_title"					: 	"Tiêu đề",
+"nso_post_lst_entity_id"				: 	"ID của ưu đãi/địa điểm",
+
+"nso_post_ent_title"				: 	"Tiêu đề",
+"nso_post_ent_ref"					: 	"Mã post",
+"nso_post_ent_content_01"			:	"Nội dung đầu",
+"nso_post_ent_content_02"			:	"Nội dung 2",
+"nso_post_ent_content_03"			:	"Nội dung 3",
+"nso_post_ent_content_04"			:	"Nội dung 4",
+"nso_post_ent_content_05"			:	"Nội dung 5",
+"nso_post_ent_content_06"			:	"Nội dung 6",
+"nso_post_ent_content_07"			:	"Nội dung 7",
+"nso_post_ent_content_08"			:	"Nội dung 8",
+"nso_post_ent_content_09"			:	"Nội dung 9",
+"nso_post_ent_content_10"			:	"Nội dung 10",
+
+"nso_post_ent_user_new"				:	"Người đăng",
+"nso_post_ent_user_mod"				:	"Người sửa",
+"nso_post_ent_link"					:	"Liên kết Youtube (blog)",
+"nso_post_ent_date_add"				:	"Ngày thêm vào",
+"nso_post_ent_date_mod"				:	"Ngày chỉnh sửa gần nhất",
+"nso_post_ent_date_begin"			:	"Ngày bắt đầu",
+"nso_post_ent_date_end"				:	"Ngày kết thúc",
+
+"nso_post_ent_status"				:	"Trạng thái",
+"nso_post_ent_status_draft"        	:   "Nháp",
+"nso_post_ent_status_validated"		:	"Đã được duyệt",
+"nso_post_ent_status_reported"		:	"Bị phản ảnh",
+"nso_post_ent_status_deleted"		:	"Bị xóa tạm thời",
+"nso_post_ent_type"			   		:	"Kiểu bài viết",
+"nso_post_ent_type_eval"          	:   "Đánh giá",
+"nso_post_ent_type_blog"			:	"Blog",
+"nso_post_ent_type_offer"			:	"Ưu đãi",
+"nso_post_ent_type_event"			:	"Sự kiện",
+
+"nso_post_ent_opt_lang"				: "Ngôn ngữ hiển thị",
+"nso_post_ent_parent"				: "Bài viết liên quan",
+
+"nso_post_ent_tab_doc"				: "Tệp đính kèm",
+"nso_post_ent_tab_doc_avatar"		: "Hình đại diện",
+"nso_post_ent_tab_doc_images"		: "Hình ảnh khác",
+
+"nso_post_btn_del_title"				: "Xác nhận",
+"nso_post_btn_del_content"				: "Bạn muốn xoá post này?",
+"nso_post_btn_del_group"				: "Bạn muốn xoá sản phẩm này khỏi nhóm?",
+"nso_post_btn_cancel_title"			: "Xác nhận",
+"nso_post_btn_cancel_content"			: "Bạn muốn huỷ bỏ thay đổi?",
+"nso_post_msg_save_content"			: "Bạn muốn tiếp tục hay thoát khỏi thao tác này?",
+
+"--------------------------"	: "----------------------------------------",
+
+
+"--End------------------------"	: "----------------------------------------"
+}

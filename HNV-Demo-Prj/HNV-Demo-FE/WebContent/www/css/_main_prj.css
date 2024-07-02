@@ -1,0 +1,266 @@
+.ui-widget.ui-widget-content {
+    border: 1px solid #c5c5c5;
+}
+.ui-autocomplete {
+    z-index: 2147483647;
+    max-height: 20vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;
+    padding: 4px 0;
+    margin: 2px 0 0 0;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+}
+.ui-widget-content {
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    color: #333333;
+}
+.ui-widget {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 1em;
+}
+.ui-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    outline: 0;
+}
+.ui-autocomplete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: default;
+}
+.ui-front {
+    z-index: 100;
+}
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.ui-menu-item {
+	height: 45px;
+    line-height: 45px;
+    margin-left: 1rem;
+}
+.ui-menu-item:hover {
+	background: #ececec;
+}
+.avatar-autocomplete {
+	margin-left: 10px;
+}
+#div_list_member {
+	display: flex;
+	flex-flow: wrap;
+}
+.member-item {
+	cursor: pointer;
+	padding: 0.5em;
+}
+.prj-item {
+	cursor: pointer;
+}
+.hide{
+	display: none;
+}
+.action-item{
+	cursor: pointer;
+}
+.datepicker{ 
+	z-index:99999 !important; 
+}
+#tabEpic, #tabTask {
+	overflow: hidden;
+}
+.tr-epic, .tr-task {
+	cursor: pointer;
+}
+.errMsg {
+	color: red;
+}
+.h-inline {
+	display: inline;
+}
+.div-task-stat {
+	background: #efefef;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 6px;
+}
+.task-item {
+	z-index: 1;
+}
+#div_choose_stat {
+	display: flex;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+.task-stat-choose {
+	margin-left: 10px;
+}
+
+#div_Preloader {
+    opacity: 0.6;
+    background: url(../img/preloader/current-ajax-loader.gif) no-repeat center center #FFF;
+}
+#div_Preloader, .ajax_loader {
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    position: fixed;
+}
+
+.ajax_loader {
+	opacity: 0.6;
+	background: url("../img/preloader/current-ajax-loader.gif") no-repeat center center #FFF;
+}
+
+.component-scroll {
+	height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.component-scroll::-webkit-scrollbar-thumb:hover {
+    background: #009eb3;
+}
+.component-scroll::-webkit-scrollbar-thumb {
+    background: rgb(7, 7, 7);
+    border-radius: 10px;
+}
+.component-scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey;
+    border-radius: 10px;
+}
+.component-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+#div_notify_content .media {
+    padding: .75rem 1rem;
+    border: solid 1px rgba(0,0,0,.1);
+}
+
+.notify-noRead {
+	background-color: #d0ffff;
+}
+.chat-content {
+	min-height: 550px;
+}
+.msg-noMsg {
+	text-align: center;
+}
+.dz-image-preview .dz-image img[data-dz-thumbnail] {
+	height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.modal-backdrop.in {
+    opacity: 0.7;
+}
+.task-descr {
+	font-size: 12px;
+}
+.remove-padding-bottom {
+	padding-bottom: 0;
+}
+.remove-overflow {
+	overflow: unset;
+}
+/*** DROPDOWN MENU for PROJECT_CONTENT ***/
+/* #div_prj_member .dropdown-menu.show { */
+/*     top: 100%!important; */
+/*     transform: none!important; */
+/*     animation-name: DropDownSlide!important; */
+/*     animation-duration: .3s!important; */
+/*     animation-fill-mode: both!important; */
+/* } */
+/*** DROPDOWN MENU for PROJECT_LIST, TASK_LIST_CONTENT ** */
+#div_prj_list .dropdown-menu.show,
+#div_task_content .dropdown-menu.show {
+	top: 75%!important;
+}
+/*** SHOW USER NAME when hover on PROJECT_LIST, TASK_LIST ***/
+#div_prj_list .team-member .tooltiptext, 
+#div_task_content .team-member .tooltiptext,
+#div_tree_prj .team-member .tooltiptext{
+	display: none;
+  	text-align: center;
+  	border-radius: 6px;
+  	position: absolute;
+  	background: black;
+    color: white;
+    line-height: 1.2rem;
+    padding: .5rem;
+    z-index: 1;
+}
+#div_prj_list .team-member:hover .tooltiptext,
+#div_task_content .team-member:hover .tooltiptext,
+#div_tree_prj .team-member:hover .tooltiptext{
+	display: block;
+}
+
+.tr-mail-list {
+	cursor: pointer;
+}
+.tr-mail-list.active {
+	background-color: #74788d;
+    color: white;
+}
+.img-thumbnai-dashbord {
+    padding: .25rem;
+    background-color: #f8f8fb;
+    border: 1px solid #f6f6f6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: 100%;
+}
+.ui-menu-item .ui-menu-item-wrapper b {
+	margin-left: 10px;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #eee;
+    opacity: 1;
+}
+
+.form-control[disabled], fieldset[disabled] .form-control {
+    cursor: not-allowed;
+}
+
+.pac-container{
+    border: 0;
+}
+
+.not-active {
+    pointer-events: none;
+    cursor: not-allowed;
+}

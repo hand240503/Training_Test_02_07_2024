@@ -1,0 +1,39 @@
+{
+	"----------LOGIN----------"				:	"----------LOGIN----------",
+	"login_title"							:	"Connexion au compte",
+	"login_username"						:	"Login",
+	"login_password"						:	"Mot de passe",
+	"login_remember_me"						:	"Se souvenir de moi!",
+	"login_sign_in_btn"						:	"Connecter",
+	"login_sign_out_btn"					:	"Déconnecter",
+	"login_or"								:	"Or",
+	"login_sign_in_facebook"				:	"Facebook",
+	"login_sign_in_google"					:	"Google+",
+	"login_forgot_password"					:	"Oublier le mot de passe",
+	"login_register"						:	"Đăng ký",
+	"login_err_authentification"			:	"Vous ne pouvez pas vous connecter, veuillez vérifier votre login et votre mot de passe",
+	"login_popup_logout_title"				:	"Déconnecter",
+	"login_popup_logout_content"			:	"Voulez vous vraiment vous déconnecter?",
+
+	"login_welcome"							: "Bienvenu!",
+	"login_msg_signin"						: "Connectez-vous pour continuer",
+	"login_enter_username"					: "Entrez votre login",
+	"login_enter_password"					: "Entrez votre mot de passe",
+	"login_log_in"							: "Connecter",
+	"login_forgot_pwd"						: "Mot de passe oublié?",
+	"login_msg_no_account"					: "Je n’ai pas encore de compte? ",
+	"login_signup_now"						: "Inscription rapide",
+	
+	"login_email"							: "Email",
+	"login_email_enter"						: "Entrez votre email",
+	"login_free_register"					: "Đăng ký miễn phí",
+	"login_free_register_msg"				: "Trở thành thành viên ngay bây giờ",
+	"login_btn_register"					: "S'incrire",
+	"login_agree_msg"						: "Bằng cách nhấn vào đăng ký, bạn đã đồng ý",
+	"login_term_of_use"						: "Điều khoản sử dụng",
+	"login_have_acc_msg"					: "Bạn đã có tài khoản ?",
+	"login_login"							: "Connexion au compte",
+
+	
+	"--End------------------------"	: "----------------------------------------"
+}

@@ -1,0 +1,34 @@
+{
+
+"----------AUT ROLE----------"			:	"----------AUT ROLE----------",
+"aut_role_list_table":   "List des rôles",
+
+"aut_role_id"							:	"Code de gestion",
+"aut_role_name"							:	"Nom du rôle",
+"aut_role_descr"						:	"Description",
+"aut_role_group"						: 	"Groupe",
+
+"aut_role_stat"							: 	"Etat",
+"aut_role_stat_on"						: 	"Active",
+"aut_role_stat_off"						: 	"Désactive",
+
+
+"aut_role_tab_right_tabtitle"			:	"Droit",
+"aut_role_list_header_title"			:	"List des rôles",
+
+"aut_role_rights"						:	"Droits concernant",
+
+"aut_right_grp_aut_adm"					:  "Admin",
+"aut_right_grp_aut_user"				:  "Utilisateur",
+"aut_right_grp_aut_role"				:  "Rôle",
+"aut_right_grp_aut_right"				:  "Droit",
+"aut_right_grp_mat_material"			:  "Matériel",
+"aut_right_grp_cfg_value"				:  "Configuration du système",
+"aut_right_grp_tpy_category"			:  "Catégory",
+"aut_right_grp_per_self"				:	"Thông tin nội bộ",
+"aut_right_grp_per_client"				:	"Client",
+"aut_right_grp_per_supplier"			:	"Fournisseur",
+"aut_right_grp_per_producer"			:	"Produceur",
+"aut_right_grp_per_thirdparty"			:	"Partenaire"
+
+}

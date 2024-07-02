@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-body">
+        <div class="media">
+            <div class="col-12 isManager">
+                <div class="text-sm-right">
+                    <a data-divtoogle="#div_Ent_Tab_Roles_List" class="btn-resize" data-toggle="tooltip"
+                        data-placement="top" title="" data-original-title="Resize">
+                        <i class="mdi mdi-window-minimize font-size-18"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+		<div id="div_Ent_Tab_Roles_List" class="row col-12">
+	        <div class="row">
+				{{#each this}}
+				<div id="div_Tab_{{@index}}" class="col-lg-6 col-md-6 col-sm-12">
+					<div class="box {{#if check}}box-primary{{else}}box-default{{/if}} box-solid">
+						<div id="div_List_Header" class="box-header with-border btn-minimize">
+							<input class="objData" type="checkbox" data-level="0" {{#if checkAll}} checked {{/if}} />
+							<h3 class="box-title">{{transl 'aut_user_ent_tab_role_title'}}</h3>
+							<div class="box-tools pull-right">
+ 								<button type="button" class="btn btn-box-tool" data-widget="collapse">
+ 									<i class="fa fa-chevron-down"></i>
+ 								</button>
+							</div>
+						</div>
+						<div id="div_List_Content" class="box-body">
+							{{#each roles}}
+								<div  class="row">
+									<div class="col-4">
+										<input class="objData box-inp" type="checkbox" {{#if check}} checked {{/if}} 
+										data-level="1" data-group="auths" data-gindex="{{id}}" data-name="chk"/>
+										<span class="" style="font-weight:bold">{{transl descr}}</span>
+									</div>
+									
+									<div class="col-4">
+										<input class="objData datepicker" value="{{dateFormatLocal dt01}}" 
+										data-group="auths" data-gindex="{{id}}" data-name="dt01" data-format="date " data-validation="date" 
+										placeholder="{{transl 'aut_role_dt01'}}"/>
+									</div>
+									<div class="col-4">
+										<input class="objData datepicker" value="{{dateFormatLocal dt02}}" 
+										data-group="auths" data-gindex="{{id}}" data-name="dt02" data-format="date " data-validation="date" 
+										placeholder="{{transl 'aut_role_dt02'}}"/>
+									</div>
+									
+									<input class="objData" type="hidden" value="{{id}}" 	data-group="auths" data-gindex="{{id}}" data-name="rId" 	data-validation="number"/>
+									<input class="objData" type="hidden" value="{{authId}}" data-group="auths" data-gindex="{{id}}" data-name="id"		data-validation="number"/>
+									<input class="objData" type="hidden" value="{{stat}}"   data-group="auths" data-gindex="{{id}}" data-name="stat"	data-validation="number"/>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+        </div>
+    </div>
+</div>
+

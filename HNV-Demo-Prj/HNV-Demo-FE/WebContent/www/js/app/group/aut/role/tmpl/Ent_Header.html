@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-8">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_manager" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_frm_manager'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="form-group row">
+						<label for="inp_id" class="col-4 control-label">{{transl "aut_role_id"}}*</label>
+						<div class="col-8">
+							<input id="inp_id" data-validation="required numeric" class="form-control objData" type="text" data-name="id" value="{{id}}"/>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="inp_name" class="col-4 control-label">{{transl "aut_role_name"}}*</label>
+						<div class="col-8">
+							<input id="inp_name" data-validation="required" class="form-control objData" type="text" data-name="name" value="{{name}}"/>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl 'aut_role_stat'}}*</label>
+						<div class="col-8">
+							<select id="sel_stat" class="form-control objData" data-validation="required number" data-name="stat">
+								<option value="1">{{transl 'aut_role_stat_on'}}</option>
+								<option value="0">{{transl 'aut_role_stat_off'}}</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_role_descr"}}</label>
+						<div class="col-8">
+							<input id="inp_descr" class="form-control objData" type="text" data-msgClass="errMsgInline" data-name="descr" value="{{descr}}"/>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "aut_role_group"}}*</label>
+						<div class="col-8">
+							<input id="inp_descr" class="form-control objData" type="text" data-validation="required" data-msgClass="errMsgInline" data-name="grp" value="{{grp}}"/>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,67 @@
+<div class="home-btn d-none d-sm-block">
+    <a href="index.html" class="text-dark"><i class="fas fa-home h2"></i></a>
+</div>
+<div class="account-pages my-5 pt-sm-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <div class="card overflow-hidden">
+                    <div class="bg-soft-primary">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="text-primary p-4">
+                                    <h5 class="text-primary">{{transl 'login_free_register'}}</h5>
+                                    <p>{{transl 'login_free_register_msg'}}</p>
+                                </div>
+                            </div>
+                            <div class="col-5 align-self-end">
+                                <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0"> 
+                        <div>
+                            <a href="index.html">
+                                <div class="avatar-md profile-user-wid mb-4">
+                                    <span class="avatar-title rounded-circle bg-light">
+                                        <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="p-2" id="div_sendRegister">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="useremail">{{transl 'login_email'}}</label>
+                                    <input type="email" class="form-control objData" id="idLogin" data-validation="required email" data-name="email" placeholder="{{transl 'login_email_enter'}}">        
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="inp_Username">{{transl 'login_username'}}</label>
+                                    <input type="text" class="form-control objData" id="idEmail" data-validation="required alphanumeric" data-name="login" placeholder="{{transl 'login_enter_username'}}">
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="inp_Password">{{transl 'login_password'}}</label>
+                                    <input type="password" class="form-control objData" id="txtNewPassword" data-validation="required" data-name="pass" placeholder="{{transl 'login_enter_password'}}">        
+                                </div>
+            
+                                <div class="mt-4">
+                                    <button class="btn btn-primary btn-block waves-effect waves-light" id="btn_Register" type="button">{{transl 'login_btn_register'}}</button>
+                                </div>
+        
+                                <div class="mt-4 text-center">
+                                    <p class="mb-0">{{transl 'login_agree_msg'}} <a href="#" class="text-primary">{{transl 'login_term_of_use'}}</a></p>
+                                </div>
+                            </form>
+                        </div>
+    
+                    </div>
+                </div>
+                <div class="mt-5 text-center">
+                    <p>{{transl 'login_have_acc_msg'}} <a href="auth-login.html" class="font-weight-medium text-primary"> {{transl 'login_login'}}</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

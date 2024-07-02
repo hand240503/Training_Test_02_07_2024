@@ -1,0 +1,254 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_frm_manager" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_frm_manager'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				<div class="col-lg-8 col-md-8 col-sm-12">
+					<div class="form-group">
+						<input type="hidden" class="objData" value={{id}} 			data-name="id" 			data-validation="number" />
+						<input type="hidden" class="objData" value="{{translId}}" 	data-name="translId" 	data-validation="number">
+						<input type="hidden" class="objData" value="{{mainId}}" 	data-name="mainId" 		data-validation="number">
+						<input type="hidden" class="objData" value="{{lang}}" 		data-name="lang" 		data-validation="number">
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_title'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control objData transl" id="inp_title"
+								value="{{title}}" data-name="title" data-validation="required" placeholder="">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_ref'}} *</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control objData" id="inp_ref" value="{{code01}}" data-name="code01" data-validation="required">
+						</div>
+					</div>
+					
+	 				<div class="form-group row">
+	 					<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_01'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont01" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont01" style="resize: vertical" rows="3" data-name="cont01">{{decodeUTF8 cont01}}</textarea>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_02'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont02" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont02" style="resize: vertical" rows="3" data-name="cont02">{{decodeUTF8 cont02}}</textarea>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_03'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont03" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont03" style="resize: vertical" rows="3" data-name="cont03">{{decodeUTF8 cont03}}</textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_04'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont04" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont04" style="resize: vertical" rows="3" data-name="cont04">{{decodeUTF8 cont04}}</textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_05'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont05" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont05" style="resize: vertical" rows="3" data-name="cont05">{{decodeUTF8 cont05}}</textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_06'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont06" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont06" style="resize: vertical" rows="3" data-name="cont06">{{decodeUTF8 cont06}}</textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_07'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont07" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont07" style="resize: vertical" rows="3" data-name="cont07">{{decodeUTF8 cont07}}</textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_08'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont08" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont08" style="resize: vertical" rows="3" data-name="cont08">{{decodeUTF8 cont08}}</textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'nso_post_ent_content_09'}} 
+							<a 	class="btn htmlEditor" data-dest = "#inp_cont09" data-funct= "val"> 
+								<i class="fa fa-file-text-o"></i>
+							</a>
+	 					</label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea class="form-control objData transl" id="inp_cont09" style="resize: vertical" rows="3" data-name="cont09">{{decodeUTF8 cont09}}</textarea>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<div class="form-group row">
+						<label for="stat" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_status"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select class="form-control objData" data-name="stat" id="sel_stat">
+								{{#select stat}}
+								<option value="0">{{transl "nso_post_ent_status_draft"}}			</option>
+								<option value="2">{{transl "nso_post_ent_status_validated"}}		</option>
+								<option value="3">{{transl "nso_post_ent_status_reported"}}		</option>
+								<option value="4">{{transl "nso_post_ent_status_deleted"}}			</option>
+								{{/select}}
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_type"}} *</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8" id='div_Ent_Header_Entity_Type'>
+							<select class="form-control objData" data-name="typ01" id="sel_typ01" data-validation="required" disabled>
+								{{#select typ01}}
+								<option value="101">{{transl "nso_post_ent_type_blog"}}</option>
+								<option value="100">{{transl "nso_post_ent_type_offer"}}</option>
+								{{/select}}
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="typ02" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_opt_lang"}} *</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select class="form-control objData" data-validation="required" data-name="typ02" id="sel_lang" data-editable="false">
+								{{#select typ02}}
+								<option value="1" {{#ifLangId "1" typ02}} selected {{/ifLangId}}>{{transl "lang_vi"}}</option>
+								<option value="2" {{#ifLangId "2" typ02}} selected {{/ifLangId}}>{{transl "lang_en"}}</option>
+								<option value="3" {{#ifLangId "3" typ02}} selected {{/ifLangId}}>{{transl "lang_fr"}}</option>
+								{{/select}}
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="cmt" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_link"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control objData" id="inp_cmt"
+								value="{{decodeUTF8 cont10}}" data-name="cont10"
+								placeholder="">
+						</div>
+					</div>
+					
+<!-- 					<div class="form-group row"> -->
+<!-- 						<label for="dtMod" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_parent"}}</label> -->
+		
+<!-- 						<div class="col-lg-8 col-md-8 col-sm-8"> -->
+<!-- 							<input type="text" class="form-control objData" id="parId" value="{{parId}}" data-name="parId" placeholder="" disabled data-editable="false"> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_date_begin"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="objData form-control datetimepicker" value="{{dateFormatLocal dt03}}" 
+									data-name="dt03" data-format="date " data-validation="date_time" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_date_end"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input class="objData form-control datetimepicker" value="{{dateFormatLocal dt04}}" 
+									data-name="dt04" data-format="date " data-validation="date_time" />
+						</div>
+					</div>
+					
+					<!-- ------------ -->
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_date_add"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control" value="{{dateFormatLocal dt01}}" data-name="dt01" placeholder="" disabled>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_date_mod"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control" value="{{dateFormatLocal dt02}}" data-name="dt02" placeholder="" disabled>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="login" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_user_new"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control" value="{{uN01}}" data-name="uN01" placeholder="" disabled>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="login" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl "nso_post_ent_user_mod"}}</label>
+		
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input type="text" class="form-control" value="{{uN02}}" data-name="uN02" placeholder="" disabled>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

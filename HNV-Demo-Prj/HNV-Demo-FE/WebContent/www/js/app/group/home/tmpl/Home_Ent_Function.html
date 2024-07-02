@@ -1,0 +1,23 @@
+<div class="box box-default box-solid"> <!-- Optional class : collapsed-box -->
+
+	<div id="div_Home_Function_Header" class="box-header with-border btn-minimize">
+			<!-- Filter , comment or other information for tables -->
+		<h3 class="box-title">{{transl 'home_list_function_header_title'}}</h3>
+
+		<div class="box-tools pull-right">
+			<button type="button" class="btn btn-box-tool" data-widget="collapse">
+				<i class="fa fa-chevron-up"></i>
+			</button>
+		</div>
+		<!-- /.box-tools -->
+	</div>
+
+	<div id="div_Home_Function_Content" class="box-body">
+		<ul style="list-style-type: none;">
+			{{#each this}}
+				<li style="margin: 5px 0;"><span data-id="{{id}}" class="sp_favorite {{#if val04}}star-on{{else}}star-off{{/if}}"></span><a href="{{val02}}?{{appVersion}}" target="_self">{{transl val01}}</a></li>
+			{{/each}}
+		</ul>
+	</div>
+	
+</div>

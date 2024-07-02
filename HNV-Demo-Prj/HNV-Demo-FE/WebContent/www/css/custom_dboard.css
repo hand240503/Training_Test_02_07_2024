@@ -1,0 +1,375 @@
+.table_width_max > div > div:nth-child(2), .table_width_max > div > div:nth-child(3){
+    width: 100%!important;
+}
+
+.table_fit_content > div > div:nth-child(2){
+    width: 100%!important;
+}
+
+.shp_val06 {
+    width: 60px;
+}
+
+.shp_th_big {
+    width: 100px!important;
+}
+
+.shp_margin-left_unset {
+    margin-left: unset;
+}
+
+.shp_mat_sum_nette{
+    color: blue;
+    font-weight: bold;
+}
+
+.shp_table_max_height{
+    max-height: 600px;
+    overflow: auto;
+}
+
+.shp_font_size {
+    font-size: 17px !important;
+}
+
+.shp_table_padding > div > div:nth-child(2) > div {
+    padding: unset;
+    margin: 6px;
+}
+
+.shp_table_padding_2 > div > div:nth-child(2) > div {
+    padding: unset;
+    margin: 12px;
+}
+.shp_pointer {
+    cursor: pointer;
+}
+.dataTables_length > label > select{
+    margin-right: 5px!important;
+}
+
+.shp-block-level-1 {
+    color: blue;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.shp-block-level-2 {
+    color: orange;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.shp-block-level-3 {
+    color: red;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.shp-block-level-4 {
+    color: green;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.shp-block-level-5 {
+    color: pink;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.child-align {
+    padding: 0px 0 2px 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.shp-click-able {
+    cursor: pointer;
+}
+
+.pull-center {
+    text-align: center!important;
+}
+
+.row{
+	margin-left : 0px;
+	margin-right : 0;
+	width: 100%;
+}
+
+.shp_fit-content {
+    width: fit-content!important;
+}
+
+.shp_height_fit-content {
+    height: fit-content!important;
+}
+
+.fade.in {
+    opacity: 1;
+    /* empty-cells: show; */
+}
+
+.modal-backdrop.in {
+    opacity: 0.5;
+    /* empty-cells: show; */
+}
+
+.shp_margin-top {
+    margin-top: 12px;
+}
+
+.table_padding_left > div > div:nth-child(2){
+    padding: 0 15px 0px 0px;
+}
+
+.off-padding-left {
+    padding-left: 0px;
+}
+
+@font-face {
+    font-family: 'Code128';
+    src:  url('../fonts/code128.woff2') format('woff2'),
+          url('../fonts/code128.woff') format('woff');
+}
+
+.barcode {
+    font-family: 'Code128'; 
+}
+
+.ui-front{
+    z-index: 10000!important;
+}
+
+.inp-hidden{
+    display: none;
+}
+/* CSS of receipt */
+
+.form-inline .form-control {
+    width: 100%!important;
+}
+
+.pull-left {
+    text-align: left!important;
+    vertical-align: bottom;
+}
+
+.list-btn-report   {
+	max-height: 300px;
+    overflow: auto;
+    border: solid 1px #eff2f7;
+}
+
+.pull-top {
+	vertical-align: top;
+}
+
+.file-zoom-content {
+	height : auto !important;
+}
+
+.btn-vendor{
+	width: 60px;
+    height: 60px;
+    font-size: 20px;
+}
+.no-padding-right{
+	padding-right: 0px!important;    
+}
+.no-padding-left{
+	padding-left: 0px!important;
+}
+.margin-top{
+	margin:.5rem 0;
+}
+.paginate_button{
+	padding: 0 4px;
+}
+
+.control-label {
+	margin-top: .5rem;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 8px 5px 8px 5px;
+}
+
+.tooltip {
+	display: none;
+	position: absolute;
+	z-index: 10000;	
+	background-color: white;
+	border: 0px solid green;
+	padding: 3px;
+	color: green;
+	top: 20px;
+	left: 20px;
+}
+
+.parentEle:hover span.tooltip {
+	display: block;
+}
+
+.col-sm-5percent {
+    width: 5%;
+}
+
+/*-----checkbox slider-----*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.btn-primary {
+    color: #fff!important;
+}
+.dataTables_scroll{
+	max-width: 100%;
+}
+
+.dataTables_scrollbar::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 5px;
+}
+
+.dataTables_scrollbar::-webkit-scrollbar
+{
+	width: 5px;
+	height: 5px;
+	background-color: #F5F5F5;
+}
+
+.dataTables_scrollbar::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(52 77 126)), 
+									   color-stop(0.72, rgb(37 79 129)), 
+									   color-stop(0.86, rgb(70 87 139))) ;
+}
+
+.btn-primary {
+    min-height: 35px;
+}
+
+.modal-dialog {
+    max-width: 95%!important;
+}
+
+
+@media (max-width: 768px) {
+  .col-sm-0 {
+    display: none;
+  }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+  .col-md-0 {
+    display: none;
+  }
+}
+
+#table_descr_length select {
+	max-width : 80px;
+}
+
+#table_descr_length label {
+	-webkit-box-align: left!important;
+    -ms-flex-align: left!important;
+    align-items: left!important;
+    -webkit-box-pack: left!important;
+    -ms-flex-pack: left!important;
+    justify-content: left!important;
+}
+
+.btn{
+	cursor: pointer;
+}
+
+.datatable_title {
+    font-size: 17px !important;
+    margin-top:10px;
+}
+
+.page-content{
+	padding: 80px 5px 5px 5px!important;
+}
+.card {
+    margin-bottom: 15px!important;
+}
+
+.timepicker-picker table td {
+    height: 30px!important;
+    line-height: 30px!important;
+    width: 30px!important;
+}
+
+.action-btn{
+	cursor: pointer;
+}

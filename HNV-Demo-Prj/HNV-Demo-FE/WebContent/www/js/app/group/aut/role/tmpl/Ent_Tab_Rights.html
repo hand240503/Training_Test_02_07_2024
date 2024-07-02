@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-body">
+        <div class="media">
+            <div class="col-12 isManager">
+                <div class="text-sm-right">
+                    <a data-divtoogle="#div_Ent_Tab_Rights_List" class="btn-resize" data-toggle="tooltip"
+                        data-placement="top" title="" data-original-title="Resize">
+                        <i class="mdi mdi-window-minimize font-size-18"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+		<div id="div_Ent_Tab_Rights_List" class="row col-12">
+	        <div class="row">
+				{{#each this}}
+				<div id="div_Tab_{{@index}}" class="col-lg-4 col-md-3 col-sm-12">
+					<div class="box {{#if check}}box-primary{{else}}box-default{{/if}} box-solid">
+						<div id="div_List_Header" class="box-header with-border btn-minimize">
+							<input class="objData" type="checkbox" data-level="0" {{#if checkAll}} checked {{/if}} />
+							<h3 class="box-title">{{transl label}}</h3>
+							<div class="box-tools pull-right">
+<!-- 								<button type="button" class="btn btn-box-tool" data-widget="collapse"> -->
+<!-- 									<i class="fa fa-chevron-down"></i> -->
+<!-- 								</button> -->
+							</div>
+						</div>
+						<div id="div_List_Content" class="box-body">
+							{{#each rights}}
+								<div>
+									<input class="objData box-inp" type="checkbox" data-level="1" data-id="{{id}}" {{#if check}} checked {{/if}} data-group="rights" data-gindex="{{id}}"/>
+									<span class="" style="font-weight:bold">{{transl name}}</span>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+				{{#ifModulo @index 3 2}}
+				</div>
+				<div class="row">
+				{{/ifModulo}}
+				{{/each}}
+			</div>
+        </div>
+    </div>
+</div>
+

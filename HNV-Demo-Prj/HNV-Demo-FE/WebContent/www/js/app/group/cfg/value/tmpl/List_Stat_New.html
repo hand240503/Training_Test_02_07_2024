@@ -1,0 +1,41 @@
+<div class="box box-default box-solid">
+	<div class="card">
+		<div class="card-body">
+
+			<div class="media">
+				<div class="col-8">
+					<h4 class="card-title mb-4 datatable_title">{{transl "_stat_new"}}</h4>
+				</div>
+
+				<div class="col-4">
+					<div class="text-sm-right">
+						<a 	class="btn btn-refresh" data-toggle="tooltip" data-placement="top" title="" > 
+							<i	class="mdi mdi-refresh font-size-18"></i>
+						</a>
+						
+						<a data-divtoogle="#div_List_Stat_00" class="btn btn-resize" data-toggle="tooltip" data-placement="top" title=""> <i
+							class="mdi mdi-window-minimize font-size-18"></i>
+						</a>
+						
+						
+					</div>
+				</div>
+			</div>
+
+			<div id="div_List_Stat_00" class="shp_table_padding" >
+				<table class="table table-striped table-hover table-datatableDyn  table-centered table-nowrap">
+					<thead>
+						<tr>
+							<th data-name="id"  	data-visible="false" data-class="text-right" > {{transl "common_field_id"}}</th>
+							<th data-name="name" 	data-visible="true">{{transl "_ent_name"}}</th>
+							<th data-name="code" 	data-visible="true">{{transl "_ent_code"}}</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

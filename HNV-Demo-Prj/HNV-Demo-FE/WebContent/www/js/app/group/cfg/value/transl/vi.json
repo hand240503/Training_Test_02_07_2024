@@ -1,0 +1,48 @@
+{
+"-------------CFG GROUP------------":	"-------------CFG GROUP------------",
+
+"---------------List---------------":	"---------------List---------------",
+
+"_stat_all"							:	"Tất cả trang thái",
+"_stat_new"							:	"Mới",
+"_stat_act"							:	"Kích hoạt",
+"_stat_rev"							:	"Xem xét",
+"_stat_del"							:	"Xóa",
+"common_field_id"					:	"",
+"_ent_name"							:	"Tên",
+"_ent_code"							:	"Mã",
+
+"--------------header--------------":	"--------------header--------------",
+
+"ent_header_logo"					:	"Ảnh đại diện",
+"ent_id"							:	"Số hiệu QL",
+"ent_code"							:	"Mã QL",
+"ent_name"							:	"Tên",
+"ent_inf01"							:	"Miêu tả",
+"ent_stat"							:	"Trạng thái",
+"ent_stat_new"						:	"Mới",
+"ent_stat_activ"					:	"Kích hoạt",
+"ent_stat_review"					:	"Xem Trước",
+"ent_stat_deleted"					:	"Đã xóa",
+"ent_type_01"						:	"Kiểu",
+"ent_type_01_selection"				:	"Lựa chọn",
+"ent_type_01_others"				:	"Khác",
+"ent_type_02"						:	"Loại 02",
+"ent_type_02_01"					:	"01",
+"ent_type_02_02"					:	"02",
+"ent_type_02_03"					:	"03",
+"ent_type_02_04"					:	"04",
+"ent_parent"						:	"Nhóm cha",
+
+"-------------Tab Value------------":	"------------Tab Value-------------",
+
+"ent_inf02_code"			:  	"Mã QL",
+"ent_inf02_value01"			:  	"Giá trị 1",
+"ent_inf02_value02"			:  	"Giá trị 2",
+"ent_inf02_value03"			:  	"Giá trị 3",
+"ent_inf02_value04"			:  	"Giá trị 4",
+"ent_inf02_value05"			:  	"Giá trị 5",
+"ent_inf02_action"			:  	"Tác vụ",
+
+"---------------END----------------":	"---------------END----------------"
+}

@@ -1,0 +1,18 @@
+<div class="box-header with-border">
+	<h3 class="box-title">{{transl "aut_user_tab_cat"}}</h3>
+</div>
+
+<div class="box-body">
+	{{#each this}}
+						<div  id="div_{{id}}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label for="name" class="col-xs-8 col-sm-8 col-md-5 col-lg-6 control-label pull-left">{{transl name}}</label>
+							<div class="col-xs-4 col-sm-4 col-md-7 col-lg-6">
+								<label class="switch"> 
+									<input type="checkbox" 	class="realEstate_prop objData input_{{id}}" data-group= "cats" data-name="{{id}}">
+	<!-- 								<input type="hidden" 	class="objData" data-group= "topicOpt" data-name="eTyp"	value="{{parTyp}}"	disabled>  -->
+									<span class="slider round"></span>
+								</label>
+							</div>
+						</div>
+	{{/each}}
+</div>

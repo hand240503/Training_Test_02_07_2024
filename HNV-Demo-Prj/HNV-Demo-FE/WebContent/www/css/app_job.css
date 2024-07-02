@@ -1,0 +1,116 @@
+@CHARSET "ISO-8859-1";
+
+td.valid{
+	color: green;
+}
+
+td.notValid{
+	color: red;
+}
+
+td.total{
+	color: blue;
+	font-weight: bold;
+}
+
+.notice_F{
+	display: inline-block;
+	border: 0.1px solid black;
+	height: 10px;
+	width: 10px;
+}
+
+.notice_Q{
+	display: inline-block;
+	background-color : #fdcb6e;
+	opacity: 0.8;
+	border: 0.1px solid black;
+	height: 10px;
+	width: 10px;
+}
+
+.notice_H{
+	display: inline-block;
+	background-color : #ffff80;
+	opacity: 0.8;
+	border: 0.1px solid black;
+	height: 10px;
+	width: 10px;
+}
+
+.notice_A{
+	display: inline-block;
+	background-color : #e17055;
+	opacity: 0.8;
+	border: 0.1px solid black;
+	height: 10px;
+	width: 10px;
+}
+
+.notice_HLD{
+	display: inline-block;
+	background-color : #00b894;
+	opacity: 0.8;
+	border: 0.1px solid black;
+	height: 10px;
+	width: 10px;
+}
+
+.Q{
+	background-color : #fdcb6e;
+	opacity: 0.8;
+}
+
+.H{
+	background-color : #ffff80;
+	opacity: 0.8;
+}
+
+.A{
+	background-color : #e17055;
+	color: white;
+	opacity: 0.8;
+}
+
+.HLD{
+	background-color : #00b894;
+	color: white;
+	opacity: 0.8;
+}
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+#readQRCode > canvas{
+    display:none;
+}
+
+#readQRCode {
+    text-alignment:center;
+}
+
+#div_user_qr_code{
+	text-alignment:center;
+}
+
+.fa.iconwarning {
+  color : orange;
+}
+
+.fa.iconvalid {
+  color : green;
+}
+
+.fa.iconalert {
+  color : red;
+}
+
+.fa.iconwaiting {
+  color : blue;
+}

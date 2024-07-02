@@ -1,0 +1,256 @@
+<div class="navbar-header">
+
+    <div class="d-flex">
+    	<button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+            <i class="fa fa-fw fa-bars"></i>
+        </button>
+        <!-- LOGO -->
+        <div class="navbar-brand-box">
+            <a href="index.html" class="logo logo-dark">
+                <span class="logo-sm">
+                     <img src="www/img/logo/RISSI_logo_02.png" alt="" height="50">
+                </span>
+                <span class="logo-lg">
+                     <img src="www/img/logo/RISSI_logo_01.jpg" alt="" height="50">
+                </span>
+            </a>
+
+            <a href="index.html" class="logo logo-light">
+                <span class="logo-sm">
+                     <img src="www/img/logo/RISSI_logo_02.png" alt="" height="50">
+                </span>
+                <span class="logo-lg">
+                     <img src="www/img/logo/RISSI_logo_01.jpg" alt="" height="50">
+                </span>
+            </a>
+        </div>
+
+       
+
+        <!-- App Search-->
+        <!-- <form class="app-search d-none d-lg-block">
+            <div class="position-relative">
+                <input type="text" class="form-control inp-search" data-name="label"  id="search_link"
+                data-name="label" placeholder="{{transl 'dashboard_header_search_enter'}}">
+                <span class="bx bx-search-alt"></span>
+            </div>
+        </form> -->
+
+        <div class="dropdown dropdown-mega d-none d-lg-block ml-2">
+            <button type="button" class="btn header-item waves-effect" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                Menu
+                <i class="mdi mdi-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu dropdown-megamenu">
+                <div class="row">
+                    <div class="col-9">
+
+                        <div class="row">
+                            <div class="col-md-4" data-right="view:">
+                                <h5 class="font-size-14 mt-0"> <i class="bx bx-group"></i> {{transl 'sidebar_partner_client'}}   </h5>
+                                <ul class="list-unstyled megamenu-list shp_pointer">
+                                    <li data-right="view:"><a href="view_per_person.html?typ=02" data-href="view_per_person.html?typ=02" data-viewpart="SHP_PER_PERSON"
+                                            class="menu-item-prj">{{transl 'sidebar_per_person_typ_02'}}</a></li>
+                                    <li data-right="view:"><a href="view_per_person.html?typ=03" data-href="view_per_person.html?typ=03" data-viewpart="SHP_PER_PERSON"
+                                            class="menu-item-prj">{{transl 'sidebar_per_person_typ_03'}}</a></li>
+                                    <li data-right="view:"><a href="view_per_person.html?typ=04" data-href="view_per_person.html?typ=04" data-viewpart="SHP_PER_PERSON"
+                                            class="menu-item-prj">{{transl 'sidebar_per_person_typ_04'}}</a></li>
+                                    <li data-right="view:"><a href="view_per_person.html?typ=06" data-href="view_per_person.html?typ=06" data-viewpart="SHP_PER_PERSON"
+                                            class="menu-item-prj">{{transl 'sidebar_per_person_typ_06'}}</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-4" data-right="view:">
+                                <h5 class="font-size-14 mt-0"><i class="bx bx-user"></i> {{transl 'sidebar_aut_user'}} </h5>
+                                <ul class="list-unstyled megamenu-list shp_pointer">
+                                    <li data-right="view:"><a href="view_manager.html" data-href="view_manager.html" data-viewpart="SHP_MAIN"
+                                            class="menu-item-prj" >{{transl 'sidebar_aut_user_typ_01'}}</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-4" data-right="view:">
+                                <h5 class="font-size-14 mt-0"><i class="bx bxs-capsule"></i> {{transl 'sidebar_mat'}} </h5>
+                                <ul class="list-unstyled megamenu-list shp_pointer">
+                                    <li data-right="view:"><a href="view_mat_material.html" data-href="view_mat_material.html" data-viewpart="SHP_MAIN"
+                                            class="menu-item-prj">{{transl 'sidebar_mat_material'}}</a></li>
+                                    <li data-right="view:"><a href="view_mat_unit.html" data-href="view_mat_unit.html" data-viewpart="SHP_MAIN"
+                                            class="menu-item-prj">{{transl 'sidebar_mat_unit'}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-6" data-right="view:">
+                                <h5 class="font-size-14 mt-0"><i class="bx bxs-book-content"></i> {{transl 'sidebar_sor_order'}}</h5>
+                                <ul class="list-unstyled megamenu-list shp_pointer">
+                                    <li data-right="view:"><a href="view_sor_order_in_buy.html" data-href="view_sor_order_in_buy.html" data-viewpart="SHP_MAIN"
+                                            class="menu-item-prj" >{{transl 'sidebar_sor_order_in'}}</a></li>
+                                    <li data-right="view:"><a href="view_sor_order_out_sell.html" data-href="view_sor_order_out_sell.html" data-viewpart="SHP_MAIN"
+                                            class="menu-item-prj">{{transl 'sidebar_sor_order_out'}}</a></li>
+                                    <li data-right="view:"><a href="view_mat_ware_house.html" data-href="view_mat_ware_house.html" data-viewpart="SHP_MAIN"
+                                            class="menu-item-prj">{{transl 'sidebar_mat_ware_house'}}</a></li>
+                                    <li data-right="view:"><a href="view_report_mat_stock_RQ_Month.html" data-href="view_report_mat_stock_RQ_Month.html" data-viewpart="SHP_MAIN"
+                                            class="menu-item-prj">{{transl 'sidebar_mat_stock_rq_month'}}</a></li>        
+
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <div>
+                                    <img src="{{url}}img/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+
+        <div class="dropdown d-inline-block d-lg-none ml-2">
+            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="mdi mdi-magnify"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                aria-labelledby="page-header-search-dropdown">
+
+                <form class="p-3">
+                    <div class="form-group m-0">
+                        <div class="input-group">
+                            <input type="text" class="form-control inp-search-responsive"
+                                placeholder="{{transl 'dashboard_header_search_enter'}}" aria-label="">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="btn_search_responsive"><i
+                                        class="mdi mdi-magnify"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="dropdown d-inline-block">
+            <button type="button" class="btn header-item waves-effect" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <img class="" src="{{url}}img/flags/{{lan}}.jpg" alt="Header Language" height="16">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="javascript:void(0);" class="dropdown-item notify-item a-languge" data-lan="fr" data-loc="fr-FR" data-id="1">
+                    <img src="{{url}}img/flags/fr.svg" alt="user-image" class="mr-1" height="12"> <span
+                        class="align-middle">{{transl 'dashboard_lan_fr'}}</span>
+                </a>
+                
+                <a href="javascript:void(0);" class="dropdown-item notify-item a-languge" data-lan="en" data-loc="en-EN" data-id="2">
+                    <img src="{{url}}img/flags/us.jpg" alt="user-image" class="mr-1" height="12"> <span
+                        class="align-middle">{{transl 'dashboard_lan_us'}}</span>
+                </a>
+               
+            </div>
+        </div>
+
+        <div class="dropdown d-none d-lg-inline-block ml-1">
+            <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" hidden>
+                <i class="bx bx-customize"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <div class="px-lg-2">
+                    <div class="row no-gutters">
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{url}}img/brands/github.png" alt="Github">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{url}}img/brands/bitbucket.png" alt="bitbucket">
+                                <span>Bitbucket</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{url}}img/brands/dribbble.png" alt="dribbble">
+                                <span>Dribbble</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row no-gutters">
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{url}}img/brands/dropbox.png" alt="dropbox">
+                                <span>Dropbox</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{url}}img/brands/mail_chimp.png" alt="mail_chimp">
+                                <span>Mail Chimp</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{url}}img/brands/slack.png" alt="slack">
+                                <span>Slack</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="dropdown d-inline-block">
+            <button type="button" class="btn header-item noti-icon waves-effect" id="btn_notify_dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bx bx-bell bx-tada"></i>
+                <span class="badge badge-danger badge-pill" id="sp_nbNew_notify"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="btn_notify_dropdown"
+                id="div_notify_content"></div>
+        </div>
+
+        <div class="dropdown d-inline-block">
+            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="rounded-circle header-profile-user" src="{{reqSrcAvatarMember user}}" alt="Header Avatar">
+                <span class="d-none d-xl-inline-block ml-1">{{user.login}}</span>
+                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <!-- item-->
+                <a class="dropdown-item" href="view_prj_user_profile.html" id="a_profile"><i
+                        class="bx bx-user font-size-16 align-middle mr-1"></i>{{transl 'dashboard_header_profile'}}</a>
+                <a hidden class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle mr-1"></i> My
+                    Wallet</a>
+                <!-- <a hidden class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i
+                        class="bx bx-wrench font-size-16 align-middle mr-1"></i>{{transl 'dashboard_header_setting'}}</a> -->
+                <a hidden class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle mr-1"></i> Lock
+                    screen</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-danger" id="a_disconnect" href="#"><i
+                        class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i>{{transl 'dashboard_header_disconnect'}}</a>
+            </div>
+        </div>
+
+		<div class="dropdown d-none d-lg-inline-block ml-1">
+            <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                <i class="bx bx-fullscreen"></i>
+            </button>
+        </div>
+        
+        <div class="dropdown d-none">
+            <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                <i class="bx bx-cog bx-spin"></i>
+            </button>
+        </div>
+
+    </div>
+</div>

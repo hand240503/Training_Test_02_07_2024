@@ -1,0 +1,47 @@
+<div id='tab_order_content' class="card" data-typ-right="{{typ02}}">
+	<div class="card-body">
+		<div id="tab_Per_Ent_Note">
+
+			<div class="media">
+				<div class="col-9">
+					<h4 class="card-title mb-4 shp_font_size">{{transl "per_tab_note"}} </h4>
+				</div>
+
+				<div class="col-3 isManager">
+					<div class="text-sm-right">
+						<a id="a_btn_save" class="mr-2 text-primary action-item action-item-duplicate" data-toggle="tooltip" data-placement="top" title="" data-original-title="Save">
+							<i class="mdi mdi-content-save font-size-18 action-item"></i>
+						</a>
+						
+						<a data-divtoogle="#tab_Per_Ent_Note_Resize" class="btn-resize" data-toggle="tooltip"
+							data-placement="top" title="" data-original-title="Resize">
+							<i class="mdi mdi-window-minimize font-size-18"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div id='tab_Per_Ent_Note_Resize'>
+				<div class="box-body">
+					<div class="form-horizontal table_width_max">
+
+						<table id="table_note" class="table table-striped table-hover objData" data-name="inf04" data-primary="uName">
+							<thead>
+								<tr>
+									<th data-name="dt" data-visible="true" data-format="date" data-plugin="datepicker" data-validation="date required">{{transl "per_tab_note_date"}}* </th>
+									<th data-name="uId" data-visible="false"> </th>
+									<th data-name="uName" data-visible="true" data-editable="none" data-validation="required">{{transl "per_tab_note_uName"}}* </th>
+									<th data-name="cont" data-visible="true">{{transl "per_tab_note_cont"}} </th>
+								</tr>
+							</thead>
+							<tbody style="background-color: white;">
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+{
+
+"----------TPY INFORMATION----------"		:	"----------TPY INFORMATION----------",
+"lst_title_all_ref"                         :   "Danh sách version",
+"tpy_ver_id"								:	"ID",
+"tpy_ver_number"							:	"Số hiệu",
+"tpy_ver_descr"								:	"Mô tả",
+"tpy_ver_date"								:	"Ngày ra mắt",
+
+"tpy_info_version_dt01"						:	"Ngày ra mắt phiên bản",
+"tpy_info_version_number"					:   "Số hiệu phiên bản",
+"tpy_info_version_description"				:	"Mô tả"
+
+}

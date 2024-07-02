@@ -1,0 +1,24 @@
+{
+"ent_name" 		: "Tên/Nhãn",
+"ent_code" 		: "Mã QL",
+"ent_stat" 		: "Trạng thái",
+"ent_stat_00" 	: "Mới tạo",
+"ent_stat_01" 	: "Khả dụng",
+"ent_stat_05" 	: "Cần kiểm tra",
+"ent_stat_10" 	: "Sẽ bị xóa",
+"ent_inf01" 	: "ServiceClass",
+"ent_inf02" 	: "ServiceName",
+"ent_roles" 	: "Cấu hình vai trò",
+"ent_rights" 	: "Cấu hình quyền",
+"ent_dt01"		: "Ngày bắt đầu",
+"ent_dt02"		: "Ngày kết thúc",
+"ent_typ01"		: "Kiểu",
+"ent_typ02"		: "Nhóm",
+
+"lst_title_stat_00" : "DS các ĐV mới tạo",
+"lst_title_stat_01" : "DS các ĐV khả dụng",
+"lst_title_stat_05" : "DS các ĐV cần kiểm tra",
+"lst_title_stat_10" : "DS các ĐV sẽ bị xóa"
+
+
+}

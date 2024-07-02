@@ -1,0 +1,112 @@
+<div class="box-header with-border">
+
+	<h3 class="box-title">{{transl "per_partner_header_title"}}</h3>
+	<div class="box-tools pull-right">
+		<button type="button" class="btn btn-box-tool" data-widget="collapse">
+			<i class="fa fa-chevron-down"></i>
+		</button>
+	</div>
+</div>
+<form class="form-horizontal" id="div_frm_per_header">
+	<input type="hidden" class="objData" id="parent" value="{{parent}}" data-name="parent" >
+	<div class="box-body">	
+		<div class="col-lg-3 col-md-3 col-sm-12">
+			<label for="inp_per_header_logo">{{transl "per_ent_header_logo"}}</label>
+			<input id="inp_per_header_logo" class="fileinput objData" data-maxfile="1" type="file" data-type="logo" data-name="files" data-keepName="0" data-entTyp="30000" data-typ01="2"/>
+		</div>
+		<div class="col-lg-5 col-md-5 col-sm-12">
+			<br>
+			<input type="hidden" class="form-control objData" data-name="id" value="{{id}}"> 
+			<div class="form-group">
+				<label for="name01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_name01"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="name01" value="{{decodeUTF8 name01}}" data-name="name01" data-validation="required" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="name02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_name02"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="name02" value="{{decodeUTF8 name02}}" data-name="name02" disabled required>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="name03" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_name03"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="name03" value="{{decodeUTF8 name03}}" data-name="name03" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group" style="display:none">
+				<label for="typ01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_typ01"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_list_type_person" class="form-control objData" data-name="typ01" disabled></select>
+				</div>
+			</div>
+			
+			<div class="form-group" style="display:none">
+				<label for="typ02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_typ02"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_list_type_partner" class="form-control objData" data-name="typ02" disabled></select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="cfgVal02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_soc_label_legalStat"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_list_legal_status" class="form-control objData" data-name="cfgVal02" disabled></select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="stat" class="col-md-4 col-sm-4 control-label">{{transl "per_soc_header_status"}} *</label>
+
+				<div class="col-md-8 col-sm-8">
+					<select class="form-control objData" data-name="stat" id="stat">
+						<option value="0">{{transl "per_soc_header_status_inactive"}}</option>
+						<option value="1">{{transl "per_soc_header_status_active_lv1"}}</option>
+						<option value="2">{{transl "per_soc_header_status_active_lv2"}}</option>
+						<option value="3">{{transl "per_soc_header_status_active_lv3"}}</option>
+						<option value="10">{{transl "per_soc_header_status_waitting"}}</option>
+						<option value="11">{{transl "per_soc_header_status_reported"}}</option>
+					</select>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="col-lg-4 col-md-4 col-sm-12">
+			<br>
+			<div class="form-group">
+				<label for="code" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_soc_label_code"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="code" value="{{decodeUTF8 code}}" data-name="code" disabled>
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<label for="code02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_soc_label_registerNum"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="info01" value="{{info01}}" data-name="info01" placeholder="" disabled>
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<label for="info02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_soc_label_VAT"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="info02" value="{{info02}}" data-name="info02" placeholder="" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="info10" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_comment"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<textarea class="form-control objData" id="info10" data-name="info10" placeholder="" disabled>{{decodeUTF8 info10}}</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,48 @@
+{
+"-------------CFG GROUP------------":	"-------------CFG GROUP------------",
+
+"---------------List---------------":	"---------------List---------------",
+
+"_stat_all"							:	"Tous les états",
+"_stat_new"							:	"A valider",
+"_stat_act"							:	"Validé",
+"_stat_rev"							:	"A revoir",
+"_stat_del"							:	"Supprimé",
+"common_field_id"					:	"",
+"_ent_name"							:	"Title",
+"_ent_code"							:	"Code",
+
+"--------------header--------------":	"--------------header--------------",
+
+"ent_header_logo"					:	"Avatar",
+"ent_id"							:	"Code de gestion",
+"ent_code"							:	"Référence",
+"ent_name"							:	"Title",
+"ent_inf01"							:	"Description",
+"ent_stat"							:	"Etat",
+"ent_stat_new"						:	"Nouveau",
+"ent_stat_activ"					:	"Active",
+"ent_stat_review"					:	"A revoir",
+"ent_stat_deleted"					:	"Supprimé",
+"ent_type_01"						:	"Type",
+"ent_type_01_selection"				:	"A choisir",
+"ent_type_01_others"				:	"Autre",
+"ent_type_02"						:	"Sub-type",
+"ent_type_02_01"					:	"01",
+"ent_type_02_02"					:	"02",
+"ent_type_02_03"					:	"03",
+"ent_type_02_04"					:	"04",
+"ent_parent"						:	"Groupe parent",
+
+"-------------Tab Value------------":	"------------Tab Value-------------",
+
+"ent_inf02_code"			:  	"Code de gestion",
+"ent_inf02_value01"			:  	"Value 1",
+"ent_inf02_value02"			:  	"Value 2",
+"ent_inf02_value03"			:  	"Value 3",
+"ent_inf02_value04"			:  	"Value 4",
+"ent_inf02_value05"			:  	"Value 5",
+"ent_inf02_action"			:  	"Action",
+
+"---------------END----------------":	"---------------END----------------"
+}

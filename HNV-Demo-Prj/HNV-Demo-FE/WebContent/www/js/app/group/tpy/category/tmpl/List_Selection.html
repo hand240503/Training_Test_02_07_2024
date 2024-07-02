@@ -1,0 +1,46 @@
+
+<div class="box box-default box-solid" data-right="view:">
+	<div class="card">
+		<div class="card-body">
+
+			<div class="media">
+				<div class="col-8" data-right="view:">
+					<h4 class="card-title mb-4 datatable_title">{{transl "lst_title_all_ref"}}</h4>
+				</div>
+
+				<div class="col-4 isManager" data-right="view:">
+					<div class="text-sm-right">
+						<a 	class="btn btn-refresh no-padding" data-toggle="tooltip" data-placement="top" title=""> 
+							<i	class="mdi mdi-refresh font-size-18"></i>
+						</a>
+						
+						<a data-divtoogle="#div_TpyCat_Selection"
+							class="btn btn-resize no-padding" data-toggle="tooltip" data-placement="top"
+							title="" data-original-title="Resize"> <i
+							class="mdi mdi-window-minimize font-size-18"></i>
+						</a>
+						
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="shp_table_padding" id="div_TpyCat_Selection">
+				<div id="tabMember" class="table-responsive " style="display: block;"></div>
+				<table
+					class="table table-striped table-hover table-datatableDyn  table-centered table-nowrap">
+					<thead>
+						<tr>
+							<th data-name="code" 	data-visible="true">{{transl "ent_code01"}}</th>
+							<th data-name="name" 	data-visible="true">{{transl "ent_name01"}}</th>
+<!-- 							<th data-name="parName" data-visible="true">{{transl "tpy_cat_list_parent"}}</th> -->
+						</tr>
+					</thead>
+
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

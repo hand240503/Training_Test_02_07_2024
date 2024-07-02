@@ -1,0 +1,46 @@
+{
+	
+
+	"sidebar_aut_auth" 				: "Authentification",
+	
+	"sidebar_aut_right" 			: "Rights",
+	"sidebar_aut_role" 				: "Rôles",
+	"sidebar_aut_authSV" 			: "Authentification pour services",
+	"sidebar_aut_user" 				: "Utilisateurs",
+	"sidebar_nso_group"				: "Groupe d'utilisateurs",
+	
+	"sidebar_partner_client" 		: "Partenaires",
+	"sidebar_per_person_typ_cli" 	: "Clients",
+	"sidebar_per_person_typ_supl" 	: "Fournisseurs",
+	"sidebar_per_person_typ_prod" 	: "Producteurs",
+	"sidebar_per_person_typ_other" 	: "Autres partenaires",
+	
+
+	"sidebar_mat" 					: "Materials",
+	"sidebar_tpy_cat" 				: "Catégories",
+	"sidebar_mat_material" 			: "Matérials",
+	
+	"sidebar_ref_import"			: "Importation",
+	"sidebar_ref_export"			: "Exportation",
+	"sidebar_ref_check"				: "Vérification",
+	
+	"sidebar_system" 				: "Système",
+	"sidebar_tpy_info_version" 		: "Versions",
+	"sidebar_tpy_inf_rissi"			: "A propos",
+	"sidebar_tpy_inf_intro"			: "Pop-up Welcome",
+	
+	"dashboard_header_profile"						: "Mon compte",
+	"dashboard_header_disconnect"					: "Déconnecter",
+	
+	"dashboard_header_setting"						: "Configuration",
+	"dashboard_header_search_enter"					: "Saisir le mot de clé ...",
+	"dashboard_notify_view_more"					: "Plus d'information",
+	
+	"dashboard_lan_us"								: "English",
+	"dashboard_lan_vn"								: "Tiếng Việt",
+	"dashboard_lan_fr"								: "Français",
+	
+	
+
+"--End------------------------"	: "----------------------------------------"
+}

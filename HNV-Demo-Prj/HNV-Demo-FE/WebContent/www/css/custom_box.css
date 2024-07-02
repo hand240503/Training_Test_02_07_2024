@@ -1,0 +1,286 @@
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
+    max-width: 100%;
+}
+.box .row{
+	width : 100%;
+}
+.box.box-default {
+    border-top-color: #d2d6de;
+}
+.box.box-solid {
+    border-top: 0;
+}
+.box.box-solid.box-default {
+    border: 1px solid #d2d6de;
+}
+.box-header {
+    color: #444;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+.box-header.with-border {
+    border-bottom: 1px solid #f4f4f4;
+}
+.collapsed-box .box-header.with-border {
+    border-bottom: none;
+}
+.box.box-solid.box-default > .box-header {
+    color: #444444;
+    background: #d2d6de;
+    background-color: #1c3262;
+}
+.box-header:before, .box-body:before, .box-footer:before, .box-header:after, .box-body:after, .box-footer:after {
+    content: " ";
+    display: table;
+}
+.box-header > .fa, .box-header > .glyphicon, .box-header > .ion, .box-header .box-title {
+    display: inline-block;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1;
+}
+.box-header > .box-tools {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.box-header .box-title{
+	margin-left : 5px!important;
+	color: white;
+}
+
+.box-body .box-inp{
+	margin:10px;
+}
+
+
+.pull-right {
+    text-align: right!important;
+}
+.btn-box-tool {
+    padding: 5px;
+    font-size: 12px;
+    background: transparent;
+    color: #97a0b3;
+}
+.box.box-solid.box-default > .box-header a, .box.box-solid.box-default > .box-header .btn {
+    color: #444444;
+}
+.box.box-solid > .box-header > .box-tools .btn {
+    border: 0;
+    box-shadow: none;
+}
+.box-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 1px;
+}
+.box.collapsed-box .box-body, .box.collapsed-box .box-footer {
+    display: none;
+}
+.box-footer {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top: 1px solid #f4f4f4;
+    padding: 10px;
+    background-color: #ffffff;
+}
+table.dataTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+}
+div.dataTables_scrollBody table {
+    border-top: none;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+table.table-bordered.dataTable {
+    border-collapse: separate !important;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgb(115 113 239 / 5%);
+}
+div.dataTables_paginate {
+    padding-top: 7px;
+    margin: 0;
+    white-space: nowrap;
+    text-align: right;
+}
+div.dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/*Nav bar*/
+.nav-tabs-custom {
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+.nav-tabs-custom > .nav-tabs {
+    margin: 0;
+    border-bottom-color: #f4f4f4;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
+    display: table;
+    content: " ";
+}
+.nav>li {
+    position: relative;
+    display: block;
+}
+.nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+.nav-tabs-custom > .nav-tabs > li {
+    border-top: 3px solid transparent;
+    margin-bottom: -2px;
+    margin-right: 5px;
+}
+.nav-tabs-custom > .nav-tabs > li.active {
+    border-top-color: #3c8dbc;
+}
+.nav-tabs-custom > .nav-tabs > li:first-of-type {
+    margin-left: 0;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+.nav-tabs-custom > .nav-tabs > li > a {
+    color: #530;
+    border-radius: 0;
+}
+.nav-tabs-custom > .nav-tabs > li > a, .nav-tabs-custom > .nav-tabs > li > a:hover {
+    background: beige;
+    margin: 0;
+}
+.nav-tabs-custom > .nav-tabs > li.active > a, .nav-tabs-custom > .nav-tabs > li.active:hover > a {
+    color: #444;
+    background-color: #ddd;
+    font-weight: bolder;
+}
+.nav-tabs-custom > .nav-tabs > li.active > a {
+    border-top-color: transparent;
+    border-left-color: #f4f4f4;
+    border-right-color: #f4f4f4;
+}
+.nav-tabs-custom > .nav-tabs > li:first-of-type.active > a {
+    border-left-color: transparent;
+}
+.nav-tabs-custom > .tab-content {
+    background: #fff;
+    padding: 10px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.tab-content>.tab-pane {
+    display: none;
+}
+.tab-content>.active {
+    display: block;
+}
+.fa-remove:before {
+   content: "\f00d";
+}
+/*custom table*/
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: 1px solid #f4f4f4;
+}
+.table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th {
+    padding: 5px;
+}
+table.dataTable td, table.dataTable th {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+table.dataTable th {
+	color : #1c3262!important;
+}
+
+div.dataTables_scrollBody tbody tr:first-child th, div.dataTables_scrollBody tbody tr:first-child td {
+    border-top: none;
+}
+table.table-bordered th:last-child, table.table-bordered td:last-child {
+    border-right-width: 0;
+}
+
+/* custom Btn*/
+.btn-app {
+    border-radius: 3px;
+    position: relative;
+    padding: 15px 5px;
+    margin: 0 0 10px 10px;
+    min-width: 80px;
+    height: 60px;
+    text-align: center;
+    color: #666;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    font-size: 12px;
+}
+.custom-btn-app {
+    border: none;
+    border-radius: 50%;
+    padding: 10px 0px;
+    margin: 0 0 0 10px;
+    min-width: 40px;
+    height: 40px;
+    color: #fff !important;
+    background-color: #091966;
+}
+.btn-app > .fa, .btn-app > .glyphicon, .btn-app > .ion {
+    font-size: 20px;
+    display: block;
+}
+
+.filter-box-col {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.custom-btn-app-small {
+    border: none;
+    border-radius: 50%;
+    min-width: 35px;
+    height: 35px;
+    color: #fff !important;
+    background-color: #222d32;
+}

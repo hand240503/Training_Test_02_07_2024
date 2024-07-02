@@ -1,0 +1,92 @@
+.wygo-pricing .file-preview,
+.wygo-description .file-preview {
+	border: none;
+}
+
+.wygo-pricing .file-drop-zone,
+.wygo-description .file-drop-zone {
+   border: none;
+}
+
+.wygo-pricing .krajee-default.file-preview-frame,
+.wygo-description .krajee-default.file-preview-frame {
+    border-radius: 10px;
+}
+
+.krajee-default .file-caption-info, .krajee-default .file-size-info {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+}
+
+.krajee-default.file-preview-frame:not(.file-preview-error):hover {
+    box-shadow: none;
+}
+
+.krajee-default.file-preview-frame {
+    width: 100%;
+}
+
+.krajee-default.file-preview-frame .kv-file-content {
+    width: 30vw;
+    height: 15vh;
+    max-width: 100%;
+    display: inline-flex;
+    /* justify-items: center; */
+    justify-content: center;
+}
+
+.file-preview-image {
+    max-height: none !important;
+}
+
+.file-caption-main {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.krajee-default .file-footer-caption {
+    margin-bottom: 5px;
+}
+
+.file-caption-name {
+	font-family: Arial;
+	font-size: 12px;
+	pointer-events: none;
+}
+
+.file-caption.icon-visible .file-caption-icon {
+    margin-top: 5px;
+}
+
+/* --------------------------------------------css inputfile for post form------------------------------------------ */
+.wygo-fileinput-custom .krajee-default.file-preview-frame .kv-file-content {
+	width: 213px;
+    height: 160px;
+    max-width: 100%;
+}
+.wygo-fileinput-custom .krajee-default.file-preview-frame {
+    margin: 8px;
+}
+
+.wygo-fileinput-custom .krajee-default.file-preview-frame {
+    width: auto;
+}
+
+.wygo-fileinput-custom .krajee-default.file-preview-frame:not(.file-preview-error):hover {
+    box-shadow: 3px 3px 5px 0 #333;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------- */
+@media only screen and (min-width: 780px) and (max-width:930px){
+	.wygo-profilepic{
+		width: 40% !important;
+	}
+}
+@media (max-width: 450px){
+	.krajee-default.file-preview-frame .kv-file-content {
+    width: auto;
+
+}
+}

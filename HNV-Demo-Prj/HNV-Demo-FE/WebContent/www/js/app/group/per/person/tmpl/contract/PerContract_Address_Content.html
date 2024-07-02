@@ -1,0 +1,59 @@
+<input class="objData" id="sel_per_addr_{{typ}}_type" type="hidden" data-group="addr0{{typ}}" data-name="typ" value="{{typ}}"/>
+<div id="div_per_contract_addr_lab" class="form-group text-center">
+	<label class="control-label" style="font-weight: bold;">{{transl title}}</label>
+	<input id="sel_per_addr_{{typ}}_title" class="form-control objData" type="text" data-group="addr0{{typ}}" data-name="title" value="" style="display:none" />
+</div>
+
+<div class="form-group">
+	<div class="col-sm-12">
+		<input id="sel_per_addr_{{typ}}_li01" class="form-control objData" type="text" data-group="addr0{{typ}}" data-name="li01" title="{{li01}}" value="{{li01}}"
+			data-label="{{transl 'sor_zone_general_data'}} : {{transl 'per_contract_tab_general_address_number_name'}}" 
+			wf_r="{{wf_r}}" wf_w="{{wf_w}}" wf_req="{{wf_req}}" wf_req_v="{{wf_req}}" wf_hl="{{wf_hl}}"
+			placeholder="{{transl 'per_contract_tab_general_address_number_name'}}" />
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-sm-12">
+		<input id="sel_per_addr_{{typ}}_li02" class="form-control objData" type="text" data-group="addr0{{typ}}" data-name="li02" title="{{li02}}" value="{{li02}}" 
+			data-label="{{transl 'sor_zone_general_data'}} : {{transl 'per_contract_tab_general_address_bonus'}}" 
+			wf_r="{{wf_r}}" wf_w="{{wf_w}}" wf_req="{{wf_req}}" wf_hl="{{wf_hl}}"
+			placeholder="{{transl 'per_contract_tab_general_address_bonus'}}" />
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-sm-12">
+		<input id="sel_per_addr_{{typ}}_li04" class="form-control objData" type="text" data-group="addr0{{typ}}" data-name="li04" title="{{li04}}" value="{{li04}}" 
+			data-label="{{transl 'sor_zone_general_data'}} : {{transl 'per_contract_tab_general_address_postal_box'}}"
+			wf_r="{{wf_r}}" wf_w="{{wf_w}}" wf_req="{{wf_req}}" wf_hl="{{wf_hl}}"
+			placeholder="{{transl 'per_contract_tab_general_address_postal_box'}}" />
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-sm-12">
+		<input id="sel_per_addr_{{typ}}_li03" class="form-control objData" type="text" data-group="addr0{{typ}}" data-name="li03" title="{{li03}}" value="{{li03}}" 
+			data-label="{{transl 'sor_zone_general_data'}} : {{transl 'per_contract_tab_general_address_postal_code'}}"
+			wf_r="{{wf_r}}" wf_w="{{wf_w}}" wf_req="{{wf_req}}" wf_hl="{{wf_hl}}"
+			placeholder="{{transl 'per_contract_tab_general_address_postal_code'}}" />
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-sm-12">
+		<input id="sel_per_addr_{{typ}}_li05" class="form-control objData" type="text" data-group="addr0{{typ}}" data-name="li05" title="{{li05}}" value="{{li05}}" 
+			data-label="{{transl 'sor_zone_general_data'}} : {{transl 'per_contract_tab_general_address_locality'}}"
+			wf_r="{{wf_r}}" wf_w="{{wf_w}}" wf_req="{{wf_req}}" wf_req_v="{{wf_req}}" wf_hl="{{wf_hl}}"
+			placeholder="{{transl 'per_contract_tab_general_address_locality'}}" />
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-sm-12">
+		<select id="sel_per_addr_{{typ}}_country" class="form-control objData" type="hidden" data-group="addr0{{typ}}" data-name="country" 
+			data-label="{{transl 'sor_zone_general_data'}} : {{transl 'per_contract_tab_general_address_country'}}"
+			wf_r="{{wf_r}}" wf_w="{{wf_w}}" wf_req="{{wf_req}}" wf_req_v="{{wf_req}}" wf_hl="{{wf_hl}}">
+		</select>
+	</div>
+</div>

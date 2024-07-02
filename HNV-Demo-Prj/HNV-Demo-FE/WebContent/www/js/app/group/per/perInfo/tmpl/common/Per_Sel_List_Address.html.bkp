@@ -1,0 +1,5 @@
+<select class="form-control objData" value="{{decodeUTF8 typ02}}" data-name="typ02" disabled>
+	{{#each this}}
+	<option value="{{id}}">{{name}}</option>
+	{{/each}}
+</select>

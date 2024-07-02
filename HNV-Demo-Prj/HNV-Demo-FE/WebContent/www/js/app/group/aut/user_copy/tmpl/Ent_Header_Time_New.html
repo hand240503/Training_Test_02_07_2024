@@ -1,0 +1,192 @@
+<!-- ------------------------------main----------------------------- -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" id="div_create_prj_appointment">
+                <div class="outer-repeater">
+                    <input type="hidden" class="objData" data-name="id" data-validation="number" value="{{ent.id}}">
+                    <input type="hidden" class="objData" data-group="cmt01" data-name="color" data-validation=""
+                        value="{{ent.cmt01.color}}">
+                    <div data-repeater-list="outer-group" class="outer">
+                        <div data-repeater-item class="outer">
+                            <!-- name -->
+                            <div class="form-group row mb-4">
+                                <div class="col-lg-12">
+                                    <label for="projectname" class="col-form-label h5">{{transl
+                                        'prj_appointment_title'}} *</label>
+                                    <div>
+                                        <input type="hidden" class="objData" data-name="lev" value="{{lev}}">
+                                        <input id="title" data-name="title" type="text" class="form-control objData"
+                                            placeholder="{{typ02}}" data-validation="required" value="{{ent.title}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- getPlaceHolderName -->
+
+                            <!-- name -->
+                            <div class="form-group row mb-4">
+                                <div class="col-lg-12">
+                                    <label for="cmt03" class="col-form-label h5">{{transl
+                                        'prj_appointment_area'}} *</label>
+                                    <div>
+                                        <input type="hidden" class="objData" data-name="lev" value="{{lev}}">
+                                        <input id="cmt03" data-name="cmt03" type="text" class="form-control objData"
+                                            placeholder="{{typ02}}" data-validation="required" value="{{ent.cmt03}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- getPlaceHolderName -->
+
+                            <!-- descr01 -->
+                            <div class="row mb-4">
+                                <div class="col-lg-12">
+                                    <label for="projectdesc" class="col-form-label h5">{{transl
+                                        'prj_appointment_cmt'}}</label>
+                                    <div class="">
+                                        <textarea class="form-control objData" data-name="cmt02" id="projectdesc"
+                                            rows="5"
+                                            placeholder="{{transl 'prj_project_enter_project_des'}}">{{ent.cmt02}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="inner-repeater row mb-4">
+                                <!-- date -->
+                                <div class="col-lg-12">
+                                    <label class="col-form-label h5">{{transl 'prj_project_project_date'}} *</label>
+                                    <div>
+                                        <div class="input-daterange input-group">
+                                            <input data-format="date" type="text" data-validation="date required"
+                                                class="form-control objData" id="dtpicker_Begin"
+                                                placeholder="{{transl 'prj_project_start_date'}}" data-group="dtBegin"
+                                                data-name="date" data-provide="datepicker"
+                                                data-date-format="dd/mm/yyyy" />
+
+                                            <input type="text" class="form-control objData tmpicker mr-4"
+                                                id="tmpicker_Begin" placeholder="{{transl 'prj_project_start_date'}}"
+                                                data-group="dtBegin" data-name="time" data-provide="timepicker"
+                                                data-validation="required" />
+
+                                            <input data-format="date" type="text" data-validation="date required"
+                                                class="form-control objData" id="dtpicker_End"
+                                                placeholder="{{transl 'prj_project_end_date'}}" data-group="dtEnd"
+                                                data-name="date" data-provide="datepicker"
+                                                data-date-format="dd/mm/yyyy" />
+
+                                            <input type="text" class="form-control objData tmpicker" id="tmpicker_End"
+                                                placeholder="{{transl 'prj_project_end_date'}}" data-group="dtEnd"
+                                                data-name="time" data-provide="timepicker" data-validation="required" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- member -->
+                                <div class="col-lg-12">
+                                    <div data-repeater-list="inner-group" class="inner form-group mb-0 row">
+                                        <div class="col-lg-12">
+                                            <label class="col-form-label h5">{{transl 'prj_project_add_team'}}</label>
+                                            <div data-repeater-item class="inner ml-md-auto">
+                                                <div class="mb-3 row align-items-center">
+                                                    <div class="col-md-3 hide">
+                                                        <div class="mt-2 mt-md-0">
+                                                            <select class="form-control" id="sel_member_type">
+                                                                <option value="0">{{transl 'prj_project_member_level'}}
+                                                                </option>
+                                                                <option value="0">{{transl 'prj_project_lev_bas'}}
+                                                                </option>
+                                                                <option value="1" selected>{{transl
+                                                                    'prj_project_lev_haute'}}
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mt-2 mt-md-0">
+                                                            <select class="form-control" id="sel_member_level">
+                                                                <option value="0">{{transl
+                                                                    'prj_project_member_level_manager'}}</option>
+                                                                <option value="1">{{transl
+                                                                    'prj_project_member_level_reporter'}}</option>
+                                                                <option value="2" selected>{{transl
+                                                                    'prj_project_member_level_worker'}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="inner form-control inp-name-member"
+                                                            placeholder="{{transl 'prj_project_enter_name'}}" />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-12" id="div_list_member"></div>
+                                    </div>
+                                </div>
+
+                                <!-- customer -->
+                                <div class="col-lg-12 mb-4">
+                                    <label class="col-form-label h5">{{transl 'prj_project_add_customer'}}</label>
+                                    <div class="inner ml-md-auto">
+                                        <div class="mb-3 row align-items-center">
+                                            <div class="col-md-6">
+                                                <input type="text" class="inner form-control inp-email-customer"
+                                                    placeholder="{{transl 'prj_project_enter_customer_email'}}" />
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <button id="btn_add_customer" class="btn btn-primary">{{transl
+                                                    "common_btn_add"}}</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-12 d-flex" id="div_list_email_customer"></div>
+                                    </div>
+                                </div>
+
+
+                                <!-- addr04 -->
+                                <div class="col-lg-12 mb-4">
+                                    <label for="addr04" class="col-form-label h5">{{transl
+                                        'prj_appointment_link_direct'}}</label>
+                                    <div>
+                                        <input id="addr04" data-name="addr04" type="text" class="form-control objData"
+                                            placeholder="{{transl 'prj_appointment_link_direct'}}"
+                                            value="{{ent.addr04}}">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <!-- doc -->
+                                    <div id="div_prj_docs">
+                                        <label class="col-form-label h5">{{transl 'prj_project_attached_files'}}</label>
+                                        <div>
+                                            <form class="dropzone inputfile">
+                                                <div class="fallback">
+                                                    <input data-name="file" type="file" multiple />
+                                                </div>
+
+                                                <div class="dz-message needsclick">
+                                                    <div class="mb-3">
+                                                        <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                                                    </div>
+                                                    <h4>{{transl 'prj_project_drop_files'}}</h4>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

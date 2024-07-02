@@ -1,0 +1,74 @@
+{
+	"sidebar_partner_client" : "Đối tác & khách hàng",
+	"sidebar_per_person_typ_02" : "Khách hàng",
+	"sidebar_per_person_typ_03" : "Nhà phân phối",
+	"sidebar_per_person_typ_04" : "Nhà sản xuất",
+	"sidebar_per_person_typ_06" : "Đối tác khác",
+
+	"sidebar_aut_user" 				: "Người dùng",
+	"sidebar_aut_user_typ_01" 		: "QL người dùng",
+
+	"sidebar_mat" 					: "Sản phẩm",
+	"sidebar_mat_material" 			: "Sản phẩm",
+	"sidebar_mat_unit" 				: "Đơn vị xuất nhập",
+	"sidebar_mat_alarm" 			: "QL báo động",
+	"sidebar_mat_bcode" 			: "QL mã vạch",	
+	
+	"sidebar_tpy_cat" 				: "QL nhóm sản phẩm",
+	
+	
+	"sidebar_shp_vendor"			: "Bán hàng",
+	"sidebar_shp_checkStock"		: "Kiểm kho",
+	"sidebar_shp_per_info"			: "Thông tin doanh nghiệp",
+
+	
+	"sidebar_sor_order_in" 				: "Nhập kho",
+	
+	"sidebar_sor_order_in_buy" 			: "Nhập mua",
+	"sidebar_sor_order_in_bal" 			: "Nhập căn bằng",
+	"sidebar_sor_order_in_transfert"	: "Nhập do chuyển kho",
+	"sidebar_mat_ware_house" 			: "QL kho bãi",
+	
+	"sidebar_sor_order_out" 			: "Xuất kho",
+	
+	"sidebar_sor_order_out_sell"		: "Xuất bán",
+	"sidebar_sor_order_out_bal"			: "Xuất căn bằng kho",
+	"sidebar_sor_order_out_bal_stk"		: "Xuất căn bằng do mất",
+	"sidebar_sor_order_out_bal_fail"	: "Xuất căn bằng do hết hạn",
+	"sidebar_sor_order_out_bal_other"	: "Xuất căn bằng lý do khác",
+	"sidebar_sor_order_out_transfert"	: "Xuất chuyển kho",
+	"sidebar_sor_order_out_stat"		: "QL giao nhận",
+	"sidebar_sor_deal"					: "QL khuyến mãi",
+	
+	
+	"sidebar_sor_order" 				: "Tổng kết",
+	
+	"sidebar_mat_stock_rq" 						: "Kiểm kê tồn kho",
+	"sidebar_mat_stock_rq_month" 				: "Kiểm kê tồn kho theo tháng",
+	"sidebar_report_sor_order_out_sale" 		: "Tổng kết bán hàng",
+	"sidebar_report_sor_order_out_sale_analyze"	: "Phân tích kết quả bán hàng",
+	"sidebar_report_sor_order_in_warehouse" 	: "Tổng kết nhập kho",
+	"sidebar_report_sor_order_out_warehouse" 	: "Tổng kết xuất kho",
+	
+	"sidebar_nso" 						: "Bài viết",
+	"sidebar_nso_post" 					: "Blog",
+	"sidebar_nso_offer" 				: "Ưu đãi",
+	
+	"dashboard_header_profile"						: "Tài khoản",
+	"dashboard_header_cra"							: "Khai báo tính công",
+	"dashboard_header_dayoff"						: "Xin nghỉ phép",	
+	"dashboard_header_cra_management"				: "Quản lý bảng tính công",
+	"dashboard_header_dayoff_management"			: "Quản lý xin nghỉ phép",
+	"dashboard_header_holiday"						: "Quản lý ngày nghỉ lễ quốc gia",
+	"dashboard_header_project"						: "Quản lý dự án để tính công",
+	"dashboard_header_disconnect"					: "Đăng xuất",
+	"dashboard_header_setting"						: "Cài đặt",
+	"dashboard_header_search_enter"					: "Nhập từ khóa ...",
+	"dashboard_notify_view_more"					: "Xem",
+	
+	"dashboard_lan_us"								: "English",
+	"dashboard_lan_vn"								: "Tiếng Việt",
+	"dashboard_lan_fr"								: "Français",
+
+"--End------------------------"	: "----------------------------------------"
+}

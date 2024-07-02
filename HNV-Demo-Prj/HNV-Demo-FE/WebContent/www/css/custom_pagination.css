@@ -1,0 +1,143 @@
+.paginationjs ul {
+/* 	-webkit-box-pack: center !important; */
+/* 	-ms-flex-pack: center !important; */
+/* 	justify-content: center !important; */
+/* 	display: flex; */
+/* 	padding-left: 0; */
+/* 	list-style: none; */
+/* 	border-radius: .25rem; */
+	
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    -webkit-box-pack: center!important;
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+    margin-top: 1.5rem!important;
+}
+
+.paginationjs:after {
+	display: table;
+	content: " ";
+	clear: both;
+}
+
+.paginationjs .paginationjs-go-button, .paginationjs .paginationjs-go-input,
+	.paginationjs .paginationjs-nav {
+	float: left;
+	margin-left: 10px;
+	font-size: 14px;
+}
+
+.paginationjs .paginationjs-pages {
+/* 	float: left; */
+/* 	width: 100% */
+}
+
+.paginationjs .paginationjs-pages ul {
+/* 	list-style-type: none; */
+/* 	margin: 0; */
+/* 	padding: 0; */
+/* 	overflow: hidden; */
+/* 	background-color: #FFF; */
+/* 	float: left; */
+}
+
+.paginationjs .paginationjs-pages li {
+	float: left;
+}
+
+.paginationjs .paginationjs-pages li>a {
+	position: relative;
+	display: block;
+	border-radius: 30px !important;
+	margin: 0 3px;
+	border: none;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	text-align: center;
+	line-height: 32px;
+}
+
+.paginationjs .paginationjs-pages li>a:hover {
+/* 	z-index: 2; */
+/* 	color: #1f3dd0; */
+/* 	background-color: #eff2f7; */
+	
+	z-index: 2;
+    color: #1f3dd0;
+    text-decoration: none;
+    background-color: #2a3042;
+    border-color: #32394e;
+}
+
+.paginationjs .paginationjs-pages li.active {
+	border: none;
+}
+
+.paginationjs .paginationjs-pages li.active>a {
+	z-index: 3;
+	color: #fff;
+	background-color: #556ee6;
+	border-color: #556ee6;
+}
+
+.paginationjs .paginationjs-pages li.disabled>a {
+	opacity: 0.5;
+	color: black;
+}
+
+.paginationjs .paginationjs-pages li.disabled>a:hover {
+	background: 0 0;
+}
+
+.paginationjs .paginationjs-pages li:first-child, .paginationjs .paginationjs-pages li:first-child>a
+	{
+	border-radius: 3px 0 0 3px;
+}
+
+.paginationjs .paginationjs-pages li:last-child {
+	/* border-right: 1px solid #aaa; */
+	border-radius: 0 3px 3px 0;
+}
+
+.paginationjs .paginationjs-pages li:last-child>a {
+	border-radius: 0 3px 3px 0;
+}
+
+.paginationjs .paginationjs-go-input>input[type="text"] {
+	width: 35px;
+	height: 35px;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	padding: 0;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: baseline;
+	outline: 0;
+	box-shadow: none;
+	box-sizing: initial;
+}
+
+.paginationjs .paginationjs-go-button>input[type="button"] {
+	min-width: 40px;
+	height: 35px;
+	line-height: 35px;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	text-align: center;
+	padding: 0 8px;
+	font-size: 14px;
+	vertical-align: baseline;
+	outline: 0;
+	box-shadow: none;
+	color: #333;
+	cursor: pointer;
+	vertical-align: middle;
+}

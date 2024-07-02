@@ -1,0 +1,30 @@
+<div class="box box-primary">
+	<form id="frm_HtmlEditor_Compose" role="form" enctype="multipart/form-data" accept-charset="utf-8">
+		<div class="box-body" style="overflow-x: hidden;overflow-y: auto; max-height: 800px;">
+		  	<div class="form-group">
+		        <textarea id="txt_HtmlEditor" class="form-control objData" data-name="body" style="height: 70vh">
+		        {{body}}
+		        </textarea>
+		  	</div>
+		  	<div class="form-group">
+		  		<div id="divMathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px; display:none" ></div>
+		  	</div>
+		</div>
+		
+		<div class="box-footer">
+			<div class="pull-right">
+				{{#ifCond mode '==' 1}}
+				<a 	id="btn_Send" 		class="btn btn-primary"><i class="fa fa-file-text-o"	></i> {{transl "common_btn_yes"}}		</a>	<!-- type="submit" 	-->
+		  		{{/ifCond}}
+				{{#ifCond mode '==' 2}}
+				<a 	id="btn_Send" 		class="btn btn-primary"><i class="fa fa-file-text-o"	></i> {{transl "common_btn_yes"}}		</a>	<!-- type="submit" 	-->
+		  		{{/ifCond}}
+		  	</div>
+		  	<a 		id="btn_Discard" 	class="btn btn-danger"><i class="fa fa-times"		></i> {{transl "msg_message_compose_discard"}}	</a>	<!-- type="reset"	--> 
+		</div>
+		<!-- /.box-footer -->
+		
+	</form>
+
+</div>
+<!-- /. box -->

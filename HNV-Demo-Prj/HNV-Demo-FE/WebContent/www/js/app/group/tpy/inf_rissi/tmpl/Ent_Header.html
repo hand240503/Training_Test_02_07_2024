@@ -1,0 +1,493 @@
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size">{{transl "ent_head_descr"}} </h4> 
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_01" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-horizontal custom-scroll-header" id = 'div_01'>
+			<div class="box-body row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="form-group row">
+						<input type="hidden" class="objData" value={{id}} 		data-name="id" data-validation="number" />
+					</div>
+					<div class="form-group row">
+						<input type="hidden" class="objData" value="1"		data-name="typ01" 	data-validation="number" />
+						<input type="hidden" class="objData" value="0"		data-name="entTyp" 	data-validation="number" />
+						<input type="hidden" class="objData" value="10"		data-name="entId" 	data-validation="number" />
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "tpy_inf_descr"}}*</label>
+						<div class="col-8">
+							<input id="inp_ent_inf10" class="form-control objData" type="text" data-name="inf10"
+								data-validation="required" value="{{inf10}}" />
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_stat'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<select id="active-inf-rissi" class="form-control objData" data-name="stat"
+								data-validation="number">
+								{{#select stat}}
+								<option value="0">{{transl "stat_inactive"}}</option>
+								<option value="1">{{transl "stat_active"}}</option>
+								{{/select}}
+							</select>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+</div>
+
+<!-- À propos de RISSI -->
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> {{transl "ent_head_01"}}  </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_inf01_inf_rissi" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_inf01_inf_rissi'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->
+				 <!-- <div class="col-lg-4 col-md-4 col-sm-12">
+					<label for="inp_tpy_market_header_logo">{{transl "ent_avatar"}}</label>
+					<input id="inp_tpy_market_header_logo" class="fileinput objData" data-maxfile="1" type="file" 
+							data-type="avatar" data-name="files" data-keepName="0" data-entTyp="50100" data-typ01="1" data-typ02="1"/>
+				</div> -->
+				
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="form-group row">
+						<label class="col-4 control-label">{{transl "ent_head_title"}}</label>
+						<div class="col-8">
+						   <input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf01"
+										
+										data-name="title" 
+						    			value="{{inf01.title}}">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_desc'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf01"										
+										data-name="desc" 
+						    			data-label="{{transl 'ent_head_desc'}}">
+						    	{{inf01.desc}}
+							</textarea>		
+									
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_cont'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf01"										
+										data-name="cont" 
+						    			data-label="{{transl 'ent_head_cont'}}">
+								{{inf01.cont}}
+							</textarea>	
+						</div>
+					</div>												
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Quelques chiffres -->
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> {{transl "ent_head_02"}}  </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_inf02_inf_rissi" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_inf02_inf_rissi'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->			 
+				
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_title'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">	
+							<input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf02"
+										
+										data-name="title" 
+						    			value="{{inf02.title}}">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_app'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf02"
+										data-name="app" 
+						    			value="{{inf02.app}}">
+						</div>
+					</div>	
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_env'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf02"
+										data-name="env" 
+						    			value="{{inf02.env}}">
+						</div>
+					</div>
+
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_nod'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf02"
+										data-name="nod" 
+						    			value="{{inf02.nod}}">
+						</div>
+					</div>	
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_ref'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf02"
+										data-name="ref" 
+						    			value="{{inf02.ref}}">
+						</div>
+					</div>																			
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Notre vision -->
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> {{transl "ent_head_03"}}  </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_inf03_inf_rissi" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_inf03_inf_rissi'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->			 
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_title'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">	
+						 	<input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf03"
+										
+										data-name="title" 
+						    			value="{{inf03.title}}">						
+							
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_desc'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf03"									
+										data-name="desc" 
+						    			data-label="{{transl 'ent_head_desc'}}">
+						    	{{inf03.desc}}
+							</textarea>	
+						</div>
+					</div>																									
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Nos objectifs -->
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> {{transl "ent_head_04"}}  </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_inf04_inf_rissi" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_inf04_inf_rissi'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->			 
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_title'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">							
+							<input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf04"
+										data-name="title" 
+						    			value="{{inf04.title}}">	
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_desc'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf04"									
+										data-name="desc" 
+						    			data-label="{{transl 'ent_head_desc'}}">
+						    	{{inf04.desc}}
+							</textarea>	
+						</div>
+					</div>		
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_cont_01'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf04"									
+										data-name="cont01" 
+						    			data-label="{{transl 'ent_head_cont_01'}}">
+						    	{{inf04.cont01}}
+							</textarea>	
+						</div>
+					</div>	
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_cont_02'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf04"									
+										data-name="cont02" 
+						    			data-label="{{transl 'ent_head_cont_02'}}">
+						    	{{inf04.cont02}}
+							</textarea>	
+						</div>
+					</div>	
+					
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_cont_03'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf04"									
+										data-name="cont03" 
+						    			data-label="{{transl 'ent_head_cont_03'}}">
+						    	{{inf04.cont03}}
+							</textarea>	
+						</div>
+					</div>	
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_cont_04'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf04"									
+										data-name="cont04" 
+						    			data-label="{{transl 'ent_head_cont_04'}}">
+						    	{{inf04.cont04}}
+							</textarea>	
+						</div>
+					</div>	
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_cont_05'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf04"									
+										data-name="cont05" 
+						    			data-label="{{transl 'ent_head_cont_05'}}">
+						    	{{inf04.cont05}}
+							</textarea>	
+						</div>
+					</div>	
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_cont_06'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf04"									
+										data-name="cont06" 
+						    			data-label="{{transl 'ent_head_cont_06'}}">
+						    	{{inf04.cont06}}
+							</textarea>	
+						</div>
+					</div>	
+																												
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Notre équipe -->
+<div class="card">
+	<div class="card-body">
+		<div class="media">
+			<div class="col-9">
+				<h4 class="card-title mb-4 shp_font_size"> {{transl "ent_head_05"}}  </h4>
+			</div>
+
+			<div class="col-3 isManager">
+				<div class="text-sm-right">
+					<a data-divtoogle="#div_inf05_inf_rissi" class="btn-resize" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Resize">
+						<i class="mdi mdi-window-minimize font-size-18"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-horizontal custom-scroll-header" id = 'div_inf05_inf_rissi'>
+			<div class="box-body row">
+				<!-- 	*Content here* -->			 
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_title'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">							
+							<input 	id="" 
+										class="objData form-control" 
+										data-validation="required" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf05"
+										data-name="title" 
+						    			value="{{inf05.title}}">
+							
+						</div>
+					</div>
+					
+					<div class="form-group row">
+					 	<label for="ent_num" class="col-lg-4 col-md-4 col-sm-4 control-label">{{transl 'ent_head_desc'}} </label>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<textarea 	id="" 
+										class="objData form-control summernote-Inf-rissi" 
+										data-validation="number" 
+										data-msgClass="errMsgInline" 
+						    			data-group="inf05"									
+										data-name="desc" 
+						    			data-label="{{transl 'ent_head_desc'}}">
+						    	{{inf05.desc}}
+							</textarea>	
+						</div>
+					</div>																									
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,40 @@
+<div class="box-header with-border">
+	<h3 class="box-title">{{transl "per_contract_tabdetail_title"}}</h3>
+</div>
+
+<div class="box-body">
+	<div class="form-horizontal">
+			<table id="table_per_contract_tab01_detail" class="table table-hover objData" data-name="details" data-primary="parId">
+				<thead>
+					<tr>
+						<th data-name="id" 		data-visible="false">{{transl "per_contract_tabdetail_mat_id"}}</th>
+						<th data-name="parId" 	data-visible="false">{{transl "per_contract_tabdetail_mat_mat"}}</th>
+						<th data-name="code" 	data-visible="true">{{transl "per_contract_tabdetail_mat_code"}}</th>
+						
+						<th data-name="name" 	data-visible="true" data-editable="none" data-validation="required">{{transl "per_contract_tabdetail_mat_name"}} *</th>
+						<th data-name="quan" 	data-visible="true" data-validation="required" data-msg="none" data-compare="gt 0" data-class="text-right">{{transl "per_contract_tabdetail_mat_quant"}} *</th>
+						<th data-name="unitlab" data-visible="true" data-validation="required" data-editable="none">{{transl "per_contract_tabdetail_mat_unit"}} *</th>
+						<th data-name="unitId" 	data-visible="false"></th>
+						
+						<th data-name="val01" col="PRICENOTAX" 	data-visible="true" data-validation="double" data-format="double #,###.##" data-editable="none" data-class="text-right" data-pattern="number">{{transl "per_contract_tabdetail_mat_val01"}}</th>						
+						<th data-name="val02" col="PRICETAX" 	data-visible="false"data-validation="double" data-editable="none">{{transl "per_contract_tabdetail_mat_val02"}}</th>
+						
+						<th data-name="val03" col="PTTAX" 		data-visible="true" data-validation="double" data-format="double #,###.##" data-class="text-right">{{transl "per_contract_tabdetail_mat_val03"}}</th>
+						<th data-name="val05" col="TTKMKT" 		data-visible="true" data-validation="double" data-format="double #,###.##" data-class="text-right" data-pattern="number">{{transl "per_contract_tabdetail_mat_val05"}}</th>
+						<th data-name="val04" col="PTKM" 		data-visible="true" data-validation="double" data-format="double #,###.##" data-class="text-right">{{transl "per_contract_tabdetail_mat_val04"}}</th>
+					
+						<th data-name="val06" col="TTKMVT" 		data-visible="false" data-validation="double" >{{transl "per_contract_tabdetail_mat_val06"}}</th>
+						<th data-name="val07" col="TTRT" 		data-visible="true" data-validation="double" data-format="double #,###.##" data-class="text-right" data-pattern="number">{{transl "per_contract_tabdetail_mat_val07"}}</th>
+						
+						<th data-name="val08" col="TTAX" 		data-visible="true" data-validation="double" data-format="double #,###.##" data-editable="none" data-class="text-right" data-pattern="number">{{transl "per_contract_tabdetail_mat_val08"}}</th>
+						<th data-name="val09" col="TTST" 		data-visible="true" data-validation="double" data-format="double #,###.##" data-class="text-right" data-pattern="number">{{transl "per_contract_tabdetail_mat_val09"}}</th>
+						
+						<th data-name="action" data-visible="true">{{transl "mat_stockio_tabdetail_mat_action"}}</th>
+					</tr>
+				</thead>
+				<tbody style="background-color: white;">
+					
+				</tbody>
+			</table>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+{
+"ent_name" 		: "Nom",
+"ent_code" 		: "Code",
+"ent_stat" 		: "Status",
+"ent_stat_00" 	: "A valider",
+"ent_stat_01" 	: "Validé",
+"ent_stat_05" 	: "A vérifier",
+"ent_stat_10" 	: "Supprimé",
+"ent_inf01" 	: "ServiceClass",
+"ent_inf02" 	: "ServiceName",
+"ent_roles" 	: "Rôle",
+"ent_rights" 	: "Droit",
+"ent_dt01"		: "Date début",
+"ent_dt02"		: "Date fin",
+"ent_typ01"		: "Type",
+"ent_typ02"		: "Groupe",
+
+"lst_title_stat_00" : "DS các ĐV mới tạo",
+"lst_title_stat_01" : "DS các ĐV khả dụng",
+"lst_title_stat_05" : "DS các ĐV cần kiểm tra",
+"lst_title_stat_10" : "DS các ĐV sẽ bị xóa"
+
+
+}

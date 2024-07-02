@@ -1,0 +1,44 @@
+{
+
+"----------TPY INFORMATION----------"		:	"----------TPY INFORMATION----------",
+"lst_title_active"                          :   "Liste des A-PROPOS actives",
+"lst_title_inactive"                        :   "Liste des A-PROPOS inactives",
+
+"tpy_ver_id"								:	"ID",
+
+"ent_head_descr"	:  "Description générale",
+"ent_head_01"		:  "À propos de RISSI",
+"ent_head_02"		:  "Quelques chiffres",
+"ent_head_03"		:  "Notre vision",
+"ent_head_04"		:  "Nos objectifs",
+"ent_head_05"		:  "Notre équipe",
+
+"ent_head_cont_01"	: "Contenue 01",
+"ent_head_cont_02"	: "Contenue 02",
+"ent_head_cont_03"	: "Contenue 03",
+"ent_head_cont_04"	: "Contenue 04",
+"ent_head_cont_05"	: "Contenue 05",
+"ent_head_cont_06"	: "Contenue 06",
+
+"ent_head_title"		:  "Title",
+"ent_head_desc"			:  "Description",
+"ent_head_cont"			:  "Contenu",
+
+"ent_stat"				: "Etat",
+"stat_inactive"			: "Inactive",
+"stat_active"			: "Active",
+
+"ent_app" : "Text pour Applications",
+"ent_env" : "Text pour Environnements",
+"ent_nod" : "Text pour Serveurs",
+"ent_ref" : "Text pour Référentiels",
+
+"tpy_info_version_dt01"						:	"Date de la version",
+"tpy_info_version_number"					:   "Numéro de version",
+"tpy_info_version_description"				:	"Détail de la version",
+
+"tpy_inf_descr" : "Description",
+"tpy_inf_date"  : "Date de modification"
+
+
+}

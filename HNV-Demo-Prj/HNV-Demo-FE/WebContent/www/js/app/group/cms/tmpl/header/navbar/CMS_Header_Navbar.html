@@ -1,0 +1,86 @@
+<nav class="navbar navbar-static-top">
+	<!-- Sidebar toggle button-->
+	<a class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span
+		class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+		<span class="icon-bar"></span> <span class="icon-bar"></span>
+	</a>
+
+	<div class="navbar-custom-menu">
+		<ul class="nav navbar-nav">
+		
+			<li id="li_sys_Help">
+				<a><i class="fa fa-question-circle-o"></i></a>
+			</li>
+		
+			<li id="li_Navbar_Messages" class="dropdown messages-menu"></li>
+			
+			<li id="li_Navbar_Notifications" class="dropdown notifications-menu"></li>
+			
+		
+			<li id="li_Navbar_Lang_EN" class="custom-navbar-lang">
+				<a data-toggle="tooltip" data-placement="bottom" title="{{transl 'lang_en'}}" style="border-left: 1px solid #eee !important;">
+					<span class="flag-icon flag-icon-us"></span>
+				</a>
+			</li>
+			<li id="li_Navbar_Lang_FR" class="custom-navbar-lang">
+				<a data-toggle="tooltip" data-placement="bottom" title="{{transl 'lang_fr'}}">
+					<span class="flag-icon flag-icon-fr"></span>
+				</a>
+			</li>
+			<li id="li_Navbar_Lang_VN" class="custom-navbar-lang">
+				<a data-toggle="tooltip" data-placement="bottom" title="{{transl 'lang_vn'}}">
+					<span class="flag-icon flag-icon-vn"></span>
+				</a>
+			</li>
+			
+			<!-- User Account: style can be found in dropdown.less -->
+			<li id="li_Navbar_User" class="dropdown user user-menu">
+				<a class="dropdown-toggle"
+				data-toggle="dropdown"> 
+					<img id="menu_user_avatar" src="{{per.avatar}}" onerror="this.src = '{{per.defaultAvatar}}';" class="user-image" alt="User Image">
+					<span class="hidden-xs">{{#if per}} {{per.name01}} {{per.name02}} {{per.name03}} {{/if}}</span>
+				</a>
+				<ul class="dropdown-menu">
+					<!-- User image -->
+					<li class="user-header">
+						<img id="menu_user_avatar" src="{{per.avatar}}" onerror="this.src = '{{per.defaultAvatar}}';" class="img-circle" alt="User Image">
+						<p>
+							{{#if per}} {{per.name01}} {{per.name02}} {{per.name03}} {{/if}}
+							<!-- <small>Member since Nov. 2012</small> -->
+						</p>
+					</li>
+					<!-- Menu Body -->
+<!-- 					<li class="user-body"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div class="col-xs-4 text-center"> -->
+<!-- 								<a>Followers</a> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-xs-4 text-center"> -->
+<!-- 								<a>Sales</a> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-xs-4 text-center"> -->
+<!-- 								<a>Friends</a> -->
+<!-- 							</div> -->
+<!-- 						</div>  -->
+						<!-- /.row -->
+<!-- 					</li> -->
+					<!-- Menu Footer-->
+					<li class="user-footer">
+						<div class="pull-left">
+							<a id="btn_Header_Profile" class="btn btn-primary btn-flat" href="view_aut_profile.html" target="_blank">{{transl "page_profile_btn"}}</a>
+						</div>
+						<div class="pull-right">
+							<a id="btn_Header_Logout" class="btn btn-danger btn-flat">{{transl "login_sign_out_btn"}}</a>
+						</div>
+					</li>
+				</ul>
+			</li>
+
+
+			<!-- Control Sidebar Toggle Button -->
+			<!--       <li> -->
+			<!--         <a data-toggle="control-sidebar"><i class="fa fa-gears"></i></a> -->
+			<!--       </li> -->
+		</ul>
+	</div>
+</nav>

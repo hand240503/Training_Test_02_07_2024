@@ -1,0 +1,174 @@
+<div class="box-header with-border">
+
+	<h3 class="box-title">{{transl "per_partner_header_title"}}</h3>
+	<div class="box-tools pull-right">
+		<button type="button" class="btn btn-box-tool" data-widget="collapse">
+			<i class="fa fa-chevron-down"></i>
+		</button>
+	</div>
+</div>
+<form class="form-horizontal" id="div_frm_per_header">
+	<div class="box-body">	
+		<div class="col-lg-3 col-md-3 col-sm-12">
+			<label for="inp_per_header_logo">{{transl "per_ent_header_logo"}}</label>
+			<input id="inp_per_header_logo" class="fileinput objData" data-maxfile="1" type="file" data-type="logo" data-name="files" data-keepName="0" data-entTyp="30000" data-typ01="2"/>
+		</div>
+		
+		<div class="col-lg-5 col-md-5 col-sm-12">
+			<br/>
+			<div class="form-group">
+				<label for="typ01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_typ01"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_list_type_person" class="form-control objData" data-name="typ01" disabled></select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="cfgVal02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_cfgVal02"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_list_legal_status" class="form-control objData" data-name="cfgVal02" disabled></select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="typ01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_typ02"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_list_type_partner" class="form-control objData" data-name="typ02" disabled></select>
+				</div>
+			</div>
+			
+			<div class="form-group" id= "div_partner_type_domain">
+				<label for="cfgVal01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_cfgVal01"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="sel_list_type_domain" class="form-control objData" data-name="cfgVal01" disabled></select>
+				</div>
+			</div>
+			
+<!-- 			<div class="form-group" style="display:none;"> -->
+<!-- 				<label for="cfgVal03" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_cfgVal03"}}</label> -->
+<!-- 				<div class="col-lg-8 col-md-8 col-sm-8"> -->
+<!-- 					<select id="sel_list_legal_domain" class="form-control objData" data-name="cfgVal03" disabled><option value = "0"></option></select> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+			
+			<!-- <input type="hidden" class="form-control objData" data-name="id" value="{{id}}">  -->
+			<div class="form-group">
+				<label for="name01" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_name01"}} *</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="name01" value="{{decodeUTF8 name01}}" data-name="name01" data-validation="required" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="name02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_name02"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="name02" value="{{decodeUTF8 name02}}" data-name="name02" disabled required>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="name03" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_name03"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="name03" value="{{decodeUTF8 name03}}" data-name="name03" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="stat" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_stat_header"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<select id="stat" class="form-control objData" data-name="stat">
+						<option value="0">{{transl "per_partner_stat_00"}}</option>
+						<option value="1">{{transl "per_partner_stat_01"}}</option>
+						<option value="2">{{transl "per_partner_stat_02"}}</option>
+						<option value="3">{{transl "per_partner_stat_03"}}</option>
+						<option value="10">{{transl "per_partner_stat_10"}}</option>
+						<option value="11">{{transl "per_partner_stat_11"}}</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="dtNew" class="col-md-4 col-sm-4 control-label">{{transl "nso_offer_header_date_add"}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input type="text" class="form-control" id="dtNew" value="{{dateFormatLocal dtNew}}" data-name="dtNew" placeholder="" disabled data-editable="false">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="dtMod" class="col-md-4 col-sm-4 control-label">{{transl "nso_offer_header_date_mod"}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input type="text" class="form-control" id="dtMod" value="{{dateFormatLocal dtMod}}" data-name="dtMod" placeholder="" disabled data-editable="false">
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="col-lg-4 col-md-4 col-sm-12">
+			<br/>
+			
+						
+			<div class="form-group">
+				<label for="code" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_code"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="code" value="{{decodeUTF8 code}}" data-name="code" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="code02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_info01"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="info01" value="{{info01}}" data-name="info01" placeholder="" disabled>
+				</div>
+			</div>
+			
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="info02" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_label_info02"}}</label> -->
+<!-- 				<div class="col-lg-8 col-md-8 col-sm-8"> -->
+<!-- 					<input type="text" class="form-control objData" id="info02" value="{{info02}}" data-name="info02" placeholder="" disabled> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+
+
+			<div class="form-group">
+				<label for="info07" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_header_label_addr_main"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<textarea class="form-control objData" id="info07" data-name="info07" placeholder="" style="resize: vertical" disabled>{{info07}}</textarea>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="info10" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_header_label_email_main"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="info10" value="{{info10}}" data-name="info10" placeholder="" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="info09" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_header_label_tel_main"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="text" class="form-control objData" id="info09" value="{{info09}}" data-name="info09" placeholder="" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="info03" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_header_label_comment"}}</label>
+
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<textarea class="form-control objData" id="info03" data-name="info03" placeholder="" style="resize: vertical"  disabled>{{info03}}</textarea>
+				</div>
+			</div>
+			
+			<div class="form-group" id="div_per_partner_societe">
+				<label for="inp_per_partner_societe" class="col-4 col-lg-4 col-md-4 col-sm-4 control-label">{{transl "per_partner_ent_header_societe"}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<input type="hidden" class="objData" data-name="parent" id ="socId" value="{{parent}}">
+					<input type="text" class="form-control objData" id="inp_per_partner_societe" placeholder="{{transl 'per_partner_ent_header_societe_help'}}">
+				</div>
+			</div>	
+			
+		</div>
+	</div>
+</form>
